@@ -1,0 +1,314 @@
+.about-scroll-section {
+  position: relative;
+  background: #101530;
+  padding: 6rem 0;
+  z-index: 5;
+}
+
+.about-sticky {
+  position: relative;
+  height: auto;
+  overflow: visible;
+}
+
+.about-section {
+  width: 100%;
+  min-height: auto;
+  padding: 0 7%;
+  background: #101530;
+  color: #ffffff;
+}
+
+/* --- HEADING --- */
+.about-heading {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+
+.about-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.about-heading h2 span {
+  color: #3b82f6;
+  font-style: normal;
+}
+
+/* --- LAYOUT --- */
+.about-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.about-side-cards {
+  display: grid;
+  gap: 0.7rem;
+}
+
+/* --- CARDS --- */
+.about-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  background: #151a35;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.about-card-large {
+  min-height: 450px;
+  padding: 2rem;
+}
+
+.about-card-small {
+  min-height: 220px;
+  padding: 2rem;
+}
+
+.about-card-image {
+  min-height: 220px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(16, 21, 48, 0.15), #151a35 82%),
+    radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.25), transparent 32%),
+    #151a35;
+}
+
+/* ========================================
+   NUBE DE TECNOLOGÍAS INTERACTIVA (Controlada por mouse)
+   ======================================== */
+.tech-cloud-interactive {
+  position: relative;
+  height: 310px;
+  transform-style: preserve-3d;
+  border-radius: 1rem;
+}
+
+.tech-cloud-interactive::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.09), transparent 68%);
+  pointer-events: none;
+}
+
+.tech-float {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  font-size: 2.6rem;
+  opacity: 0.94;
+  transform-style: preserve-3d;
+  transition: color 0.3s ease;
+}
+
+.tech-float svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tech-float-1 { left: 34%; top: 10%; color: #61dafb; font-size: 3.5rem; }
+.tech-float-2 { left: 42%; top: 34%; color: #3178c6; font-size: 3.4rem; }
+.tech-float-3 { left: 18%; top: 50%; color: #f7df1e; font-size: 3.3rem; }
+.tech-float-4 { left: 58%; top: 20%; color: #dd0031; font-size: 3.2rem; }
+.tech-float-5 { left: 52%; top: 57%; color: #02569b; font-size: 3.1rem; }
+.tech-float-6 { left: 40%; top: 78%; color: #5fa04e; font-size: 3rem; }
+.tech-float-7 { left: 66%; top: 63%; color: #3776ab; font-size: 3.2rem; }
+.tech-float-8 { left: 62%; top: 8%; color: #e34f26; font-size: 3.4rem; }
+.tech-float-9 { left: 25%; top: 26%; color: #1572b6; font-size: 3rem; }
+.tech-float-10 { left: 36%; top: 66%; color: #f05032; font-size: 2.7rem; }
+.tech-float-11 { left: 72%; top: 45%; color: #f24e1e; font-size: 3rem; }
+.tech-float-12 { left: 74%; top: 14%; color: #4169e1; font-size: 3rem; }
+.tech-float-13 { left: 52%; top: 30%; color: #2496ed; font-size: 3rem; }
+
+/* ========================================
+   ÍCONO DE PROYECTOS (Cohete)
+   ======================================== */
+.project-card-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 1.3rem;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: rgba(59, 130, 246, 0.16);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.35);
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* --- CONTENIDO DE CARDS --- */
+.about-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-card-content h3 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.about-card-content h3 span {
+  color: #3b82f6;
+  font-style: normal;
+}
+
+.about-card-content p {
+  margin: 0;
+  max-width: 480px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+/* --- PROCESO DE DESARROLLO --- */
+.about-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.2rem;
+}
+
+.about-process div {
+  width: 72px;
+  height: 72px;
+  border-radius: 1.2rem;
+  font-size: 1.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.about-process div svg {
+  width: 32px;
+  height: 32px;
+}
+
+.about-process span {
+  position: relative;
+  width: 110px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.line-to-laptop::after,
+.line-to-design::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.75);
+  animation: energyFlow 1.5s linear infinite;
+}
+
+.line-to-design::before {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%) rotate(45deg);
+  background: #3b82f6;
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.9);
+}
+
+.about-process .active {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 0 34px rgba(59, 130, 246, 0.8);
+}
+
+.design-target {
+  color: #3b82f6;
+}
+
+@keyframes energyFlow {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 0.25;
+  }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .about-scroll-section {
+    padding: 4rem 0;
+  }
+
+  .about-section {
+    padding: 0 1.2rem;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card-large {
+    min-height: 350px;
+  }
+
+  .tech-cloud-interactive {
+    height: 220px;
+  }
+
+  .tech-float {
+    font-size: 2rem;
+  }
+
+  .tech-float-1 { font-size: 2.6rem; }
+  .tech-float-2 { font-size: 2.6rem; }
+  .tech-float-4 { font-size: 2.5rem; }
+  .tech-float-8 { font-size: 2.6rem; }
+
+  .project-card-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .project-card-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .about-process span {
+    width: 50px;
+  }
+}

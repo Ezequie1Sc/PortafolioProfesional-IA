@@ -1,0 +1,288 @@
+/* ========================================
+HEADER - BASE
+======================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: none; 
+}
+
+.header-container {
+  width: 100%;
+  position: relative;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 28px;
+  min-height: 58px;
+  box-sizing: border-box;
+}
+
+/* ========================================
+LOGO
+======================================== */
+
+.header-logo {
+  width: auto;
+  height: 42px;
+  display: block;
+  object-fit: contain;
+
+  pointer-events: auto;
+  z-index: 3000;
+
+  transition: transform .3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.06);
+}
+
+/* ========================================
+BOTÓN DE MENÚ
+======================================== */
+
+.mobile-menu-toggle {
+  display: flex;
+  position: relative;
+  
+  min-width: 80px;
+  height: 36px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  
+  background: #3b82f6;
+  
+  cursor: pointer;
+  z-index: 3000;
+  pointer-events: auto;
+  transition: transform 0.2s ease, opacity 0.3s ease, visibility 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-toggle:hover {
+  transform: scale(1.05);
+}
+
+.toggle-text {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-size: 0.8rem;
+}
+
+.mobile-menu-toggle-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
+/* ========================================
+MENÚ DESPLEGABLE (CASI PEGADO ARRIBA)
+======================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 10px;
+  right: 16px;
+
+  width: min(300px, calc(100vw - 32px));
+  min-height: auto;
+  padding: 4rem 2.1rem 2.2rem;
+  border-radius: 0 22px 22px 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.98),
+    rgba(30, 41, 59, 0.98)
+  );
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  overflow: hidden;
+}
+
+.mobile-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+/* ========================================
+BOTÓN CERRAR
+======================================== */
+
+.mobile-menu-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  height: 38px;
+  padding: 0 26px;
+  border: none;
+  border-radius: 999px;
+
+  background: #3b82f6;
+  color: #ffffff;
+
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.mobile-menu-close-btn:hover {
+  transform: scale(1.04);
+  background: #2563eb;
+}
+
+/* ========================================
+ENLACES DEL MENÚ (ESTILO PERSIANA/POR LETRA)
+======================================== */
+
+.mobile-nav {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  margin-top: 0;
+}
+
+.mobile-nav-link {
+  position: relative;
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.35rem 0;
+  margin-left: 0;
+
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: clamp(1.55rem, 3vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+
+  perspective: 900px;
+  transform-style: preserve-3d;
+  background: transparent;
+}
+
+.letter-wrap {
+  position: relative;
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+}
+
+.letter-front,
+.letter-back {
+  display: block;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i) * 28ms);
+}
+
+.letter-front {
+  transform: translateY(0) rotateX(0deg);
+  opacity: 1;
+}
+
+.letter-back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #93c5fd;
+  transform: translateY(105%) rotateX(-90deg);
+  opacity: 0;
+}
+
+.mobile-nav-link:hover .letter-front {
+  transform: translateY(-105%) rotateX(90deg);
+  opacity: 0;
+}
+
+.mobile-nav-link:hover .letter-back {
+  transform: translateY(0) rotateX(0deg);
+  opacity: 1;
+}
+
+.mobile-nav-link-active {
+  color: #ffffff;
+  background: transparent;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* ========================================
+RESPONSIVE (MÓVIL)
+======================================== */
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 10px 16px;
+    min-height: 46px;
+  }
+
+  .header-logo {
+    height: 34px;
+  }
+
+  .mobile-menu-toggle {
+    min-width: 66px;
+    height: 30px;
+    padding: 0 12px;
+  }
+  .toggle-text { font-size: 0.65rem; }
+  
+  .mobile-menu {
+    top: 6px;
+    right: 16px;
+    width: min(280px, calc(100vw - 32px));
+    padding: 3.5rem 1.8rem 2rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.45rem;
+  }
+}
+/* ========================================
+CORTINA DE TRANSICIÓN PREMIUM
+======================================== */
+
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998; /* Justo debajo del menú, pero encima de todo lo demás */
+  background: #020617; /* Negro profundo */
+  pointer-events: none;
+}

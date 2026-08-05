@@ -1,0 +1,187 @@
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(37, 99, 235, 0.08) 0%,
+      transparent 40%
+    ),
+    #020617;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==================== NOISE ==================== */
+.splash-noise {
+  position: absolute;
+  inset: 0;
+  opacity: .03;
+  mix-blend-mode: soft-light;
+
+  background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* ==================== LUZ CENTRAL ELEGANTE ==================== */
+.splash-light {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,.18),
+      transparent 70%
+    );
+
+  filter: blur(120px);
+
+  animation: premiumLight 4s ease-in-out infinite;
+}
+
+/* ==================== CONTENIDO ==================== */
+.splash-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ==================== LOGO WRAPPER ==================== */
+.splash-logo-wrap {
+  position: relative;
+
+  width: min(420px, 82vw);
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==================== LOGO SVG ANIMADO ==================== */
+.draw-logo {
+  width: min(520px, 82vw);
+  filter: drop-shadow(0 0 28px rgba(59, 130, 246, 0.45));
+}
+
+.logo-piece {
+  fill: transparent;
+  stroke: #38bdf8;
+  stroke-width: 5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: drawLogo 1.5s ease forwards, fillLogo 0.7s ease forwards;
+}
+
+.piece-1 {
+  animation-delay: 0s, 1.2s;
+}
+
+.piece-2 {
+  animation-delay: 0.25s, 1.35s;
+}
+
+.piece-3 {
+  animation-delay: 0.5s, 1.5s;
+}
+
+@keyframes drawLogo {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillLogo {
+  to {
+    fill: url(#logoGradient);
+  }
+}
+
+/* ==================== GLOW ==================== */
+.splash-glow {
+  position: absolute;
+  inset: -50px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,.35),
+      transparent 65%
+    );
+
+  filter: blur(50px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* ==========================================================
+   CORTINA DE SALIDA: AZUL SÓLIDO, 100% RECTA
+   ========================================================== */
+.splash-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  background: #2563eb; /* Azul sólido, sin degradados ni curvas */
+
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ==================== ANIMACIONES GENERALES ==================== */
+@keyframes premiumLight {
+  0%,100% {
+    transform: scale(1);
+    opacity: .45;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: .8;
+  }
+}
+
+@keyframes glowPulse {
+  0%,100% {
+    transform: scale(.95);
+    opacity: .5;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: .9;
+  }
+}
+
+@keyframes logoFloat {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 520px) {
+  .splash-logo-wrap {
+    width: min(320px, 86vw);
+  }
+}

@@ -1,0 +1,699 @@
+:root {
+  --bg-dark: #0F172A;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --blue: #3b82f6;
+  --linkedin: #0a66c2;
+  --github: #171515;
+  --green: #10b981;
+  --red: #ef4444;
+}
+
+/* ========================================
+   BASE SECTION
+   ======================================== */
+.contact-section {
+  position: relative;
+  padding: 2rem 1.5rem clamp(4rem, 8vw, 7rem);
+  background: var(--bg-dark);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ========================================
+   LÍNEA DE SEPARACIÓN SUPERIOR
+   ======================================== */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #3b82f6 15%,
+    #3b82f6 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+  z-index: 2;
+}
+
+.contact-grid-bg,
+.contact-light-left,
+.contact-light-right {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-grid-bg {
+  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.contact-light-left {
+  width: 600px;
+  background: radial-gradient(ellipse at 0% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+}
+
+.contact-light-right {
+  left: auto;
+  width: 600px;
+  background: radial-gradient(ellipse at 100% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+}
+
+/* ========================================
+   HEADER PREMIUM (TÍTULO, LÍNEA Y GLOW)
+   ======================================== */
+.contact-header-wrapper {
+  position: relative;
+  text-align: center;
+  padding-top: 1rem;
+  margin-bottom: 3rem;
+  z-index: 1;
+}
+
+/* ===== RESPLANDOR SUAVE DETRÁS DEL TEXTO ===== */
+.contact-header-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 180px;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.15) 0%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== EL TÍTULO ===== */
+.contact-main-title {
+  text-align: center;
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  line-height: 1.1;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+/* ===== EFECTO GLITCH Y HOVER ===== */
+.title-scramble {
+  display: inline-block;
+  cursor: default;
+  color: #f1f5f9;
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+  transition: all 0.3s ease;
+}
+
+.title-scramble:hover {
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  transform: scale(1.02);
+}
+
+.contact-main-title::after {
+  display: none;
+}
+
+/* ===== SUBTÍTULO DEL HEADER ===== */
+.contact-subtitle-header {
+  text-align: center;
+  color: #a0aec0;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-top: 0.75rem;
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: 1.6;
+  padding: 0 var(--spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+.contact-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== LAYOUT DE DOS COLUMNAS ===== */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-left { display: flex; flex-direction: column; }
+
+/* ===== COLUMNA IZQUIERDA - FORMULARIO ===== */
+.contact-form-wrapper {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos y subtítulos animados */
+.contact-header {
+  margin-bottom: 2rem;
+}
+
+.contact-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+.title-highlight {
+  font-style: italic;
+  color: var(--blue);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FORMULARIO ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.input-wrapper { position: relative; }
+
+.field-input, .field-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(2, 6, 23, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.field-input:focus, .field-textarea:focus {
+  border-color: var(--blue);
+  background: rgba(2, 6, 23, 0.8);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.field-input::placeholder, .field-textarea::placeholder {
+  color: #475569;
+}
+
+.field-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+.input-icon {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.success-icon { color: var(--green); }
+.error-icon { color: var(--red); }
+
+.field-error {
+  color: #fca5a5;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-left: 0.25rem;
+}
+
+.field-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 1.5rem;
+}
+
+.char-counter {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== BOTÓN AZUL SÓLIDO ===== */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--blue);
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.submit-button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ========================================
+   COLUMNA DERECHA - NUBE 3D Y ENLACES
+   ======================================== */
+.contact-right { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* ----- NUBE 3D DE TECNOLOGÍAS ----- */
+.contact-globe-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.9));
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== NUBE 3D DE TECNOLOGÍAS CON BILLBOARD ===== */
+.tech-cloud-scene {
+  width: 280px;
+  height: 235px;
+  perspective: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.tech-cloud-scene:active { cursor: grabbing; }
+
+.tech-cloud {
+  position: relative;
+  width: 210px;
+  height: 180px;
+  transform-style: preserve-3d;
+  animation: techCloudSpin 18s linear infinite;
+  transition: transform 0.25s ease;
+}
+
+.tech-cloud-scene:hover .tech-cloud {
+  animation-play-state: paused;
+  transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+.cloud-tech-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 2.35rem;
+  background: transparent;
+
+  transform:
+    translate3d(var(--x), var(--y), var(--z))
+    translate(-50%, -50%)
+    rotateX(calc(var(--tilt-x, 0deg) * -1))
+    rotateY(calc(var(--tilt-y, 0deg) * -1))
+    scale(var(--s));
+
+  opacity: 1;
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+
+  filter:
+    drop-shadow(0 10px 14px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 8px rgba(59, 130, 246, 0.18));
+
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease,
+    color 0.25s ease;
+}
+
+.tech-cloud-scene:hover .cloud-tech-icon {
+  transform:
+    translate3d(var(--x), var(--y), var(--z))
+    translate(-50%, -50%)
+    rotateX(calc(var(--tilt-x) * -1))
+    rotateY(calc(var(--tilt-y) * -1))
+    scale(var(--s));
+}
+
+.cloud-tech-icon:hover {
+  color: #60a5fa !important;
+  filter:
+    drop-shadow(0 0 16px rgba(96, 165, 250, 1))
+    drop-shadow(0 0 32px rgba(59, 130, 246, 0.75))
+    drop-shadow(0 16px 22px rgba(0, 0, 0, 0.55));
+  z-index: 50;
+}
+
+.tech-cloud::before {
+  content: "";
+  position: absolute;
+  inset: 30px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 40% 35%, rgba(96, 165, 250, 0.2), transparent 45%),
+    radial-gradient(circle at center, rgba(59, 130, 246, 0.08), transparent 65%);
+  filter: blur(5px);
+  transform: translateZ(-80px);
+}
+
+.cloud-tech-icon.javascript { color: #f7df1e; }
+.cloud-tech-icon.typescript { color: #3178c6; }
+.cloud-tech-icon.html { color: #e34f26; }
+.cloud-tech-icon.css { color: #1572b6; }
+.cloud-tech-icon.react { color: #61dafb; }
+.cloud-tech-icon.node { color: #5fa04e; }
+.cloud-tech-icon.python { color: #3776ab; }
+.cloud-tech-icon.git { color: #f05032; }
+.cloud-tech-icon.github { color: #f8fafc; }
+.cloud-tech-icon.mongodb { color: #47a248; }
+.cloud-tech-icon.postgres { color: #4169e1; }
+.cloud-tech-icon.flutter { color: #02569b; }
+.cloud-tech-icon.dart { color: #0175c2; }
+.cloud-tech-icon.firebase { color: #ffca28; }
+.cloud-tech-icon.angular { color: #dd0031; }
+.cloud-tech-icon.vite { color: #646cff; }
+
+@keyframes techCloudSpin {
+  from { transform: rotateX(0deg) rotateY(-18deg); }
+  to { transform: rotateX(0deg) rotateY(342deg); }
+}
+
+.invitation-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.invitation-headline {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.invitation-headline em {
+  font-style: italic;
+  color: #93c5fd;
+}
+
+.invitation-highlight {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+/* ----- ENLACES DE CONTACTO CON ICONOS OFICIALES ----- */
+.contact-links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.2rem;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-link:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(30, 41, 59, 0.7);
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.link-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.link-icon svg { width: 22px; height: 22px; }
+
+.icon-email { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.icon-linkedin { background: rgba(10, 102, 194, 0.15); color: var(--linkedin); }
+.icon-github { background: rgba(255, 255, 255, 0.08); color: var(--github); }
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.link-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.link-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.contact-link:hover .link-value { color: white; }
+
+/* ===== TOAST NOTIFICATION ===== */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 400px;
+  padding: 1.25rem 1.5rem;
+  background: #1e293b;
+  border-radius: 1rem;
+  border-left: 4px solid;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  animation: toastSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.toast-notification.success { border-left-color: var(--green); }
+.toast-notification.error { border-left-color: var(--red); }
+
+.toast-icon { width: 24px; height: 24px; flex-shrink: 0; }
+.toast-notification.success .toast-icon { color: var(--green); }
+.toast-notification.error .toast-icon { color: var(--red); }
+
+.toast-message {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.toast-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.6rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.toast-close:hover { background: rgba(239, 68, 68, 0.2); border-color: var(--red); color: var(--red); }
+.toast-close svg { width: 14px; height: 14px; }
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  animation: toastProgress 5s linear forwards;
+}
+.toast-notification.success .toast-progress { background: linear-gradient(90deg, var(--green), #34d399); }
+.toast-notification.error .toast-progress { background: linear-gradient(90deg, var(--red), #f87171); }
+
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateX(100px) translateY(20px); }
+  to { opacity: 1; transform: translateX(0) translateY(0); }
+}
+@keyframes toastProgress { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 768px) {
+  .contact-section { padding: 1.5rem 1rem 3rem 1rem; }
+  .contact-header-wrapper { padding-top: 0.5rem; margin-bottom: 2rem; }
+  .contact-header-wrapper::after { width: 300px; height: 120px; }
+  .contact-main-title { font-size: 2.5rem; }
+  .contact-subtitle-header { font-size: 1rem; margin-top: 0.5rem; }
+}
+
+@media (max-width: 600px) {
+  .contact-form-wrapper { padding: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-globe-card { min-height: auto; padding: 2rem 1.5rem; }
+
+  /* Ajustes para la nube en móviles */
+  .tech-cloud-scene { width: 225px; height: 205px; }
+  .tech-cloud { width: 170px; height: 155px; }
+  .cloud-tech-icon { width: 34px; height: 34px; font-size: 1.85rem; }
+
+  .contact-link { padding: 0.75rem 1rem; }
+  .toast-notification { bottom: 1rem; right: 1rem; left: 1rem; max-width: none; }
+}
+
+/* ===== FIX ANDROID / TOUCH ===== */
+@media (hover: none), (pointer: coarse) {
+  .contact-section,
+  .title-scramble,
+  .contact-section::before,
+  .contact-header-wrapper::after {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+    contain: none !important;
+    backface-visibility: visible !important;
+  }
+
+  .title-scramble:hover {
+    transform: none !important;
+  }
+
+  .contact-main-title,
+  .contact-subtitle-header {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+}
+
+/* ===== MOVIMIENTO REDUCIDO ===== */
+@media (prefers-reduced-motion: reduce) {
+  .contact-section *,
+  .title-scramble,
+  .contact-section::before,
+  .contact-header-wrapper::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

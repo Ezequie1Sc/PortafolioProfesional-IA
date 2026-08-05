@@ -1,0 +1,333 @@
+/* ===== SKILL CARD ===== */
+.skill-card-wrapper {
+  perspective: 1500px;
+  height: 380px;
+  cursor: pointer;
+}
+
+.skill-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.skill-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.skill-front,
+.skill-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: #1e293b !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.skill-front {
+  transform: rotateY(0deg);
+}
+
+.skill-back {
+  transform: rotateY(180deg);
+}
+
+.skill-card-wrapper:hover .skill-front,
+.skill-card-wrapper:hover .skill-back {
+  border-color: rgba(59, 130, 246, 0.2);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.skill-number,
+.skill-number-back {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(59, 130, 246, 0.2);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.skill-title,
+.skill-back-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  margin: 0.25rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  flex: 1;
+  margin: 0.5rem 0;
+}
+
+.skill-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill-icon-circle {
+  width: 70px;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+
+.skill-icon-box:hover .skill-icon-circle {
+  transform: scale(1.05);
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.skill-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.skill-icon-name {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.skill-badge-front {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.skill-back-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+.skill-description {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.skill-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.skill-point-bullet {
+  color: #3b82f6;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.skill-badge-back {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* Scrollbar */
+.skill-back-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.skill-back-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.skill-back-text::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* ===== RESPONSIVE (SOLO AJUSTES DE TAMAÑO) ===== */
+
+/* Tablet (1024px) */
+@media (max-width: 1024px) {
+  .skill-card-wrapper {
+    height: 360px;
+  }
+  
+  .skill-title,
+  .skill-back-title {
+    font-size: 1.3rem;
+  }
+  
+  .skill-icon-circle {
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+  }
+  
+  .skill-icon-name {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Landscape (768px) */
+@media (max-width: 768px) {
+  .skill-card-wrapper {
+    height: 340px;
+  }
+  
+  .skill-title,
+  .skill-back-title {
+    font-size: 1.2rem;
+  }
+  
+  .skill-number,
+  .skill-number-back {
+    font-size: 2rem;
+  }
+  
+  .skill-icon-circle {
+    width: 55px;
+    height: 55px;
+    padding: 10px;
+  }
+  
+  .skill-icon-name {
+    font-size: 0.75rem;
+  }
+  
+  .skill-description {
+    font-size: 0.85rem;
+  }
+  
+  .skill-point-item {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .skill-card-wrapper {
+    height: 320px;
+  }
+  
+  .skill-title,
+  .skill-back-title {
+    font-size: 1.1rem;
+  }
+  
+  .skill-number,
+  .skill-number-back {
+    font-size: 1.8rem;
+  }
+  
+  .skill-icons-grid {
+    gap: 0.75rem;
+  }
+  
+  .skill-icon-circle {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+  
+  .skill-icon-name {
+    font-size: 0.7rem;
+  }
+  
+  .skill-description {
+    font-size: 0.8rem;
+  }
+  
+  .skill-point-item {
+    font-size: 0.75rem;
+  }
+  
+  .skill-front,
+  .skill-back {
+    padding: 1rem;
+  }
+}
+/* Asegurar que la cuadrícula de iconos se adapte bien */
+.skill-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+  gap: 0.8rem; /* Un poco más de espacio entre iconos */
+  flex: 1;
+  margin: 0.5rem 0;
+  align-content: center; /* Centra los iconos verticalmente si sobran espacios */
+}
+
+/* Ajuste específico para el icono de Tailwind (si es blanco se pierde en el borde) */
+.skill-icon-circle {
+  width: 65px; /* Un poco más pequeño para que quepan 4 en una fila */
+  height: 65px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s;
+}
+
+/* Ajuste para pantallas pequeñas (evitar que se salga el texto) */
+@media (max-width: 480px) {
+  .skill-card-wrapper {
+    height: 340px; /* Un poco más alto para que quepa la info */
+  }
+  .skill-icon-circle {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+  }
+  .skill-icons-grid {
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,627 @@
+:root {
+  --mac-bg-dark: #1e293b;
+  --mac-bg-darker: #0f172a;
+  --mac-browser-bar: #0f172a;
+  --mac-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --mac-radius: 12px;
+  --mac-dot-red: #ff5f57;
+  --mac-dot-yellow: #ffbd2e;
+  --mac-dot-green: #28c840;
+  --text-white: #ffffff;
+  --text-primary: #cbd5e1;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(59, 130, 246, 0.3);
+}
+
+.project-card-mac {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: auto; /* ✅ La altura se adapta al contenido */
+  align-self: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--mac-bg-dark);
+  border: 1px solid var(--border-light);
+  border-radius: var(--mac-radius);
+  box-shadow: var(--mac-shadow);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-mac:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   BARRA MAC
+   ============================================================ */
+.mac-browser-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 14px;
+  background: var(--mac-browser-bar);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mac-dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.mac-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.mac-dot.red { background: var(--mac-dot-red); }
+.mac-dot.yellow { background: var(--mac-dot-yellow); }
+.mac-dot.green { background: var(--mac-dot-green); }
+
+.mac-url-bar {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 12px;
+  overflow: hidden;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+}
+
+/* ============================================================
+   IMAGEN (OPCIÓN 3: SIN ALTURA FIJA, 100% ANCHO)
+   ============================================================ */
+.mac-image-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  
+  /* ✅ ELIMINAMOS LA ALTURA FIJA DE 220px */
+  height: auto; 
+  
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.mac-image-wrapper img {
+  display: block;
+  width: 100%; /* ✅ Ocupa todo el ancho disponible */
+  height: auto; /* ✅ La altura se ajusta automáticamente para no deformar la imagen */
+  object-fit: cover; /* Fallback */
+  object-position: center;
+  
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.project-card-mac:hover .mac-image-wrapper img {
+  transform: scale(1.04);
+  filter: brightness(0.75);
+}
+
+.mac-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.8) 100%);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+/* ============================================================
+   BOTÓN DE ENLACE (SUBE 65px AL HOVER)
+   ============================================================ */
+.mac-image-link-btn {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card-mac:hover .mac-image-link-btn {
+  transform: translateY(-65px); /* ✅ Sube 65px para evitar chocar */
+}
+
+.mac-image-link-btn:hover {
+  background: rgba(59, 130, 246, 0.6);
+  border-color: #3b82f6;
+}
+
+.mac-image-link-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+}
+
+/* ============================================================
+   CONTENIDO (Título pegado abajo a la izquierda)
+   ============================================================ */
+.mac-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 3;
+  background: transparent;
+  pointer-events: none;
+}
+
+.mac-content.expanded {
+  position: relative;
+  background: var(--mac-bg-dark);
+  padding: 16px 16px 20px 16px;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.mac-header {
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.mac-title-text {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+.mac-content.expanded .mac-title-text {
+  text-shadow: none;
+}
+
+/* ============================================================
+   BOTÓN "MÁS INFORMACIÓN"
+   ============================================================ */
+.mac-expand-btn {
+  opacity: 0;
+  max-height: 0;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 99px;
+  padding: 0 1rem;
+
+  transition: all 0.25s ease;
+}
+
+.project-card-mac:hover .mac-expand-btn {
+  opacity: 1;
+  max-height: 52px;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  margin-top: 4px;
+  pointer-events: auto;
+}
+
+.mac-expand-btn:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateY(-1px);
+}
+
+.mac-expand-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mac-expand-chevron {
+  width: 18px;
+  height: 18px;
+  color: #93c5fd;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.mac-expand-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   CONTENIDO EXPANDIDO
+   ============================================================ */
+.mac-expandable-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  opacity: 0;
+  min-width: 0;
+  max-width: 100%;
+  transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.mac-expandable-wrapper.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mac-expandable-inner {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mac-expandable-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mac-expand-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.mac-expand-icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mac-full-description p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.mac-tech-section {
+  margin-top: 2px;
+  min-width: 0;
+}
+
+.mac-tech-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mac-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mac-tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+  padding: 3px 8px;
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+.mac-tech-item img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.mac-accordion {
+  margin-bottom: 6px;
+  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.mac-accordion.active {
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.mac-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+  background: transparent;
+  border: none;
+}
+
+.mac-accordion-trigger:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mac-accordion-trigger.active {
+  color: #60a5fa;
+}
+
+.mac-accordion-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.mac-accordion-left span {
+  overflow-wrap: anywhere;
+}
+
+.mac-accordion-left svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.mac-accordion-trigger.active .mac-accordion-left svg {
+  color: #60a5fa;
+}
+
+.mac-accordion-chevron {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.mac-accordion-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.mac-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mac-accordion-body.open {
+  max-height: 700px;
+}
+
+.mac-accordion-inner {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.mac-accordion-inner p,
+.mac-accordion-inner ul {
+  margin: 0;
+  padding: 0 12px 12px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.mac-accordion-inner ul {
+  padding-left: 24px;
+  list-style: none;
+}
+
+.mac-accordion-inner li {
+  position: relative;
+  margin-bottom: 4px;
+  padding-left: 14px;
+}
+
+.mac-accordion-inner li::before {
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  content: "▹";
+}
+
+.mac-github-section {
+  margin-top: 2px;
+  min-width: 0;
+}
+
+.mac-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  cursor: pointer;
+  padding: 8px 14px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.mac-btn-secondary:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.mac-btn-secondary svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .project-card-mac { border-radius: 10px; }
+  .mac-browser-bar { gap: 6px; padding: 6px 10px; }
+  .mac-dots { gap: 4px; }
+  .mac-dot { width: 7px; height: 7px; }
+  .mac-url-bar { padding: 2px 8px; font-size: 0.55rem; }
+  
+  /* En móvil, la altura se adapta sola gracias a height:auto */
+  .mac-image-wrapper { height: auto; }
+  
+  .mac-image-link-btn { right: 10px; bottom: 10px; width: 38px; height: 38px; }
+  .mac-image-link-btn svg { width: 18px; height: 18px; }
+  .mac-content { padding: 0 12px 12px 12px; gap: 6px; }
+  .mac-content.expanded { padding: 12px 12px 16px 12px; }
+  .mac-title-text { font-size: 0.75rem; }
+  .mac-expand-btn { font-size: 0.8rem; padding: 0.6rem 0.9rem; }
+  .mac-full-description p { font-size: 0.8rem; }
+  .mac-tech-item { font-size: 0.65rem; padding: 2px 6px; }
+  .mac-accordion-trigger { padding: 6px 10px; font-size: 0.75rem; }
+  .mac-accordion-inner p, .mac-accordion-inner ul { font-size: 0.75rem; padding: 0 10px 10px; }
+  .mac-btn-secondary { font-size: 0.75rem; padding: 6px 12px; }
+}
+
+@media (max-width: 480px) {
+  .project-card-mac { contain: layout paint; }
+  .mac-image-wrapper { height: auto; }
+  .mac-image-link-btn { right: 8px; bottom: 8px; width: 34px; height: 34px; }
+  .mac-image-link-btn svg { width: 16px; height: 16px; }
+  .mac-content { padding: 0 10px 10px 10px; }
+  .mac-content.expanded { padding: 10px 10px 14px 10px; }
+  .mac-title-text { font-size: 0.7rem; }
+  .mac-url-bar { font-size: 0.5rem; padding: 2px 6px; }
+  .mac-tech-item img { width: 10px; height: 10px; }
+}
+
+@media (max-width: 380px) {
+  .mac-image-wrapper { height: auto; }
+  .mac-title-text { font-size: 0.65rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-mac, .project-card-mac:hover, .mac-image-wrapper img,
+  .mac-expandable-wrapper, .mac-accordion-body, .mac-btn-secondary,
+  .mac-expand-btn, .mac-image-link-btn {
+    animation: none !important;
+    transition: none !important;
+  }
+  .project-card-mac:hover, .mac-btn-secondary:hover,
+  .mac-expand-btn:hover, .mac-image-link-btn:hover {
+    transform: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .project-card, .project-card-mac, .project-image img,
+  .mac-image-wrapper img, .project-video {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+    contain: none !important;
+  }
+  .project-card:hover, .project-card-mac:hover,
+  .project-card:hover .project-image img,
+  .project-card:hover .project-video,
+  .project-card-mac:hover .mac-image-wrapper img {
+    transform: none !important;
+  }
+  .mac-expandable-wrapper {
+    display: block !important;
+    grid-template-rows: unset !important;
+    transition: none !important;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 1 !important;
+  }
+  .mac-expandable-wrapper.open { max-height: none; }
+  .mac-accordion-body { transition: none !important; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .mac-expand-btn {
+    opacity: 1;
+    max-height: 52px;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    margin-top: 4px;
+    pointer-events: auto;
+  }
+}
