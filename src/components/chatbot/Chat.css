@@ -191,13 +191,13 @@
 }
 
 /* ==========================================================
-   BODY (MODIFICADO: CENTRADO VERTICALMENTE)
+   BODY (CORREGIDO: justify-content: flex-start)
 =========================================================== */
 .chat-body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;  /* ✅ CORREGIDO: antes era center */
   padding: 16px 18px;
   overflow-y: auto;
 }
@@ -218,11 +218,11 @@
 =========================================================== */
 .chat-empty-container {
   width: 100%;
-  max-width: 620px;           /* CAMBIO: 640px -> 620px */
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -25px;          /* CAMBIO: Ajusta este valor (-15px a -30px) según prefieras */
+  margin-top: -25px;
 }
 
 .chat-empty-icon-wrapper {
@@ -257,11 +257,11 @@
 .chat-empty-subtitle {
   max-width: 380px;           
   margin: auto;
-  margin-top: 12px;           /* CAMBIO: 14px -> 12px */
-  margin-bottom: 0;           /* CAMBIO: 8px -> 0 */
+  margin-top: 12px;
+  margin-bottom: 0;
   color: var(--text-muted);
   font-size: 13px;
-  line-height: 1.6;           /* CAMBIO: 1.7 -> 1.6 */
+  line-height: 1.6;
 }
 
 /* ==========================================================
@@ -270,7 +270,7 @@
 .suggestion-grid {
   width: 100%;
   max-width: 500px;           
-  margin: 34px auto 0;        /* CAMBIO: 42px -> 34px */
+  margin: 34px auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;                  
@@ -603,6 +603,7 @@
     height: 36px;
   }
 }
+
 /* ===== Mensajes IA ===== */
 
 .ai-message {
