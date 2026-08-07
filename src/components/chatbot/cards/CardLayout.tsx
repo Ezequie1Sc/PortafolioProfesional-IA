@@ -2,6 +2,7 @@ import "./CardLayout.css";
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
+
 interface CardLayoutProps {
   title?: string;
   subtitle?: string;
