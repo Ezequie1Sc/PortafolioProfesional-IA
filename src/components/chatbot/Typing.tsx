@@ -17,7 +17,7 @@ const Typing = () => {
             marginBottom: 10,
           }}
         >
-          EzeAI está escribiendo...
+          Eze-IA está escribiendo...
         </div>
 
         <div className="typing">
