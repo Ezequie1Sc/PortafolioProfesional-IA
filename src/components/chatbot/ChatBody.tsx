@@ -66,43 +66,36 @@ const ChatBody = ({
     });
   };
 
-  /**
-   * Pantalla inicial
-   */
-  if (messages.length === 0) {
-    return (
-      <section className="chat-body">
-        <div className="chat-content">
-          <EmptyState
-            onSuggestionClick={onSuggestionClick}
-          />
-        </div>
-      </section>
-    );
-  }
-
   return (
     <section
-      className="chat-body"
       ref={containerRef}
+      className={`chat-body ${
+        messages.length === 0 ? "empty" : "has-messages"
+      }`}
     >
-      <div className="chat-content">
-        {messages.map((message) => (
-          <ChatMessageItem
-            key={message.id}
-            message={message}
-          />
-        ))}
-
-        {loading && <Typing />}
-
-        <div ref={bottomRef} />
-      </div>
-
-      {showScrollButton && (
-        <ScrollButton
-          onClick={scrollToBottom}
+      {messages.length === 0 ? (
+        <EmptyState
+          onSuggestionClick={onSuggestionClick}
         />
+      ) : (
+        <>
+          {messages.map((message) => (
+            <ChatMessageItem
+              key={message.id}
+              message={message}
+            />
+          ))}
+
+          {loading && <Typing />}
+
+          <div ref={bottomRef} />
+
+          {showScrollButton && (
+            <ScrollButton
+              onClick={scrollToBottom}
+            />
+          )}
+        </>
       )}
     </section>
   );
