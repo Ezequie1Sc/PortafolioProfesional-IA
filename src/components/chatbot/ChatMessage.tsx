@@ -1,28 +1,40 @@
 import { Bot, User } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import type { ChatMessage } from "../../types/chat";
+
+import MessageRenderer from "./renderers/MessageRenderer";
 
 interface Props {
   message: ChatMessage;
 }
 
 const ChatMessageItem = ({ message }: Props) => {
+
   const isUser = message.role === "user";
 
   return (
+
     <div className={`message ${isUser ? "user" : "bot"}`}>
+
       <div className={`avatar ${isUser ? "user" : "bot"}`}>
-        {isUser ? <User size={20} /> : <Bot size={20} />}
+
+        {isUser ? <User size={18}/> : <Bot size={18}/>}
+
       </div>
 
       <div className="message-content ai-message">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {message.content}
-        </ReactMarkdown>
+
+        <MessageRenderer
+
+          message={message}
+
+        />
+
       </div>
+
     </div>
+
   );
+
 };
 
 export default ChatMessageItem;
