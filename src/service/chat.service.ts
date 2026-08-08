@@ -11,11 +11,10 @@ export const chatService = {
     body: ChatRequest
   ): Promise<ChatResponse> {
 
-    const { data } =
-      await api.post<ChatResponse>(
-        "/chat",
-        body
-      );
+    const { data } = await api.post<ChatResponse>(
+      "/chat",
+      body
+    );
 
     return data;
 
