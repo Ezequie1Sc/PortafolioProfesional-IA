@@ -1,130 +1,204 @@
+import "./GithubCard.css";
+
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import {
   Github,
-  FolderGit2
+  ExternalLink,
+  FolderGit2,
 } from "lucide-react";
 
-import "./GithubCard.css";
+import { knowledgeService } from "../../../../service/knowledgeService";
 
-interface GithubProfile {
-  name: string;
-  login: string;
-  avatar_url: string;
-  bio: string;
-  html_url: string;
-}
-
-const USERNAME = "Ezequie1Sc";
+import type {
+  Github as GithubType,
+} from "../../../../types/knowledge";
 
 const GithubCard = () => {
 
-  const [profile, setProfile] = useState<GithubProfile | null>(null);
+  const [github, setGithub] =
+    useState<GithubType | null>(null);
+
+  const [loading, setLoading] =
+    useState(true);
 
   useEffect(() => {
 
-    const loadProfile = async () => {
+    const loadGithub = async () => {
 
       try {
 
-        const { data } = await axios.get<GithubProfile>(
-          `https://api.github.com/users/${USERNAME}`
-        );
+        const data =
+          await knowledgeService.getGithub();
 
-        setProfile(data);
+        setGithub(data);
 
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          "Error loading github:",
+          error
+        );
+
+      } finally {
+
+        setLoading(false);
 
       }
 
     };
 
-    loadProfile();
+    loadGithub();
 
   }, []);
 
-  if (!profile) {
+  if (loading) {
 
     return (
-      <div className="github-card loading">
-        Cargando GitHub...
+
+      <div className="github-card github-loading">
+
+        <div className="github-spinner" />
+
+        <span>
+
+          Cargando GitHub...
+
+        </span>
+
       </div>
+
     );
 
   }
 
-  return (
+  if (!github) {
+
+    return null;
+
+  }
+
+  const username =
+    github.username;
+      return (
 
     <div className="github-card">
 
+      {/* ================= HEADER ================= */}
+
       <div className="github-header">
 
-        <img
-          src={profile.avatar_url}
-          alt={profile.name}
-          className="github-avatar"
-        />
+        <div className="github-avatar-wrapper">
 
-        <h2>{profile.name}</h2>
-
-        <span>@{profile.login}</span>
-
-        <p>{profile.bio}</p>
-
-      </div>
-
-      <div className="github-divider" />
-
-      <div className="github-calendar">
-
-        <div className="github-calendar-header">
-
-          <h3>Contribuciones</h3>
-
-          <span>Últimos 12 meses</span>
+          <img
+            className="github-avatar"
+            src={`https://github.com/${username}.png`}
+            alt={username}
+          />
 
         </div>
 
-        <img
-          className="github-contributions"
-          src={`https://ghchart.rshah.org/22c55e/${profile.login}`}
-          alt="GitHub Contributions"
-          loading="lazy"
-          draggable={false}
-        />
+        <div className="github-user">
+
+          <div className="github-title">
+
+            <Github size={22} />
+
+            <span>
+
+              GitHub
+
+            </span>
+
+          </div>
+
+          <h2>
+
+            @{username}
+
+          </h2>
+
+          <p>
+
+            {github.description}
+
+          </p>
+
+        </div>
 
       </div>
 
       <div className="github-divider" />
 
-      <div className="github-actions">
+      {/* ================= CONTRIBUTIONS ================= */}
 
-        <a
-          href={profile.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="github-button"
-        >
-          <Github size={18} />
-          Ver Perfil
-        </a>
+      <div className="github-contributions">
 
-        <a
-          href={`${profile.html_url}?tab=repositories`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="github-button secondary"
-        >
-          <FolderGit2 size={18} />
-          Repositorios
-        </a>
+        <img
+
+          src={`https://ghchart.rshah.org/22c55e/${username}`}
+
+          alt="GitHub Contributions"
+
+          className="github-chart"
+
+        />
 
       </div>
 
-    </div>
+      <div className="github-divider" />
+            {/* ================= ACTIONS ================= */}
+
+      <div className="github-actions">
+
+        {github.card.show_profile_button && (
+
+          <a
+            href={github.profile_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-button"
+          >
+
+            <Github size={18} />
+
+            <span>
+
+              Ver Perfil
+
+            </span>
+
+            <ExternalLink size={16} />
+
+          </a>
+
+        )}
+
+        {github.card.show_repositories_button && (
+
+          <a
+            href={github.repositories_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-button github-button-primary"
+          >
+
+            <FolderGit2 size={18} />
+
+            <span>
+
+              Repositorios
+
+            </span>
+
+            <ExternalLink size={16} />
+
+          </a>
+
+        )}
+
+      </div>
+          </div>
 
   );
 
