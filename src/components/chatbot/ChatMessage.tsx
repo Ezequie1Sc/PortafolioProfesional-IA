@@ -10,6 +10,7 @@ interface Props {
 const ChatMessageItem = ({ message }: Props) => {
 
   const isUser = message.role === "user";
+  console.log(message);
 
   return (
 

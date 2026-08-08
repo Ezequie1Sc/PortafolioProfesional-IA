@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import ProfileCard from "../cards/ProfileCard/ProfileCard";
 import GithubCard from "../cards/GithubCard/GithubCard";
@@ -7,63 +8,30 @@ import SkillsCard from "../cards/SkillsCard/SkillsCard";
 import type { ChatMessage } from "../../../types/chat";
 
 interface Props {
-
-    message: ChatMessage;
-
+  message: ChatMessage;
 }
+
+const cardRegistry = {
+  profile: ProfileCard,
+  github: GithubCard,
+  skill: SkillsCard,
+};
 
 const MessageRenderer = ({ message }: Props) => {
 
-    const text = message.content.toLowerCase();
+  const Card = message.intent
+    ? cardRegistry[message.intent as keyof typeof cardRegistry]
+    : null;
 
-    const showGithub =
-        text.includes("github");
+  return (
+    <>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        {message.content}
+      </ReactMarkdown>
 
-    const showSkills =
-        text.includes("habilidades") ||
-        text.includes("tecnologías") ||
-        text.includes("tecnologias") ||
-        text.includes("stack");
-
-    const showProfile =
-        text.includes("desarrollador") ||
-        text.includes("ingeniería") ||
-        text.includes("ingeniería") ||
-        text.includes("perfil") ||
-        text.includes("ezequiel salazar");
-
-    return (
-
-        <>
-
-            <ReactMarkdown>
-
-                {message.content}
-
-            </ReactMarkdown>
-
-            {showProfile && (
-
-                <ProfileCard />
-
-            )}
-
-            {showGithub && (
-
-                <GithubCard />
-
-            )}
-
-            {showSkills && (
-
-                <SkillsCard />
-
-            )}
-
-        </>
-
-    );
-
+      {Card && <Card />}
+    </>
+  );
 };
 
 export default MessageRenderer;
