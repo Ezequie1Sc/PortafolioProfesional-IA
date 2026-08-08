@@ -1,127 +1,441 @@
-.skills-card {
-    width: 100%;
-    background: #161b22;
-    border: 1px solid #2d333b;
-    border-radius: 18px;
-    padding: 24px;
-    color: white;
+/* ==========================================
+   CARD
+========================================== */
+
+.skills-card{
+
+    width:100%;
+    max-width:460px;
+
+    margin:16px auto;
+
+    border-radius:22px;
+
+    background:rgba(18,18,20,.88);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45);
+
+    overflow:hidden;
+
+    animation:skillsFade .45s ease;
+
 }
 
-.skills-card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:22px;
+/* ==========================================
+   HEADER
+========================================== */
+
+.skills-header{
+
+    padding:28px;
+
+    text-align:center;
+
 }
 
-.skills-card-header h3{
-    margin:0;
-    font-size:1.25rem;
-    font-weight:700;
+.skills-header h2{
+
+    color:#fff;
+
+    font-size:1.6rem;
+
+    margin-bottom:10px;
+
 }
 
-.skills-card-header span{
-    color:#8b949e;
-    font-size:.9rem;
+.skills-header p{
+
+    color:#9ca3af;
+
+    font-size:.95rem;
+
 }
 
-.skills-categories{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+/* ==========================================
+   DIVIDER
+========================================== */
+
+.skills-divider{
+
+    height:1px;
+
+    background:rgba(255,255,255,.06);
+
 }
 
-.skills-category{
-    border:1px solid #2d333b;
-    border-radius:14px;
+/* ==========================================
+   BODY
+========================================== */
+
+.skills-body{
+
     padding:18px;
-    background:#0d1117;
+
 }
 
-.skills-category-title{
-    font-weight:700;
-    margin-bottom:16px;
-    color:#58a6ff;
-    font-size:1rem;
+/* ==========================================
+   CATEGORY
+========================================== */
+
+.skills-section{
+
+    margin-bottom:14px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:#1a1a1d;
+
+    border:1px solid rgba(255,255,255,.05);
+
 }
 
-.skills-items{
+.skills-section-header{
+
+    width:100%;
+
+    height:58px;
+
     display:flex;
-    flex-wrap:wrap;
-    gap:12px;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:transparent;
+
+    color:white;
+
+    transition:.25s;
+
 }
+
+.skills-section-header:hover{
+
+    background:#232326;
+
+}
+
+.skills-section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+}
+
+.skills-section-title svg{
+
+    color:#22c55e;
+
+}
+
+.skills-count{
+
+    width:32px;
+
+    height:32px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:.85rem;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.skills-grid{
+
+    display:grid;
+
+    gap:16px;
+
+    padding:18px;
+
+}
+
+/* ==========================================
+   CHIP
+========================================== */
 
 .skill-chip{
 
-    display:flex;
-    align-items:center;
-    gap:10px;
+    background:#27272a;
 
-    padding:10px 14px;
+    border-radius:16px;
 
-    border-radius:12px;
-
-    border:1px solid #30363d;
-
-    background:#161b22;
+    padding:16px;
 
     transition:.25s;
+
+    border:1px solid rgba(255,255,255,.05);
+
 }
 
 .skill-chip:hover{
 
-    border-color:#58a6ff;
+    transform:translateY(-4px);
 
-    transform:translateY(-2px);
-
-    background:#1d2430;
+    border-color:#22c55e;
 
 }
 
-.skill-chip img{
+.skill-chip-header{
 
-    width:28px;
-    height:28px;
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.skill-icon{
+
+    width:34px;
+
+    height:34px;
 
     object-fit:contain;
 
 }
 
-.skill-chip span{
+/* ==========================================
+   NAME
+========================================== */
 
-    font-size:.92rem;
-    font-weight:500;
+.skill-name{
 
-}
+    color:white;
 
-@media(max-width:768px){
+    font-weight:700;
 
-    .skills-card{
-
-        padding:18px;
-
-    }
-
-    .skills-items{
-
-        gap:10px;
-
-    }
-
-    .skill-chip{
-
-        flex:1 1 calc(50% - 10px);
-
-    }
+    font-size:1rem;
 
 }
 
-@media(max-width:500px){
+/* ==========================================
+   LEVEL
+========================================== */
 
-    .skill-chip{
+.skill-level{
 
-        flex:1 1 100%;
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 12px;
+
+    margin-bottom:12px;
+
+    border-radius:999px;
+
+    background:#22c55e22;
+
+    color:#22c55e;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.skill-experience{
+
+    color:#d1d5db;
+
+    font-size:.9rem;
+
+    line-height:1.6;
+
+    margin-bottom:14px;
+
+}
+
+/* ==========================================
+   TAGS
+========================================== */
+
+.skill-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+}
+
+.skill-tag{
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    background:#3b82f620;
+
+    color:#60a5fa;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.skills-loading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:60px;
+
+}
+
+.skills-loading span{
+
+    color:#9ca3af;
+
+}
+
+.skills-spinner{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    border:4px solid rgba(255,255,255,.08);
+
+    border-top-color:#22c55e;
+
+    animation:spin .8s linear infinite;
+
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
 
     }
+
+}
+
+@keyframes skillsFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:600px){
+
+.skills-card{
+
+    max-width:100%;
+
+}
+
+.skills-section-header{
+
+    padding:0 14px;
+
+}
+
+.skill-chip{
+
+    padding:14px;
+
+}
+
+.skill-icon{
+
+    width:28px;
+
+    height:28px;
+
+}
+
+.skill-name{
+
+    font-size:.95rem;
+
+}
 
 }
