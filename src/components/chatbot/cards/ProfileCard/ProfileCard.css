@@ -1,343 +1,415 @@
-/* ==========================================================
-   PROFILE CARD
-========================================================== */
+/* ==========================================
+   CARD
+========================================== */
 
 .profile-card {
+  width: 100%;
+  max-width: 430px;
 
-    width: 100%;
-    max-width: 650px;
+  margin: 16px auto;
 
-    margin: 0 auto;
+  border-radius: 22px;
 
-    background: #111827;
+  background: rgba(18, 18, 20, .88);
 
-    border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
 
-    border-radius: 24px;
+  border: 1px solid rgba(255,255,255,.08);
 
-    overflow: hidden;
+  box-shadow:
+      0 15px 40px rgba(0,0,0,.45);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.45);
+  overflow: hidden;
 
-    animation: profileFade .35s ease;
-
+  animation: profileFade .45s ease;
 }
 
-/* ==========================================================
+/* ==========================================
    HEADER
-========================================================== */
+========================================== */
 
-.profile-card__header {
+.profile-header{
 
-    position: relative;
+  display:flex;
 
-    display: flex;
+  flex-direction:column;
 
-    flex-direction: column;
+  align-items:center;
 
-    align-items: center;
+  justify-content:center;
 
-    justify-content: center;
-
-    padding: 42px 24px 34px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #1d4ed8,
-            #2563eb,
-            #3b82f6
-        );
-
-    overflow: hidden;
+  padding:32px 24px;
 
 }
 
-/* Luz decorativa */
+.profile-avatar-wrapper{
 
-.profile-card__header::before{
+  position:relative;
 
-    content:"";
+  width:130px;
 
-    position:absolute;
+  height:130px;
 
-    width:320px;
-
-    height:320px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.08);
-
-    top:-170px;
-
-    right:-120px;
+  margin-bottom:20px;
 
 }
 
-.profile-card__header::after{
+.profile-avatar{
 
-    content:"";
+  width:130px;
 
-    position:absolute;
+  height:130px;
 
-    width:220px;
+  object-fit:cover;
 
-    height:220px;
+  border-radius:50%;
 
-    border-radius:50%;
+  background:#181818;
 
-    background:rgba(255,255,255,.05);
+  border:4px solid rgba(255,255,255,.08);
 
-    bottom:-140px;
-
-    left:-80px;
+  transition:.35s;
 
 }
 
-/* ==========================================================
-   AVATAR
-========================================================== */
+.profile-avatar:hover{
 
-.profile-card__avatar{
-
-    position:relative;
-
-    width:120px;
-
-    height:120px;
-
-    margin-bottom:18px;
-
-    z-index:2;
+  transform:scale(1.05);
 
 }
 
-.profile-card__avatar img{
+.profile-status{
 
-    width:100%;
+  position:absolute;
 
-    height:100%;
+  right:10px;
 
-    object-fit:cover;
+  bottom:10px;
 
-    border-radius:50%;
+  width:18px;
 
-    border:5px solid rgba(255,255,255,.15);
+  height:18px;
 
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.35);
+  border-radius:50%;
 
-}
+  background:#22c55e;
 
-.profile-card__status{
+  border:3px solid #111;
 
-    position:absolute;
+  box-shadow:0 0 12px #22c55e;
 
-    right:8px;
-
-    bottom:8px;
-
-    width:18px;
-
-    height:18px;
-
-    border-radius:50%;
-
-    background:#22c55e;
-
-    border:3px solid white;
-
-    box-shadow:
-        0 0 15px rgba(34,197,94,.7);
-
-    animation:pulse 2s infinite;
+  animation:pulse 2s infinite;
 
 }
 
-/* ==========================================================
-   NAME
-========================================================== */
+/* ==========================================
+   TITLES
+========================================== */
 
-.profile-card__name{
+.profile-name{
 
-    margin:0;
+  color:#fff;
 
-    color:white;
+  font-size:1.55rem;
 
-    font-size:30px;
+  font-weight:700;
 
-    font-weight:700;
-
-    letter-spacing:-.5px;
-
-    z-index:2;
+  margin-bottom:8px;
 
 }
 
-.profile-card__title{
+.profile-title{
 
-    margin-top:8px;
+  color:#9ca3af;
 
-    color:#dbeafe;
+  font-size:.95rem;
 
-    font-size:16px;
-
-    font-weight:500;
-
-    z-index:2;
+  text-align:center;
 
 }
 
-/* ==========================================================
-   SECTIONS
-========================================================== */
+/* ==========================================
+   DIVIDER
+========================================== */
 
-.profile-card__section{
+.profile-divider{
 
-    padding:22px 26px;
+  width:100%;
 
-    border-top:1px solid rgba(255,255,255,.06);
+  height:1px;
 
-}
-
-/* ==========================================================
-   ITEM
-========================================================== */
-
-.profile-card__item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    color:#e5e7eb;
-
-    font-size:15px;
+  background:rgba(255,255,255,.06);
 
 }
 
-.profile-card__item + .profile-card__item{
+/* ==========================================
+   CONTENT
+========================================== */
 
-    margin-top:16px;
+.profile-content{
 
-}
+  padding:22px;
 
-.profile-card__item svg{
+  display:flex;
 
-    color:#60a5fa;
+  flex-direction:column;
 
-    flex-shrink:0;
-
-}
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
-.profile-card__footer{
-
-    display:flex;
-
-    gap:16px;
-
-    padding:24px;
-
-    border-top:1px solid rgba(255,255,255,.06);
+  gap:18px;
 
 }
 
-.profile-card__button{
+.profile-row{
 
-    flex:1;
+  display:flex;
 
-    display:flex;
+  align-items:center;
 
-    justify-content:center;
+  gap:14px;
 
-    align-items:center;
-
-    gap:10px;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    background:#1f2937;
-
-    color:white;
-
-    font-weight:600;
-
-    transition:.25s;
+  color:#e5e7eb;
 
 }
 
-.profile-card__button:hover{
+.profile-row svg{
 
-    background:#2563eb;
+  color:#22c55e;
 
-    transform:translateY(-2px);
-
-}
-
-.profile-card__button svg{
-
-    width:18px;
-
-    height:18px;
+  flex-shrink:0;
 
 }
 
-/* ==========================================================
+/* ==========================================
+   LINKS
+========================================== */
+
+.profile-link{
+
+  color:#f3f4f6;
+
+  text-decoration:none;
+
+  transition:.25s;
+
+  word-break:break-all;
+
+}
+
+.profile-link:hover{
+
+  color:#22c55e;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.profile-actions{
+
+  padding:22px;
+
+  display:flex;
+
+  gap:14px;
+
+}
+
+.profile-button{
+
+  flex:1;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  height:46px;
+
+  border-radius:12px;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:#27272a;
+
+  transition:.25s;
+
+  border:1px solid rgba(255,255,255,.08);
+
+}
+
+.profile-button:hover{
+
+  transform:translateY(-3px);
+
+  background:#323238;
+
+}
+
+.profile-button-primary{
+
+  background:#22c55e;
+
+  color:white;
+
+}
+
+.profile-button-primary:hover{
+
+  background:#16a34a;
+
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.profile-loading{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:16px;
+
+  padding:50px;
+
+}
+
+.profile-loading span{
+
+  color:#9ca3af;
+
+}
+
+.profile-spinner{
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  border:4px solid rgba(255,255,255,.08);
+
+  border-top-color:#22c55e;
+
+  animation:spin .8s linear infinite;
+
+}
+
+/* ==========================================
    ANIMATIONS
-========================================================== */
+========================================== */
 
-@keyframes profileFade{
+@keyframes spin{
 
-    from{
+  to{
 
-        opacity:0;
+    transform:rotate(360deg);
 
-        transform:translateY(12px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
+  }
 
 }
 
 @keyframes pulse{
 
-    0%{
+  0%{
 
-        box-shadow:0 0 0 0 rgba(34,197,94,.7);
+    transform:scale(1);
 
-    }
+    box-shadow:0 0 0 0 rgba(34,197,94,.6);
 
-    70%{
+  }
 
-        box-shadow:0 0 0 10px rgba(34,197,94,0);
+  70%{
 
-    }
+    transform:scale(1.15);
 
-    100%{
+    box-shadow:0 0 0 10px rgba(34,197,94,0);
 
-        box-shadow:0 0 0 0 rgba(34,197,94,0);
+  }
 
-    }
+  100%{
+
+    transform:scale(1);
+
+  }
+
+}
+
+@keyframes profileFade{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:520px){
+
+.profile-card{
+
+    max-width:100%;
+
+}
+
+.profile-actions{
+
+    flex-direction:column;
+
+}
+
+.profile-button{
+
+    width:100%;
+
+}
+
+.profile-avatar{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+.profile-avatar-wrapper{
+
+    width:110px;
+
+    height:110px;
+
+}
+
+.profile-name{
+
+    font-size:1.35rem;
+
+}
 
 }
