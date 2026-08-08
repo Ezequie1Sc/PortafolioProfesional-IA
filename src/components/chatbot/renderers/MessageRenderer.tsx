@@ -15,13 +15,17 @@ const cardRegistry = {
   profile: ProfileCard,
   github: GithubCard,
   skill: SkillsCard,
-};
+} as const;
 
 const MessageRenderer = ({ message }: Props) => {
 
-  const Card = message.intent
-    ? cardRegistry[message.intent as keyof typeof cardRegistry]
-    : null;
+  const Card =
+    message.intent &&
+    message.intent in cardRegistry
+      ? cardRegistry[
+          message.intent as keyof typeof cardRegistry
+        ]
+      : null;
 
   return (
     <>
