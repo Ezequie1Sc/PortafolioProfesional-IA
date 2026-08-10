@@ -680,3 +680,55 @@
   border-radius: 12px;
   overflow-x: auto;
 }
+/* ==========================================
+   MENSAJE DESPUÉS DE LAS CARDS
+========================================== */
+
+.card-follow-up {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  margin-top: 14px;
+
+  padding: 11px 13px;
+
+  color: #9ca3af;
+
+  background: #182235;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 10px;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+.card-follow-up-icon {
+  flex-shrink: 0;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+.card-follow-up span:last-child {
+  color: #aeb9c8;
+}
+
+
+.card-follow-up strong {
+  color: #e5e7eb;
+
+  font-weight: 600;
+}
