@@ -39,8 +39,8 @@ const icons: Record<string, string> = {
   html5:
     "https://cdn.simpleicons.org/html5/E34F26",
 
-  css:
-    "https://cdn.simpleicons.org/css3/1572B6",
+ css:
+  "https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/css3.svg",
 
   css3:
     "https://cdn.simpleicons.org/css3/1572B6",
@@ -67,10 +67,13 @@ const icons: Record<string, string> = {
     "https://cdn.simpleicons.org/mysql/4479A1",
 
   "sql server":
-    "/icons/sql.svg",
+  "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
 
-  sql:
-    "/icons/sql.svg",
+microsoftsqlserver:
+  "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+
+sql:
+  "/icons/sql.svg",
 
   arduino:
     "https://cdn.simpleicons.org/arduino/00979D",
