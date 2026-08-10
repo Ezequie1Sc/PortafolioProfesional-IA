@@ -1,14 +1,6 @@
 import "./SkillsCard.css";
 
-import {
-  useEffect,
-  useState,
-} from "react";
-
-import {
-  ChevronDown,
-  ChevronRight,
-} from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { knowledgeService } from "../../../../service/knowledgeService";
 
@@ -41,16 +33,16 @@ const icons: Record<string, string> = {
   tailwindcss:
     "https://cdn.simpleicons.org/tailwindcss/38BDF8",
 
-  html5:
-    "https://cdn.simpleicons.org/html5/E34F26",
-
   html:
     "https://cdn.simpleicons.org/html5/E34F26",
 
-  css3:
-    "https://cdn.simpleicons.org/css3/1572B6",
+  html5:
+    "https://cdn.simpleicons.org/html5/E34F26",
 
   css:
+    "https://cdn.simpleicons.org/css3/1572B6",
+
+  css3:
     "https://cdn.simpleicons.org/css3/1572B6",
 
   python:
@@ -98,10 +90,10 @@ const icons: Record<string, string> = {
   node:
     "https://cdn.simpleicons.org/nodedotjs/5FA04E",
 
-  "node.js":
+  nodejs:
     "https://cdn.simpleicons.org/nodedotjs/5FA04E",
 
-  nodejs:
+  "node.js":
     "https://cdn.simpleicons.org/nodedotjs/5FA04E",
 
   java:
@@ -157,11 +149,9 @@ const SkillsCard = () => {
 
   const [loading, setLoading] = useState(true);
 
-  const [opened, setOpened] = useState("frontend");
-
 
   // ========================================
-  // CARGAR SKILLS
+  // CARGAR TECNOLOGÍAS
   // ========================================
 
   useEffect(() => {
@@ -243,7 +233,7 @@ const SkillsCard = () => {
 
 
   // ========================================
-  // OBTENER ITEMS
+  // OBTENER ELEMENTOS
   // ========================================
 
   const getItems = (
@@ -275,17 +265,18 @@ const SkillsCard = () => {
 
 
   // ========================================
-  // FORMATEAR CATEGORÍA
+  // TITULO DE CATEGORIA
   // ========================================
 
   const formatTitle = (
     text: string
-  ) =>
-    text
+  ) => {
+    return text
       .replaceAll("_", " ")
       .replace(/\b\w/g, (letter) =>
         letter.toUpperCase()
       );
+  };
 
 
   // ========================================
@@ -299,7 +290,7 @@ const SkillsCard = () => {
           HEADER
       ==================================== */}
 
-      <header className="skills-header">
+      <div className="skills-header">
 
         <h2>
           Tecnologías
@@ -310,18 +301,14 @@ const SkillsCard = () => {
           utilizadas.
         </p>
 
-      </header>
+      </div>
 
-
-      {/* ====================================
-          DIVIDER
-      ==================================== */}
 
       <div className="skills-divider" />
 
 
       {/* ====================================
-          BODY
+          CATEGORÍAS
       ==================================== */}
 
       <div className="skills-body">
@@ -332,12 +319,10 @@ const SkillsCard = () => {
             const items =
               getItems(section);
 
-            const openedSection =
-              opened === key;
 
+            // Solo mostramos tecnologías
+            // que tengan icono configurado.
 
-            // Solo tecnologías que
-            // tengan icono configurado.
             const visibleItems =
               items.filter((tech) => {
 
@@ -360,91 +345,66 @@ const SkillsCard = () => {
 
 
             return (
-              <div
+              <section
                 key={key}
                 className="skills-section"
               >
 
                 {/* ==========================
-                    CATEGORY HEADER
+                    TITULO
                 ========================== */}
 
-                <button
-                  type="button"
-                  className="skills-section-header"
-                  onClick={() =>
-                    setOpened(
-                      openedSection
-                        ? ""
-                        : key
-                    )
-                  }
-                >
+                <div className="skills-section-title">
 
-                  <div className="skills-section-title">
+                  <span>
+                    {formatTitle(key)}
+                  </span>
 
-                    {openedSection ? (
-                      <ChevronDown
-                        size={17}
-                      />
-                    ) : (
-                      <ChevronRight
-                        size={17}
-                      />
-                    )}
-
-                    <span>
-                      {formatTitle(key)}
-                    </span>
-
-                  </div>
-
-                </button>
+                </div>
 
 
                 {/* ==========================
-                    ICON GRID
+                    ICONOS
                 ========================== */}
 
-                {openedSection && (
+                <div className="skills-grid">
 
-                  <div className="skills-grid">
+                  {visibleItems.map(
+                    (tech, index) => {
 
-                    {visibleItems.map(
-                      (tech, index) => {
+                      const name =
+                        tech.name
+                          .toLowerCase()
+                          .trim();
 
-                        const name =
-                          tech.name
-                            .toLowerCase()
-                            .trim();
+                      const icon =
+                        icons[name];
 
-                        const icon =
-                          icons[name];
 
-                        return (
-                          <div
-                            key={`${name}-${index}`}
-                            className="skill-icon-card"
-                            title={tech.name}
-                            aria-label={tech.name}
-                          >
+                      return (
+                        <div
+                          key={`${name}-${index}`}
+                          className="skill-icon-card"
+                          title={tech.name}
+                        >
 
-                            <img
-                              src={icon}
-                              alt=""
-                              className="skill-icon"
-                            />
+                          <img
+                            src={icon}
+                            alt=""
+                            className="skill-icon"
+                          />
 
-                          </div>
-                        );
-                      }
-                    )}
+                        </div>
+                      );
 
-                  </div>
-                )}
+                    }
+                  )}
 
-              </div>
+                </div>
+
+              </section>
             );
+
           }
         )}
 
