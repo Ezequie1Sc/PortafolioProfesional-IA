@@ -681,54 +681,81 @@
   overflow-x: auto;
 }
 /* ==========================================
-   MENSAJE DESPUÉS DE LAS CARDS
+   SEGUNDO MENSAJE DEL ASISTENTE
 ========================================== */
 
-.card-follow-up {
-  display: flex;
+.follow-up-message {
+  margin-top: -6px;
+
+  margin-bottom: 16px;
 
   align-items: flex-start;
+}
 
-  gap: 9px;
 
-  width: 100%;
+/* ==========================================
+   BURBUJA DEL SEGUNDO MENSAJE
+========================================== */
 
-  box-sizing: border-box;
+.follow-up-content {
+  max-width: 78%;
 
-  margin-top: 14px;
+  padding: 10px 14px;
 
-  padding: 11px 13px;
+  background: var(--bg-card);
 
-  color: #9ca3af;
+  border: 1px solid var(--border-subtle);
 
-  background: #182235;
+  border-radius: 16px;
 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top-left-radius: 4px;
 
-  border-radius: 10px;
+  color: var(--text-muted);
 
   font-size: 13px;
 
-  line-height: 1.5;
+  line-height: 1.55;
+
+  word-break: break-word;
 }
 
 
-.card-follow-up-icon {
-  flex-shrink: 0;
+/* ==========================================
+   TEXTO DESTACADO
+========================================== */
 
-  font-size: 14px;
-
-  line-height: 1.5;
-}
-
-
-.card-follow-up span:last-child {
-  color: #aeb9c8;
-}
-
-
-.card-follow-up strong {
-  color: #e5e7eb;
+.follow-up-content strong {
+  color: var(--text-white);
 
   font-weight: 600;
+}
+
+
+/* ==========================================
+   AVATAR DEL SEGUNDO MENSAJE
+========================================== */
+
+.follow-up-message .avatar {
+  width: 30px;
+
+  height: 30px;
+
+  flex-shrink: 0;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+  .follow-up-content {
+    max-width: 82%;
+
+    font-size: 12px;
+
+    padding: 9px 12px;
+  }
+
 }

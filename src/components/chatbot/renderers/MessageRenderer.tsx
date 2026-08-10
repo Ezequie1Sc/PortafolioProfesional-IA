@@ -8,36 +8,11 @@ interface Props {
   message: ChatMessage;
 }
 
-// ==========================================
-// REGISTRO DE CARDS
-// ==========================================
-
 const cardRegistry = {
   profile: ProfileCard,
   github: GithubCard,
   skill: SkillsCard,
 } as const;
-
-
-// ==========================================
-// MENSAJES DESPUÉS DE LAS CARDS
-// ==========================================
-
-const followUpMessages = {
-  profile:
-    "También puedes preguntarme sobre mis proyectos, habilidades, tecnologías, experiencia o GitHub.",
-
-  github:
-    "También puedes preguntarme sobre mis proyectos, habilidades, tecnologías o experiencia.",
-
-  skill:
-    "También puedes preguntarme sobre mis proyectos, experiencia, certificaciones o GitHub.",
-} as const;
-
-
-// ==========================================
-// RENDERER
-// ==========================================
 
 const MessageRenderer = ({ message }: Props) => {
 
@@ -49,20 +24,10 @@ const MessageRenderer = ({ message }: Props) => {
         ]
       : null;
 
-
-  const followUp =
-    message.intent &&
-    message.intent in followUpMessages
-      ? followUpMessages[
-          message.intent as keyof typeof followUpMessages
-        ]
-      : null;
-
-
   return (
     <>
       {/* ======================================
-          MENSAJE DE LA IA
+          RESPUESTA DE LA IA
       ====================================== */}
 
       <div className="message-text">
@@ -74,28 +39,8 @@ const MessageRenderer = ({ message }: Props) => {
           CARD
       ====================================== */}
 
-      {Card && (
-        <Card />
-      )}
+      {Card && <Card />}
 
-
-      {/* ======================================
-          MENSAJE DESPUÉS DE LA CARD
-      ====================================== */}
-
-      {Card && followUp && (
-        <div className="card-follow-up">
-
-          <span className="card-follow-up-icon">
-            💡
-          </span>
-
-          <span>
-            {followUp}
-          </span>
-
-        </div>
-      )}
     </>
   );
 };
