@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import ProfileCard from "../cards/ProfileCard/ProfileCard";
 import GithubCard from "../cards/GithubCard/GithubCard";
 import SkillsCard from "../cards/SkillsCard/SkillsCard";
@@ -15,7 +18,6 @@ const cardRegistry = {
 } as const;
 
 const MessageRenderer = ({ message }: Props) => {
-
   const Card =
     message.intent &&
     message.intent in cardRegistry
@@ -27,20 +29,22 @@ const MessageRenderer = ({ message }: Props) => {
   return (
     <>
       {/* ======================================
-          RESPUESTA DE LA IA
+          RESPUESTA DE GEMINI / IA
       ====================================== */}
 
       <div className="message-text">
-        {message.content}
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+        >
+          {message.content}
+        </ReactMarkdown>
       </div>
-
 
       {/* ======================================
           CARD
       ====================================== */}
 
       {Card && <Card />}
-
     </>
   );
 };
