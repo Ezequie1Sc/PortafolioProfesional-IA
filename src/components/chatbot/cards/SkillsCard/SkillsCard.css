@@ -32,16 +32,55 @@
 ========================================== */
 
 .skills-header {
+  position: relative;
+
   padding: 32px 24px 28px;
 
   text-align: left;
+}
 
-  /*
-    Fondo ligeramente diferente al body
-    para crear una separación visual clara.
-  */
 
-  background: #182235;
+/* ==========================================
+   DECORACIÓN LATERAL
+========================================== */
+
+.skills-header::before {
+  content: "";
+
+  position: absolute;
+
+  left: 24px;
+  top: 32px;
+
+  width: 2px;
+  height: 70px;
+
+  background: #60a5fa;
+
+  border-radius: 999px;
+}
+
+
+/* círculo inferior */
+
+.skills-header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18px;
+  top: 92px;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #151d2b;
+
+  border: 3px solid #60a5fa;
+
+  box-sizing: border-box;
 }
 
 
@@ -51,6 +90,8 @@
 
 .skills-header h2 {
   margin: 0 0 14px;
+
+  padding-left: 48px;
 
   color: #f8fafc;
 
@@ -64,6 +105,15 @@
 }
 
 
+/* punto azul */
+
+.skills-header h2::after {
+  content: ".";
+
+  color: #60a5fa;
+}
+
+
 /* ==========================================
    SUBTITLE
 ========================================== */
@@ -71,13 +121,13 @@
 .skills-header p {
   display: inline-block;
 
-  margin: 0;
+  margin: 0 0 0 48px;
 
   padding: 5px 12px;
 
   border-radius: 999px;
 
-  border: 1px solid #46556b;
+  border: 1px solid #60a5fa;
 
   background: transparent;
 
@@ -88,6 +138,8 @@
   font-weight: 500;
 
   line-height: 1.35;
+
+  white-space: nowrap;
 }
 
 
@@ -100,7 +152,7 @@
 
   height: 1px;
 
-  background: #3a4659;
+  background: #2a3547;
 }
 
 
@@ -110,8 +162,6 @@
 
 .skills-body {
   padding: 18px;
-
-  background: #151d2b;
 }
 
 
@@ -159,9 +209,7 @@
 }
 
 
-/* ==========================================
-   CATEGORY LINE
-========================================== */
+/* línea después de Frontend */
 
 .skills-section-title::after {
   content: "";
@@ -172,7 +220,7 @@
 
   margin-left: 14px;
 
-  background: #344155;
+  background: #2f3b4e;
 }
 
 
@@ -388,11 +436,29 @@
   }
 
   .skills-header h2 {
+    padding-left: 42px;
+
     font-size: 1.75rem;
   }
 
   .skills-header p {
+    margin-left: 42px;
+
     font-size: 0.75rem;
+  }
+
+  .skills-header::before {
+    left: 20px;
+
+    top: 28px;
+
+    height: 64px;
+  }
+
+  .skills-header::after {
+    left: 14px;
+
+    top: 83px;
   }
 
   .skills-body {
@@ -433,21 +499,29 @@
   }
 
   .skills-header h2 {
+    padding-left: 36px;
+
     font-size: 1.55rem;
   }
 
   .skills-header p {
+    margin-left: 36px;
+
     font-size: 0.7rem;
-
-    padding: 5px 10px;
   }
 
-  .skills-body {
-    padding: 12px;
+  .skills-header::before {
+    left: 16px;
+
+    top: 26px;
+
+    height: 58px;
   }
 
-  .skills-section {
-    padding: 12px;
+  .skills-header::after {
+    left: 10px;
+
+    top: 75px;
   }
 
   .skills-grid {
