@@ -8,7 +8,7 @@ import {
   Mail,
   Phone,
   Github,
-  FileText,
+  ExternalLink,
 } from "lucide-react";
 
 import { knowledgeService } from "../../../../service/knowledgeService";
@@ -42,10 +42,17 @@ const ProfileCard = () => {
     return (
       <div className="profile-card profile-loading">
         <div className="profile-spinner" />
-        <span>Cargando perfil...</span>
+
+        <span>
+          Cargando perfil...
+        </span>
       </div>
     );
   }
+
+  // ==========================================
+  // ERROR / SIN DATOS
+  // ==========================================
 
   if (!profile) {
     return null;
@@ -59,7 +66,14 @@ const ProfileCard = () => {
 
   const summary = profile.professional_summary;
 
-  const location = `${personal.location.city}, ${personal.location.state}, ${personal.location.country}`;
+  const location =
+    `${personal.location.city}, ` +
+    `${personal.location.state}, ` +
+    `${personal.location.country}`;
+
+  // ==========================================
+  // CARD
+  // ==========================================
 
   return (
     <article className="profile-card">
@@ -87,6 +101,7 @@ const ProfileCard = () => {
 
         </div>
 
+
         {/* INFORMACIÓN PRINCIPAL */}
 
         <div className="profile-main">
@@ -107,11 +122,13 @@ const ProfileCard = () => {
 
       </section>
 
+
       {/* ======================================
           DIVIDER
       ====================================== */}
 
       <div className="profile-divider" />
+
 
       {/* ======================================
           INFORMATION
@@ -119,9 +136,13 @@ const ProfileCard = () => {
 
       <section className="profile-info">
 
-        {/* FORMACIÓN */}
+        {/* ====================================
+            LEFT COLUMN
+        ==================================== */}
 
         <div className="profile-info-column">
+
+          {/* FORMACIÓN */}
 
           <div className="profile-info-item">
 
@@ -143,6 +164,7 @@ const ProfileCard = () => {
             </div>
 
           </div>
+
 
           {/* UBICACIÓN */}
 
@@ -169,11 +191,17 @@ const ProfileCard = () => {
 
         </div>
 
-        {/* DIVISOR VERTICAL */}
+
+        {/* ====================================
+            VERTICAL DIVIDER
+        ==================================== */}
 
         <div className="profile-vertical-divider" />
 
-        {/* CONTACTO */}
+
+        {/* ====================================
+            RIGHT COLUMN
+        ==================================== */}
 
         <div className="profile-info-column">
 
@@ -195,6 +223,7 @@ const ProfileCard = () => {
 
           </a>
 
+
           {/* TELÉFONO */}
 
           <a
@@ -213,7 +242,33 @@ const ProfileCard = () => {
 
           </a>
 
-          {/* GITHUB */}
+
+          {/* ==================================
+              PORTAFOLIO
+          ================================== */}
+
+          <a
+            href="https://ezequiel-dev-ia.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-contact-item"
+          >
+
+            <ExternalLink
+              size={19}
+              strokeWidth={1.8}
+            />
+
+            <span>
+              ezequiel-dev-ia.vercel.app
+            </span>
+
+          </a>
+
+
+          {/* ==================================
+              GITHUB
+          ================================== */}
 
           <a
             href="https://github.com/Ezequie1Sc"
@@ -237,19 +292,23 @@ const ProfileCard = () => {
 
       </section>
 
+
       {/* ======================================
           DIVIDER
       ====================================== */}
 
       <div className="profile-divider" />
 
+
       {/* ======================================
-          ACTIONS
+          ACTION BUTTONS
       ====================================== */}
 
       <section className="profile-actions">
 
-        {/* GITHUB */}
+        {/* ====================================
+            GITHUB BUTTON
+        ==================================== */}
 
         <a
           href="https://github.com/Ezequie1Sc"
@@ -269,7 +328,10 @@ const ProfileCard = () => {
 
         </a>
 
-        {/* CV */}
+
+        {/* ====================================
+            CV / RESUMEN BUTTON
+        ==================================== */}
 
         <a
           href="/Orlando_Ezequiel_Salazar_Cruz_CV_.pdf"
@@ -278,7 +340,7 @@ const ProfileCard = () => {
           className="profile-button profile-button-resume"
         >
 
-          <FileText
+          <ExternalLink
             size={18}
             strokeWidth={1.8}
           />
