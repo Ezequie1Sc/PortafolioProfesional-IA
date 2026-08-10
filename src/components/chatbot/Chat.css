@@ -685,8 +685,7 @@
 ========================================== */
 
 .follow-up-message {
-  margin-top: -6px;
-
+  margin-top: -4px;
   margin-bottom: 16px;
 
   align-items: flex-start;
@@ -694,19 +693,19 @@
 
 
 /* ==========================================
-   BURBUJA DEL SEGUNDO MENSAJE
+   BURBUJA
 ========================================== */
 
 .follow-up-content {
   max-width: 78%;
 
-  padding: 10px 14px;
+  padding: 11px 15px;
 
   background: var(--bg-card);
 
   border: 1px solid var(--border-subtle);
 
-  border-radius: 16px;
+  border-radius: 15px;
 
   border-top-left-radius: 4px;
 
@@ -721,7 +720,7 @@
 
 
 /* ==========================================
-   TEXTO DESTACADO
+   PALABRAS IMPORTANTES
 ========================================== */
 
 .follow-up-content strong {
@@ -732,12 +731,11 @@
 
 
 /* ==========================================
-   AVATAR DEL SEGUNDO MENSAJE
+   AVATAR
 ========================================== */
 
 .follow-up-message .avatar {
   width: 30px;
-
   height: 30px;
 
   flex-shrink: 0;
@@ -753,9 +751,9 @@
   .follow-up-content {
     max-width: 82%;
 
-    font-size: 12px;
-
     padding: 9px 12px;
+
+    font-size: 12px;
   }
 
 }

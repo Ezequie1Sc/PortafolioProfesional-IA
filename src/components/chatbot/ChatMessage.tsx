@@ -21,106 +21,99 @@ const ChatMessageItem = ({ message }: Props) => {
 
   return (
     <>
-      {/* ==========================================
+      {/* ======================================
           MENSAJE PRINCIPAL
-      ========================================== */}
+      ====================================== */}
 
       <div
         className={`message ${
           isUser ? "user" : "bot"
         }`}
       >
-
-        {/* AVATAR */}
-
         <div
           className={`avatar ${
             isUser ? "user" : "bot"
           }`}
         >
-
           {isUser ? (
             <User size={18} />
           ) : (
             <Bot size={18} />
           )}
-
         </div>
 
-
-        {/* BURBUJA PRINCIPAL */}
-
         <div className="message-content ai-message">
-
           <MessageRenderer
             message={message}
           />
-
         </div>
-
       </div>
 
 
-      {/* ==========================================
+      {/* ======================================
           SEGUNDO MENSAJE DEL ASISTENTE
-      ========================================== */}
+          SOLO PARA LAS CARDS
+      ====================================== */}
 
       {showFollowUp && (
-
         <div className="message bot follow-up-message">
 
-          {/* AVATAR DEL ASISTENTE */}
+          {/* AVATAR */}
 
           <div className="avatar bot">
-
             <Bot size={14} />
-
           </div>
 
 
-          {/* BURBUJA DEL SEGUNDO MENSAJE */}
+          {/* MENSAJE */}
 
           <div className="message-content follow-up-content">
 
+            {/* PROFILE */}
+
             {message.intent === "profile" && (
               <>
-                También puedes preguntarme sobre mis{" "}
+                ¡Claro! También puedes preguntarme
+                por mis{" "}
                 <strong>proyectos</strong>,{" "}
                 <strong>habilidades</strong>,{" "}
                 <strong>tecnologías</strong>,{" "}
                 <strong>experiencia</strong> o{" "}
-                <strong>GitHub</strong>.
+                <strong>GitHub</strong>. 👋🚀
               </>
             )}
 
+
+            {/* GITHUB */}
 
             {message.intent === "github" && (
               <>
-                También puedes preguntarme sobre mis{" "}
+                ¡Claro! También puedes preguntarme
+                por mis{" "}
                 <strong>proyectos</strong>,{" "}
-                <strong>habilidades</strong>,{" "}
-                <strong>tecnologías</strong> o{" "}
-                <strong>experiencia</strong>.
+                <strong>tecnologías</strong>,{" "}
+                <strong>experiencia</strong> o{" "}
+                <strong>habilidades</strong>. 💻🚀
               </>
             )}
 
 
+            {/* SKILLS */}
+
             {message.intent === "skill" && (
               <>
-                También puedes preguntarme sobre mis{" "}
+                ¡Perfecto! También puedes preguntarme
+                por mis{" "}
                 <strong>proyectos</strong>,{" "}
                 <strong>experiencia</strong>,{" "}
                 <strong>certificaciones</strong> o{" "}
-                <strong>GitHub</strong>.
+                <strong>GitHub</strong>. 🛠️🚀
               </>
             )}
 
           </div>
-
         </div>
-
       )}
-
     </>
   );
 };
