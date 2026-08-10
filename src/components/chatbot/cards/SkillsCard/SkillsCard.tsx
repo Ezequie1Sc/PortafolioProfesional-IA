@@ -115,20 +115,20 @@ const icons: Record<string, string> = {
   mongodb:
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
 
-  sql:
-    "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+ sql:
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
 
-  "sql server":
-    "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+"sql server":
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
 
-  sqlserver:
-    "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+sqlserver:
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
 
-  "microsoft sql server":
-    "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+"microsoft sql server":
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
 
-  microsoftsqlserver:
-    "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
+microsoftsqlserver:
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
 
 
   // ========================================
