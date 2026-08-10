@@ -5,6 +5,7 @@
 .skills-card {
   width: 100%;
   max-width: 460px;
+
   margin: 16px auto;
 
   box-sizing: border-box;
@@ -31,9 +32,55 @@
 ========================================== */
 
 .skills-header {
-  padding: 32px 24px 26px;
+  position: relative;
+
+  padding: 32px 24px 28px;
 
   text-align: left;
+}
+
+
+/* ==========================================
+   DECORACIÓN LATERAL
+========================================== */
+
+.skills-header::before {
+  content: "";
+
+  position: absolute;
+
+  left: 24px;
+  top: 32px;
+
+  width: 2px;
+  height: 70px;
+
+  background: #60a5fa;
+
+  border-radius: 999px;
+}
+
+
+/* círculo inferior */
+
+.skills-header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 18px;
+  top: 92px;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #151d2b;
+
+  border: 3px solid #60a5fa;
+
+  box-sizing: border-box;
 }
 
 
@@ -42,7 +89,9 @@
 ========================================== */
 
 .skills-header h2 {
-  margin: 0 0 10px;
+  margin: 0 0 14px;
+
+  padding-left: 48px;
 
   color: #f8fafc;
 
@@ -52,11 +101,11 @@
 
   font-weight: 800;
 
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
 }
 
 
-/* pequeño detalle azul */
+/* punto azul */
 
 .skills-header h2::after {
   content: ".";
@@ -70,13 +119,27 @@
 ========================================== */
 
 .skills-header p {
-  margin: 0;
+  display: inline-block;
 
-  color: #94a3b8;
+  margin: 0 0 0 48px;
 
-  font-size: 0.9rem;
+  padding: 5px 12px;
 
-  line-height: 1.5;
+  border-radius: 999px;
+
+  border: 1px solid #60a5fa;
+
+  background: transparent;
+
+  color: #cbd5e1;
+
+  font-size: 0.78rem;
+
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  white-space: nowrap;
 }
 
 
@@ -86,6 +149,7 @@
 
 .skills-divider {
   width: 100%;
+
   height: 1px;
 
   background: #2a3547;
@@ -133,19 +197,19 @@
 
   margin-bottom: 14px;
 
-  color: #e5e7eb;
+  color: #f1f5f9;
 
-  font-size: 0.9rem;
+  font-size: 1rem;
 
   font-weight: 700;
 
-  letter-spacing: 0.03em;
+  letter-spacing: -0.02em;
 
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 
-/* línea pequeña */
+/* línea después de Frontend */
 
 .skills-section-title::after {
   content: "";
@@ -154,7 +218,7 @@
 
   height: 1px;
 
-  margin-left: 12px;
+  margin-left: 14px;
 
   background: #2f3b4e;
 }
@@ -223,6 +287,7 @@
 
 .skill-icon {
   width: 34px;
+
   height: 34px;
 
   object-fit: contain;
@@ -232,6 +297,7 @@
   transition:
     transform 0.18s ease;
 }
+
 
 .skill-icon-card:hover .skill-icon {
   transform: scale(1.06);
@@ -282,6 +348,7 @@
     transform 0.15s ease;
 }
 
+
 .skill-icon-card:hover::after {
   opacity: 1;
 
@@ -314,6 +381,7 @@
 
 .skills-spinner {
   width: 36px;
+
   height: 36px;
 
   border-radius: 50%;
@@ -337,14 +405,17 @@
   }
 }
 
+
 @keyframes skillsFade {
   from {
     opacity: 0;
+
     transform: translateY(8px);
   }
 
   to {
     opacity: 1;
+
     transform: translateY(0);
   }
 }
@@ -361,11 +432,33 @@
   }
 
   .skills-header {
-    padding: 28px 20px 24px;
+    padding: 28px 20px 26px;
   }
 
   .skills-header h2 {
+    padding-left: 42px;
+
     font-size: 1.75rem;
+  }
+
+  .skills-header p {
+    margin-left: 42px;
+
+    font-size: 0.75rem;
+  }
+
+  .skills-header::before {
+    left: 20px;
+
+    top: 28px;
+
+    height: 64px;
+  }
+
+  .skills-header::after {
+    left: 14px;
+
+    top: 83px;
   }
 
   .skills-body {
@@ -389,6 +482,7 @@
 
   .skill-icon {
     width: 30px;
+
     height: 30px;
   }
 }
@@ -399,6 +493,36 @@
 ========================================== */
 
 @media (max-width: 400px) {
+
+  .skills-header {
+    padding: 26px 16px 24px;
+  }
+
+  .skills-header h2 {
+    padding-left: 36px;
+
+    font-size: 1.55rem;
+  }
+
+  .skills-header p {
+    margin-left: 36px;
+
+    font-size: 0.7rem;
+  }
+
+  .skills-header::before {
+    left: 16px;
+
+    top: 26px;
+
+    height: 58px;
+  }
+
+  .skills-header::after {
+    left: 10px;
+
+    top: 75px;
+  }
 
   .skills-grid {
     grid-template-columns:
@@ -415,6 +539,7 @@
 
   .skill-icon {
     width: 27px;
+
     height: 27px;
   }
 
