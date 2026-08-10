@@ -1,415 +1,657 @@
 /* ==========================================
-   CARD
+   PROFILE CARD
 ========================================== */
 
 .profile-card {
   width: 100%;
-  max-width: 430px;
+  max-width: 880px;
 
-  margin: 16px auto;
+  margin: 18px auto;
 
-  border-radius: 22px;
+  padding: 28px;
 
-  background: rgba(18, 18, 20, .88);
+  box-sizing: border-box;
 
-  backdrop-filter: blur(18px);
+  border-radius: 20px;
 
-  border: 1px solid rgba(255,255,255,.08);
+  background: #111418;
+
+  border: 1px solid #292e35;
 
   box-shadow:
-      0 15px 40px rgba(0,0,0,.45);
+    0 10px 30px rgba(0, 0, 0, 0.22);
+
+  color: #f5f5f5;
 
   overflow: hidden;
 
-  animation: profileFade .45s ease;
+  animation: profileFade 0.35s ease;
 }
+
 
 /* ==========================================
-   HEADER
+   TOP SECTION
 ========================================== */
 
-.profile-header{
+.profile-top {
+  display: grid;
 
-  display:flex;
+  grid-template-columns: 220px 1fr;
 
-  flex-direction:column;
+  align-items: center;
 
-  align-items:center;
+  gap: 34px;
 
-  justify-content:center;
-
-  padding:32px 24px;
-
+  min-height: 220px;
 }
 
-.profile-avatar-wrapper{
-
-  position:relative;
-
-  width:130px;
-
-  height:130px;
-
-  margin-bottom:20px;
-
-}
-
-.profile-avatar{
-
-  width:130px;
-
-  height:130px;
-
-  object-fit:cover;
-
-  border-radius:50%;
-
-  background:#181818;
-
-  border:4px solid rgba(255,255,255,.08);
-
-  transition:.35s;
-
-}
-
-.profile-avatar:hover{
-
-  transform:scale(1.05);
-
-}
-
-.profile-status{
-
-  position:absolute;
-
-  right:10px;
-
-  bottom:10px;
-
-  width:18px;
-
-  height:18px;
-
-  border-radius:50%;
-
-  background:#22c55e;
-
-  border:3px solid #111;
-
-  box-shadow:0 0 12px #22c55e;
-
-  animation:pulse 2s infinite;
-
-}
 
 /* ==========================================
-   TITLES
+   AVATAR
 ========================================== */
 
-.profile-name{
+.profile-avatar-wrapper {
+  position: relative;
 
-  color:#fff;
+  width: 190px;
+  height: 190px;
 
-  font-size:1.55rem;
-
-  font-weight:700;
-
-  margin-bottom:8px;
-
+  margin: 0 auto;
 }
 
-.profile-title{
 
-  color:#9ca3af;
+.profile-avatar {
+  width: 190px;
+  height: 190px;
 
-  font-size:.95rem;
+  object-fit: cover;
 
-  text-align:center;
+  border-radius: 50%;
 
+  background: #181b1f;
+
+  border: 2px solid #343a42;
+
+  display: block;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
+
+
+.profile-avatar:hover {
+  transform: scale(1.02);
+
+  border-color: #4b535e;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.profile-status {
+  position: absolute;
+
+  right: 4px;
+  bottom: 12px;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  border: 3px solid #111418;
+
+  box-shadow:
+    0 0 0 2px #343a42;
+}
+
+
+/* ==========================================
+   MAIN INFORMATION
+========================================== */
+
+.profile-main {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-width: 0;
+}
+
+
+.profile-name {
+  margin: 0 0 7px;
+
+  color: #f8fafc;
+
+  font-size: 2rem;
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+
+.profile-title {
+  margin: 0 0 18px;
+
+  color: #d1d5db;
+
+  font-size: 1.05rem;
+
+  font-weight: 400;
+}
+
+
+.profile-description {
+  max-width: 570px;
+
+  margin: 0;
+
+  color: #aeb5bf;
+
+  font-size: 0.98rem;
+
+  line-height: 1.7;
+}
+
 
 /* ==========================================
    DIVIDER
 ========================================== */
 
-.profile-divider{
+.profile-divider {
+  width: 100%;
 
-  width:100%;
+  height: 1px;
 
-  height:1px;
+  margin: 24px 0;
 
-  background:rgba(255,255,255,.06);
-
+  background: #292e35;
 }
+
 
 /* ==========================================
-   CONTENT
+   INFORMATION AREA
 ========================================== */
 
-.profile-content{
+.profile-info {
+  display: grid;
 
-  padding:22px;
+  grid-template-columns: 1fr 1px 1fr;
 
-  display:flex;
+  gap: 28px;
 
-  flex-direction:column;
-
-  gap:18px;
-
+  min-height: 150px;
 }
 
-.profile-row{
 
-  display:flex;
+.profile-info-column {
+  display: flex;
 
-  align-items:center;
+  flex-direction: column;
 
-  gap:14px;
+  justify-content: center;
 
-  color:#e5e7eb;
+  gap: 22px;
 
+  min-width: 0;
 }
 
-.profile-row svg{
-
-  color:#22c55e;
-
-  flex-shrink:0;
-
-}
 
 /* ==========================================
-   LINKS
+   VERTICAL DIVIDER
 ========================================== */
 
-.profile-link{
+.profile-vertical-divider {
+  width: 1px;
 
-  color:#f3f4f6;
+  height: 100%;
 
-  text-decoration:none;
-
-  transition:.25s;
-
-  word-break:break-all;
-
+  background: #292e35;
 }
 
-.profile-link:hover{
-
-  color:#22c55e;
-
-}
 
 /* ==========================================
-   BUTTONS
+   INFO ITEMS
 ========================================== */
 
-.profile-actions{
+.profile-info-item {
+  display: flex;
 
-  padding:22px;
+  align-items: flex-start;
 
-  display:flex;
+  gap: 14px;
 
-  gap:14px;
-
+  color: #e5e7eb;
 }
 
-.profile-button{
 
-  flex:1;
+.profile-info-item svg {
+  flex-shrink: 0;
 
-  display:flex;
+  margin-top: 2px;
 
-  align-items:center;
-
-  justify-content:center;
-
-  gap:8px;
-
-  height:46px;
-
-  border-radius:12px;
-
-  text-decoration:none;
-
-  color:white;
-
-  background:#27272a;
-
-  transition:.25s;
-
-  border:1px solid rgba(255,255,255,.08);
-
+  color: #d1d5db;
 }
 
-.profile-button:hover{
 
-  transform:translateY(-3px);
+.profile-info-item > div {
+  display: flex;
 
-  background:#323238;
+  flex-direction: column;
 
+  gap: 5px;
+
+  min-width: 0;
 }
 
-.profile-button-primary{
 
-  background:#22c55e;
+.profile-info-label {
+  color: #f3f4f6;
 
-  color:white;
+  font-size: 0.95rem;
 
+  font-weight: 600;
 }
 
-.profile-button-primary:hover{
 
-  background:#16a34a;
+.profile-info-value {
+  color: #aeb5bf;
 
+  font-size: 0.92rem;
+
+  line-height: 1.5;
 }
+
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+.profile-contact-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  min-width: 0;
+
+  color: #cbd5e1;
+
+  text-decoration: none;
+
+  font-size: 0.92rem;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.profile-contact-item svg {
+  flex-shrink: 0;
+
+  color: #d1d5db;
+}
+
+
+.profile-contact-item span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.profile-contact-item:hover {
+  color: #ffffff;
+
+  transform: translateX(2px);
+}
+
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.profile-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-top: 0;
+}
+
+
+.profile-button {
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  border-radius: 11px;
+
+  text-decoration: none;
+
+  font-size: 0.94rem;
+
+  font-weight: 500;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* ==========================================
+   GITHUB BUTTON
+========================================== */
+
+.profile-button-github {
+  color: #e5e7eb;
+
+  background: #171a1e;
+
+  border: 1px solid #353a41;
+}
+
+
+.profile-button-github:hover {
+  color: #ffffff;
+
+  background: #1d2126;
+
+  border-color: #4a5058;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   RESUME BUTTON
+========================================== */
+
+.profile-button-resume {
+  color: #f5f5f5;
+
+  background: #1f2328;
+
+  border: 1px solid #454b53;
+}
+
+
+.profile-button-resume:hover {
+  color: #ffffff;
+
+  background: #272c32;
+
+  border-color: #5a616a;
+
+  transform: translateY(-1px);
+}
+
 
 /* ==========================================
    LOADING
 ========================================== */
 
-.profile-loading{
+.profile-loading {
+  min-height: 280px;
 
-  display:flex;
+  display: flex;
 
-  flex-direction:column;
+  flex-direction: column;
 
-  justify-content:center;
+  align-items: center;
 
-  align-items:center;
+  justify-content: center;
 
-  gap:16px;
+  gap: 14px;
 
-  padding:50px;
-
+  color: #9ca3af;
 }
 
-.profile-loading span{
 
-  color:#9ca3af;
+.profile-spinner {
+  width: 32px;
+  height: 32px;
 
+  border-radius: 50%;
+
+  border: 3px solid #292e35;
+
+  border-top-color: #9ca3af;
+
+  animation: profileSpin 0.8s linear infinite;
 }
 
-.profile-spinner{
-
-  width:40px;
-
-  height:40px;
-
-  border-radius:50%;
-
-  border:4px solid rgba(255,255,255,.08);
-
-  border-top-color:#22c55e;
-
-  animation:spin .8s linear infinite;
-
-}
 
 /* ==========================================
    ANIMATIONS
 ========================================== */
 
-@keyframes spin{
-
-  to{
-
-    transform:rotate(360deg);
-
+@keyframes profileSpin {
+  to {
+    transform: rotate(360deg);
   }
-
 }
 
-@keyframes pulse{
 
-  0%{
+@keyframes profileFade {
+  from {
+    opacity: 0;
 
-    transform:scale(1);
-
-    box-shadow:0 0 0 0 rgba(34,197,94,.6);
-
+    transform: translateY(8px);
   }
 
-  70%{
+  to {
+    opacity: 1;
 
-    transform:scale(1.15);
-
-    box-shadow:0 0 0 10px rgba(34,197,94,0);
-
+    transform: translateY(0);
   }
-
-  100%{
-
-    transform:scale(1);
-
-  }
-
 }
 
-@keyframes profileFade{
-
-  from{
-
-    opacity:0;
-
-    transform:translateY(20px);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-  }
-
-}
 
 /* ==========================================
-   RESPONSIVE
+   TABLET
 ========================================== */
 
-@media (max-width:520px){
+@media (max-width: 700px) {
 
-.profile-card{
+  .profile-card {
+    max-width: 100%;
 
-    max-width:100%;
+    padding: 22px;
+
+    border-radius: 17px;
+  }
+
+
+  .profile-top {
+    grid-template-columns: 150px 1fr;
+
+    gap: 24px;
+
+    min-height: 170px;
+  }
+
+
+  .profile-avatar-wrapper,
+  .profile-avatar {
+    width: 145px;
+    height: 145px;
+  }
+
+
+  .profile-name {
+    font-size: 1.55rem;
+  }
+
+
+  .profile-title {
+    font-size: 0.95rem;
+
+    margin-bottom: 12px;
+  }
+
+
+  .profile-description {
+    font-size: 0.88rem;
+
+    line-height: 1.55;
+  }
 
 }
 
-.profile-actions{
 
-    flex-direction:column;
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 560px) {
+
+  .profile-card {
+    padding: 20px;
+
+    margin: 12px auto;
+  }
+
+
+  .profile-top {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 18px;
+
+    min-height: auto;
+  }
+
+
+  .profile-avatar-wrapper,
+  .profile-avatar {
+    width: 125px;
+    height: 125px;
+  }
+
+
+  .profile-status {
+    right: 2px;
+
+    bottom: 7px;
+
+    width: 15px;
+
+    height: 15px;
+  }
+
+
+  .profile-main {
+    align-items: center;
+  }
+
+
+  .profile-name {
+    font-size: 1.45rem;
+  }
+
+
+  .profile-title {
+    margin-bottom: 12px;
+  }
+
+
+  .profile-description {
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+  }
+
+
+  .profile-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+
+  .profile-vertical-divider {
+    width: 100%;
+
+    height: 1px;
+  }
+
+
+  .profile-info-column {
+    gap: 18px;
+  }
+
+
+  .profile-actions {
+    grid-template-columns: 1fr;
+  }
+
+
+  .profile-button {
+    width: 100%;
+  }
 
 }
 
-.profile-button{
 
-    width:100%;
+/* ==========================================
+   SMALL MOBILE
+========================================== */
 
-}
+@media (max-width: 380px) {
 
-.profile-avatar{
+  .profile-card {
+    padding: 17px;
+  }
 
-    width:110px;
 
-    height:110px;
+  .profile-avatar-wrapper,
+  .profile-avatar {
+    width: 110px;
+    height: 110px;
+  }
 
-}
 
-.profile-avatar-wrapper{
+  .profile-name {
+    font-size: 1.3rem;
+  }
 
-    width:110px;
 
-    height:110px;
-
-}
-
-.profile-name{
-
-    font-size:1.35rem;
-
-}
+  .profile-info-value,
+  .profile-contact-item {
+    font-size: 0.85rem;
+  }
 
 }

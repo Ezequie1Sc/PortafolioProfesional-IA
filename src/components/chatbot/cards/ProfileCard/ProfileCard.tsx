@@ -7,7 +7,6 @@ import {
   MapPin,
   Mail,
   Phone,
-  Globe,
   Github,
   FileText,
 } from "lucide-react";
@@ -16,78 +15,62 @@ import { knowledgeService } from "../../../../service/knowledgeService";
 import type { Profile } from "../../../../types/knowledge";
 
 const ProfileCard = () => {
-
   const [profile, setProfile] = useState<Profile | null>(null);
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     const loadProfile = async () => {
-
       try {
-
-        const data =
-          await knowledgeService.getProfile();
+        const data = await knowledgeService.getProfile();
 
         setProfile(data);
-
       } catch (error) {
-
-        console.error(
-          "Error loading profile:",
-          error
-        );
-
+        console.error("Error loading profile:", error);
       } finally {
-
         setLoading(false);
-
       }
-
     };
 
     loadProfile();
-
   }, []);
 
+  // ==========================================
+  // LOADING
+  // ==========================================
+
   if (loading) {
-
     return (
-
       <div className="profile-card profile-loading">
-
         <div className="profile-spinner" />
-
         <span>Cargando perfil...</span>
-
       </div>
-
     );
-
   }
 
   if (!profile) {
-
     return null;
-
   }
 
-  const personal =
-    profile.personal_information;
+  // ==========================================
+  // DATA
+  // ==========================================
 
-  const summary =
-    profile.professional_summary;
+  const personal = profile.personal_information;
 
-  const location =
-    `${personal.location.city}, ${personal.location.state}, ${personal.location.country}`;
-      return (
+  const summary = profile.professional_summary;
 
-    <div className="profile-card">
+  const location = `${personal.location.city}, ${personal.location.state}, ${personal.location.country}`;
 
-      {/* ================= HEADER ================= */}
+  return (
+    <article className="profile-card">
 
-      <div className="profile-header">
+      {/* ======================================
+          HEADER
+      ====================================== */}
+
+      <section className="profile-top">
+
+        {/* FOTO */}
 
         <div className="profile-avatar-wrapper">
 
@@ -99,132 +82,186 @@ const ProfileCard = () => {
 
           <span
             className="profile-status"
-            title="Disponible para trabajar"
+            title="Disponible para oportunidades"
           />
 
         </div>
 
-        <h2 className="profile-name">
-          {personal.preferred_name}
-        </h2>
+        {/* INFORMACIÓN PRINCIPAL */}
 
-        <p className="profile-title">
+        <div className="profile-main">
 
-          {summary.experience_level}
+          <h2 className="profile-name">
+            {personal.preferred_name}
+          </h2>
 
-        </p>
+          <p className="profile-title">
+            {summary.experience_level}
+          </p>
 
-      </div>
+          <p className="profile-description">
+            {summary.headline}
+          </p>
+
+        </div>
+
+      </section>
+
+      {/* ======================================
+          DIVIDER
+      ====================================== */}
 
       <div className="profile-divider" />
 
-      {/* ================= INFO ================= */}
+      {/* ======================================
+          INFORMATION
+      ====================================== */}
 
-      <div className="profile-content">
+      <section className="profile-info">
 
-        <div className="profile-row">
+        {/* FORMACIÓN */}
 
-          <GraduationCap
-            size={18}
-            strokeWidth={2}
-          />
+        <div className="profile-info-column">
 
-          <span>
+          <div className="profile-info-item">
 
-            Ingeniería en Sistemas Computacionales
+            <GraduationCap
+              size={20}
+              strokeWidth={1.8}
+            />
 
-          </span>
+            <div>
+
+              <span className="profile-info-label">
+                Formación
+              </span>
+
+              <span className="profile-info-value">
+                Ingeniería en Sistemas Computacionales
+              </span>
+
+            </div>
+
+          </div>
+
+          {/* UBICACIÓN */}
+
+          <div className="profile-info-item">
+
+            <MapPin
+              size={20}
+              strokeWidth={1.8}
+            />
+
+            <div>
+
+              <span className="profile-info-label">
+                Ubicación
+              </span>
+
+              <span className="profile-info-value">
+                {location}
+              </span>
+
+            </div>
+
+          </div>
 
         </div>
 
-        <div className="profile-row">
+        {/* DIVISOR VERTICAL */}
 
-          <MapPin
-            size={18}
-            strokeWidth={2}
-          />
+        <div className="profile-vertical-divider" />
 
-          <span>
+        {/* CONTACTO */}
 
-            {location}
+        <div className="profile-info-column">
 
-          </span>
-
-        </div>
-
-      </div>
-
-      <div className="profile-divider" />
-            {/* ================= CONTACT ================= */}
-
-      <div className="profile-content">
-
-        <div className="profile-row">
-
-          <Mail
-            size={18}
-            strokeWidth={2}
-          />
+          {/* EMAIL */}
 
           <a
             href={`mailto:${personal.email}`}
-            className="profile-link"
+            className="profile-contact-item"
           >
-            {personal.email}
+
+            <Mail
+              size={19}
+              strokeWidth={1.8}
+            />
+
+            <span>
+              {personal.email}
+            </span>
+
           </a>
 
-        </div>
-
-        <div className="profile-row">
-
-          <Phone
-            size={18}
-            strokeWidth={2}
-          />
+          {/* TELÉFONO */}
 
           <a
             href={`tel:${personal.phone}`}
-            className="profile-link"
+            className="profile-contact-item"
           >
-            {personal.phone}
+
+            <Phone
+              size={19}
+              strokeWidth={1.8}
+            />
+
+            <span>
+              {personal.phone}
+            </span>
+
           </a>
 
-        </div>
-
-        <div className="profile-row">
-
-          <Globe
-            size={18}
-            strokeWidth={2}
-          />
+          {/* GITHUB */}
 
           <a
-            href="https://ezequiel.dev"
+            href="https://github.com/Ezequie1Sc"
             target="_blank"
             rel="noopener noreferrer"
-            className="profile-link"
+            className="profile-contact-item"
           >
-            ezequiel.dev
+
+            <Github
+              size={19}
+              strokeWidth={1.8}
+            />
+
+            <span>
+              github.com/Ezequie1Sc
+            </span>
+
           </a>
 
         </div>
 
-      </div>
+      </section>
+
+      {/* ======================================
+          DIVIDER
+      ====================================== */}
 
       <div className="profile-divider" />
 
-      {/* ================= ACTIONS ================= */}
+      {/* ======================================
+          ACTIONS
+      ====================================== */}
 
-      <div className="profile-actions">
+      <section className="profile-actions">
+
+        {/* GITHUB */}
 
         <a
           href="https://github.com/Ezequie1Sc"
           target="_blank"
           rel="noopener noreferrer"
-          className="profile-button"
+          className="profile-button profile-button-github"
         >
 
-          <Github size={18} />
+          <Github
+            size={18}
+            strokeWidth={1.8}
+          />
 
           <span>
             GitHub
@@ -232,14 +269,19 @@ const ProfileCard = () => {
 
         </a>
 
+        {/* CV */}
+
         <a
           href="/Orlando_Ezequiel_Salazar_Cruz_CV_.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="profile-button profile-button-primary"
+          className="profile-button profile-button-resume"
         >
 
-          <FileText size={18} />
+          <FileText
+            size={18}
+            strokeWidth={1.8}
+          />
 
           <span>
             Ver Resumen
@@ -247,11 +289,10 @@ const ProfileCard = () => {
 
         </a>
 
-      </div>  
-          </div>
+      </section>
 
+    </article>
   );
-
 };
 
 export default ProfileCard;
