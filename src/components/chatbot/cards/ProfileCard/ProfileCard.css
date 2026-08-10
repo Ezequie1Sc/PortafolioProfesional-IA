@@ -13,7 +13,6 @@
 
   border-radius: 20px;
 
-  /* MISMO TONO GENERAL DEL CHAT */
   background: #151d2b;
 
   border: 1px solid #2a3547;
@@ -68,7 +67,6 @@
 
   border-radius: 50%;
 
-  /* YA NO NEGRO */
   background: #1b2534;
 
   border: 2px solid #3a4658;
@@ -123,12 +121,18 @@
 
   justify-content: center;
 
+  align-items: flex-start;
+
   min-width: 0;
 }
 
 
+/* ==========================================
+   NAME
+========================================== */
+
 .profile-name {
-  margin: 0 0 7px;
+  margin: 0 0 10px;
 
   color: #f8fafc;
 
@@ -136,22 +140,61 @@
 
   line-height: 1.15;
 
-  font-weight: 700;
+  font-weight: 800;
 
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
 }
 
 
+/* ==========================================
+   PROFESSIONAL TITLE
+========================================== */
+
+/*
+   Ahora funciona como la cápsula de
+   "Stack tecnológico..." de Tecnologías.
+*/
+
 .profile-title {
+  display: inline-block;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  box-sizing: border-box;
+
   margin: 0 0 18px;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  border: 1px solid #46556b;
+
+  background: transparent;
 
   color: #cbd5e1;
 
-  font-size: 1.05rem;
+  font-size: 0.78rem;
 
-  font-weight: 400;
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
 
 .profile-description {
   max-width: 570px;
@@ -438,7 +481,8 @@
 
   border-top-color: #94a3b8;
 
-  animation: profileSpin 0.8s linear infinite;
+  animation:
+    profileSpin 0.8s linear infinite;
 }
 
 
@@ -447,16 +491,13 @@
 ========================================== */
 
 @keyframes profileSpin {
-
   to {
     transform: rotate(360deg);
   }
-
 }
 
 
 @keyframes profileFade {
-
   from {
     opacity: 0;
 
@@ -468,7 +509,6 @@
 
     transform: translateY(0);
   }
-
 }
 
 
@@ -499,6 +539,7 @@
   .profile-avatar-wrapper,
   .profile-avatar {
     width: 145px;
+
     height: 145px;
   }
 
@@ -509,7 +550,9 @@
 
 
   .profile-title {
-    font-size: 0.95rem;
+    font-size: 0.73rem;
+
+    padding: 5px 10px;
 
     margin-bottom: 12px;
   }
@@ -520,7 +563,6 @@
 
     line-height: 1.55;
   }
-
 }
 
 
@@ -553,6 +595,7 @@
   .profile-avatar-wrapper,
   .profile-avatar {
     width: 125px;
+
     height: 125px;
   }
 
@@ -578,8 +621,23 @@
   }
 
 
+  /*
+     En móvil permitimos que el texto
+     se adapte si la pantalla es pequeña.
+  */
+
   .profile-title {
-    margin-bottom: 12px;
+    max-width: 100%;
+
+    font-size: 0.72rem;
+
+    padding: 5px 10px;
+
+    white-space: normal;
+
+    text-align: center;
+
+    line-height: 1.4;
   }
 
 
@@ -619,7 +677,6 @@
   .profile-button {
     width: 100%;
   }
-
 }
 
 
@@ -637,6 +694,7 @@
   .profile-avatar-wrapper,
   .profile-avatar {
     width: 110px;
+
     height: 110px;
   }
 
@@ -646,9 +704,15 @@
   }
 
 
+  .profile-title {
+    font-size: 0.68rem;
+
+    padding: 5px 9px;
+  }
+
+
   .profile-info-value,
   .profile-contact-item {
     font-size: 0.85rem;
   }
-
 }
