@@ -89,7 +89,7 @@ const ProfileCard = () => {
         <div className="profile-avatar-wrapper">
 
           <img
-            src="/ezequielemovebg.webp"
+            src="/fondoazul.png"
             alt={personal.preferred_name}
             className="profile-avatar"
           />
