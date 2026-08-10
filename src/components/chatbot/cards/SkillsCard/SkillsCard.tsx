@@ -20,34 +20,34 @@ const icons: Record<string, string> = {
   // ========================================
 
   react:
-    "https://cdn.simpleicons.org/react/61DAFB",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
 
   angular:
-    "https://cdn.simpleicons.org/angular/DD0031",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
 
   typescript:
-    "https://cdn.simpleicons.org/typescript/3178C6",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
 
   javascript:
-    "https://cdn.simpleicons.org/javascript/F7DF1E",
-
-  "tailwind css":
-    "https://cdn.simpleicons.org/tailwindcss/06B6D4",
-
-  tailwindcss:
-    "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
 
   html:
-    "https://cdn.simpleicons.org/html5/E34F26",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
 
   html5:
-    "https://cdn.simpleicons.org/html5/E34F26",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
 
   css:
-    "https://cdn.simpleicons.org/css/663399",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
 
   css3:
-    "https://cdn.simpleicons.org/css/663399",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+
+  "tailwind css":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+
+  tailwindcss:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
 
 
   // ========================================
@@ -55,31 +55,31 @@ const icons: Record<string, string> = {
   // ========================================
 
   python:
-    "https://cdn.simpleicons.org/python/3776AB",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
 
   fastapi:
-    "https://cdn.simpleicons.org/fastapi/009688",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
 
   flask:
-    "https://cdn.simpleicons.org/flask/000000",
-
-  node:
-    "https://cdn.simpleicons.org/nodedotjs/5FA04E",
-
-  nodejs:
-    "https://cdn.simpleicons.org/nodedotjs/5FA04E",
-
-  "node.js":
-    "https://cdn.simpleicons.org/nodedotjs/5FA04E",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg",
 
   java:
-    "https://cdn.simpleicons.org/openjdk/F89820",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
 
   csharp:
-    "https://cdn.simpleicons.org/csharp/512BD4",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
 
   "c#":
-    "https://cdn.simpleicons.org/csharp/512BD4",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+
+  node:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+
+  nodejs:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+
+  "node.js":
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
 
   render:
     "https://cdn.simpleicons.org/render/46E3B7",
@@ -90,16 +90,16 @@ const icons: Record<string, string> = {
   // ========================================
 
   flutter:
-    "https://cdn.simpleicons.org/flutter/02569B",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
 
   dart:
-    "https://cdn.simpleicons.org/dart/0175C2",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg",
 
   android:
-    "https://cdn.simpleicons.org/android/3DDC84",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg",
 
   "android studio":
-    "https://cdn.simpleicons.org/androidstudio/3DDC84",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg",
 
 
   // ========================================
@@ -107,13 +107,13 @@ const icons: Record<string, string> = {
   // ========================================
 
   postgresql:
-    "https://cdn.simpleicons.org/postgresql/4169E1",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
 
   mysql:
-    "https://cdn.simpleicons.org/mysql/4479A1",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
 
   mongodb:
-    "https://cdn.simpleicons.org/mongodb/47A248",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
 
   sql:
     "https://cdn.simpleicons.org/microsoftsqlserver/CC2927",
@@ -136,7 +136,7 @@ const icons: Record<string, string> = {
   // ========================================
 
   arduino:
-    "https://cdn.simpleicons.org/arduino/00979D",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original.svg",
 
   esp32:
     "https://cdn.simpleicons.org/espressif/E7352C",
@@ -150,10 +150,10 @@ const icons: Record<string, string> = {
   // ========================================
 
   git:
-    "https://cdn.simpleicons.org/git/F05032",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
 
   github:
-    "https://cdn.simpleicons.org/github/181717",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
 
 
   // ========================================
@@ -161,37 +161,37 @@ const icons: Record<string, string> = {
   // ========================================
 
   docker:
-    "https://cdn.simpleicons.org/docker/2496ED",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
 
   vite:
-    "https://cdn.simpleicons.org/vite/646CFF",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
 
   vscode:
-    "https://cdn.simpleicons.org/visualstudiocode/007ACC",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
 
   "visual studio code":
-    "https://cdn.simpleicons.org/visualstudiocode/007ACC",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
 
   "visual studio 2022":
-    "https://cdn.simpleicons.org/visualstudio/5C2D91",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg",
 
   visualstudio:
-    "https://cdn.simpleicons.org/visualstudio/5C2D91",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg",
 
   "visual studio":
-    "https://cdn.simpleicons.org/visualstudio/5C2D91",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg",
 
   firebase:
-    "https://cdn.simpleicons.org/firebase/FFCA28",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
 
   vercel:
     "https://cdn.simpleicons.org/vercel/FFFFFF",
 
   npm:
-    "https://cdn.simpleicons.org/npm/CB3837",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
 
   postman:
-    "https://cdn.simpleicons.org/postman/FF6C37",
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
 };
 
 
@@ -220,6 +220,11 @@ const SkillsCard = () => {
 
         const data =
           await knowledgeService.getSkills();
+
+        console.log(
+          "SKILLS RECIBIDAS:",
+          data
+        );
 
         setSkills(data);
 
@@ -276,7 +281,7 @@ const SkillsCard = () => {
 
 
   // ========================================
-  // OBTENER SECCIONES
+  // SECCIONES
   // ========================================
 
   const sections =
@@ -426,7 +431,7 @@ const SkillsCard = () => {
 
 
             // ==================================
-            // SOLO TECNOLOGÍAS CON ICONO
+            // FILTRAR ICONOS
             // ==================================
 
             const visibleItems =
@@ -443,9 +448,6 @@ const SkillsCard = () => {
 
               });
 
-
-            // Si la categoría no tiene
-            // ningún icono, no se muestra.
 
             if (
               visibleItems.length === 0
@@ -465,7 +467,7 @@ const SkillsCard = () => {
 
 
                 {/* ==============================
-                    NOMBRE DE CATEGORÍA
+                    CATEGORÍA
                 ============================== */}
 
                 <div className="skills-section-title">
@@ -512,7 +514,8 @@ const SkillsCard = () => {
                             onError={(event) => {
 
                               console.error(
-                                `No se pudo cargar el icono: ${tech.name}`,
+                                "ERROR ICONO:",
+                                tech.name,
                                 icon
                               );
 
