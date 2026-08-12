@@ -680,7 +680,7 @@ Google Gemini
 
 Backend:
 
-https://github.com/ezequieldevsc/Portafolio-IA
+https://github.com/Ezequie1Sc/Portafolio-IA
 
 API:
 
@@ -918,7 +918,7 @@ flowchart LR
 |---|---|
 | 🌐 Portafolio | https://ezequieel-dev.vercel.app/ |
 | 💻 Frontend GitHub | https://github.com/Ezequie1Sc/PortafolioProfesional-IA |
-| ⚡ Backend GitHub | https://github.com/ezequieldevsc/Portafolio-IA |
+| ⚡ Backend GitHub | https://github.com/Ezequie1Sc/Portafolio-IA |
 | 🤖 API | https://portafolio-ia-4r2q.onrender.com/ |
 | 📖 Swagger | https://portafolio-ia-4r2q.onrender.com/docs |
 
