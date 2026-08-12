@@ -12,11 +12,13 @@ import Contact from "./components/sections/Contact";
 import Footer from "./components/common/Footer";
 import SplashScreen from "./components/SplashScreen/SplashScreen";
 
+import { wakeUpServer } from "./service/healthService";
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
-  
+
   const location = useLocation();
 
   useEffect(() => {
@@ -26,6 +28,10 @@ function App() {
       setDarkMode(true);
       document.documentElement.classList.add("dark");
     }
+
+    // 🔥 Despierta el backend de Render en segundo plano.
+    // No bloqueamos la carga del portfolio.
+    wakeUpServer();
 
     const timer = setTimeout(() => {
       setLoading(false);
@@ -49,13 +55,17 @@ function App() {
           block: "start",
         });
     });
-
   }, [location]);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
+
     document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", !darkMode ? "dark" : "light");
+
+    localStorage.setItem(
+      "theme",
+      !darkMode ? "dark" : "light"
+    );
   };
 
   const isChatPage = location.pathname === "/chat";
@@ -80,6 +90,7 @@ function App() {
 
           <main className={`${isChatPage ? "" : "pt-24"} flex-grow`}>
             <Routes>
+
               <Route
                 path="/"
                 element={
@@ -97,6 +108,7 @@ function App() {
                 path="/chat"
                 element={<Chat />}
               />
+
             </Routes>
           </main>
 
