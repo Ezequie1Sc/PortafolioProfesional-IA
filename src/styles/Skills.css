@@ -212,8 +212,9 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
+  width: 100%;
 }
 
 /* ===== SKILL CARD ===== */
@@ -415,6 +416,12 @@
     gap: 1.5rem;
   }
   
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+  }
+  
   .skill-card-wrapper {
     height: 360px;
   }
@@ -486,8 +493,9 @@
   }
   
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+    width: 100%;
   }
   
   .skill-card-wrapper {
@@ -689,4 +697,26 @@
     animation: none !important;
     transition: none !important;
   }
+}
+/* =====================================================
+   FIX DEFINITIVO - SKILLS GRID
+   ===================================================== */
+
+.skills-section .skills-column {
+  width: 100%;
+  min-width: 0;
+}
+
+.skills-section .skills-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-flow: row;
+  gap: 1.2rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.skills-section .skills-grid > div {
+  width: 100%;
+  min-width: 0;
 }
