@@ -173,7 +173,7 @@ const Skills = () => {
               <div className="about-me-image-container">
                 <div className="about-me-image-wrapper">
                   <img
-                    src="foto.webp"
+                    src="fondoazul.png"
                     alt="Profile"
                     className="about-me-image"
                   />
