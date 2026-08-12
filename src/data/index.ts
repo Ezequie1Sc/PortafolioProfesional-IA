@@ -17,7 +17,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'GitHub',
-    url: 'https://github.com/ezequieldevsc',
+    url: 'https://github.com/Ezequie1Sc',
     icon: '/icons/github.svg',
     hoverColor: 'hover:text-purple-400',
   },
@@ -239,7 +239,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/Invernadero/i_2.png', '/proyectos/Invernadero/i_3.png'],
     color: 'green',
-    github: 'https://github.com/ezequieldevsc/ServerInvernadero',
+    github: 'https://github.com/Ezequie1Sc/ServerInvernadero',
     problem: 'Agricultores perdían cosechas por falta de monitoreo preciso y riego ineficiente.',
     solution: 'Sistema IoT con sensores que automatiza el riego basado en datos reales.',
     howItWorks: [
@@ -266,7 +266,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/9.png', '/proyectos/3.png', '/proyectos/4.png', '/proyectos/D_3.png', '/proyectos/D_4.png', '/proyectos/D_5.png', '/proyectos/D_6.png'],
     color: 'blue',
-    github: 'https://github.com/ezequieldevsc/SIGEL',
+    github: 'https://github.com/Ezequie1Sc/SIGEL',
     problem: 'Estudiantes y profesores enfrentaban dificultades para gestionar inventarios de laboratorio, entregar trabajos prácticos y hacer seguimiento de asignaciones de manera centralizada.',
     solution: 'Sistema móvil integral con IA que automatiza la gestión académica, permitiendo control de inventario en tiempo real, entregas digitales y seguimiento personalizado.',
     howItWorks: [
@@ -294,7 +294,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/barberia/b_2.png', '/proyectos/barberia/b_3.png', '/proyectos/barberia/b_4.png', '/proyectos/barberia/b_5.png'],
     color: 'purple',
-    github: 'https://github.com/ezequieldevsc/BarberApk',
+    github: 'https://github.com/Ezequie1Sc/BarberApk',
     problem: 'Barberías perdían clientes por falta de sistema de reservas y mala gestión de turnos.',
     solution: 'App todo-en-uno que digitaliza reservas 24/7, catálogo de productos y sistema de fidelización.',
     howItWorks: [
@@ -320,7 +320,7 @@ export const projects: Project[] = [
     ],
     images: ['/game1.webp'],
     color: 'orange',
-    github: 'https://github.com/ezequieldevsc/love_apk',
+    github: 'https://github.com/Ezequie1Sc/love_apk',
    problem: 'Falta de opciones de entretenimiento rápido y accesible para sesiones cortas en dispositivos móviles.',
     solution: 'Juego arcade que mejora reflejos mientras ofrece experiencia divertida.',
     howItWorks: [
@@ -357,7 +357,7 @@ export const projects: Project[] = [
     '/proyectos/jobly/3.png'
   ],
   color: 'blue',
-  github: 'https://github.com/ezequieldevsc/techhire-dashboard.git',
+  github: 'https://github.com/Ezequie1Sc/techhire-dashboard.git',
   demoUrl: 'https://techhire-dashboard.vercel.app/',
   problem: 'Los usuarios que buscan empleo en tecnología suelen navegar entre múltiples plataformas con interfaces saturadas, filtros poco claros y una experiencia poco práctica para encontrar, guardar y revisar oportunidades relevantes.',
   solution: 'Se desarrolló una aplicación web moderna con Angular que centraliza vacantes tecnológicas en una interfaz limpia, rápida y responsiva. La plataforma permite explorar empleos, aplicar filtros por categoría, consultar detalles y guardar vacantes favoritas mediante almacenamiento local.',
@@ -385,7 +385,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/plenum/1.png', '/proyectos/plenum/2.png', '/proyectos/plenum/3.png'],
     color: 'orange',
-    github: 'https://github.com/ezequieldevsc/web-casita',
+    github: 'https://github.com/Ezequie1Sc/web-casita',
     demoUrl: 'https://web-casita.vercel.app/',
     problem: 'Negocios gastronómicos no tenían presencia digital para recibir pedidos.',
     solution: 'Landing page optimizada que conecta directamente con WhatsApp.',
@@ -418,7 +418,7 @@ export const projects: Project[] = [
     '/proyectos/skillmatch/3.png'
   ],
   color: 'purple',
-  github: 'https://github.com/ezequieldevsc/skill-match-demo.git',
+  github: 'https://github.com/Ezequie1Sc/skill-match-demo.git',
   demoUrl: 'https://skill-match-demo-nine.vercel.app/landing-page',
   problem: 'La formación de equipos en proyectos académicos suele realizarse de manera informal, basándose en amistades o decisiones rápidas, lo que genera grupos desequilibrados, distribución desigual de responsabilidades y una menor eficiencia en el desarrollo de proyectos.',
   solution: 'Se desarrolló una plataforma web que permite registrar perfiles de estudiantes, analizar habilidades, intereses y roles preferidos para generar equipos equilibrados de forma automática, mejorando la colaboración y organización.',
@@ -450,7 +450,7 @@ export const projects: Project[] = [
     '/proyectos/kermes/3.png'
   ],
   color: 'blue',
-  github: 'https://github.com/ezequieldevsc/Kermes.git',
+  github: 'https://github.com/Ezequie1Sc/Kermes.git',
   demoUrl: 'https://kermes-six.vercel.app/',
   problem: 'La Fundación Avanza Amor y Liderazgo Vida necesitaba una forma moderna y accesible de promocionar la Kermés Rockera 2026, centralizando la información del evento y facilitando su difusión en redes sociales y medios digitales.',
   solution: 'Se desarrolló una landing page responsiva con una identidad visual inspirada en la temática rockera del evento. El sitio permite presentar información relevante de manera clara y atractiva, mejorando el alcance y la experiencia de los visitantes.',
@@ -482,7 +482,7 @@ export const projects: Project[] = [
     '/proyectos/tecnico/3.png'
   ],
   color: 'blue',
-  github: 'https://github.com/ezequieldevsc/IceCold.git',
+  github: 'https://github.com/Ezequie1Sc/IceCold.git',
   demoUrl: 'https://tecnico-miguel.vercel.app/',
   problem: 'Muchos técnicos independientes carecen de una presencia digital profesional para mostrar sus servicios y facilitar el contacto con clientes potenciales.',
   solution: 'Desarrollo de una landing page moderna y responsive que presenta los servicios ofrecidos y permite la comunicación inmediata mediante WhatsApp.',
@@ -511,7 +511,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/plenum/1.png', '/proyectos/plenum/2.png', '/proyectos/plenum/3.png'],
     color: 'blue',
-    github: 'https://github.com/ezequieldevsc/Practica-Web',
+    github: 'https://github.com/Ezequie1Sc/Practica-Web',
     demoUrl: 'https://practica-web-kappa.vercel.app/',
     problem: 'El programa formativo no tenía presencia digital profesional.',
     solution: 'Sitio web moderno que presenta información de manera organizada y atractiva.',
@@ -547,7 +547,7 @@ export const projects: Project[] = [
 
   color: 'orange',
 
-  github: 'https://github.com/ezequieldevsc/Portafolio-demo',
+  github: 'https://github.com/Ezequie1Sc/Portafolio-demo',
   demoUrl: 'https://portafolio-demo-liard.vercel.app/',
 
   problem: 'Muchos desarrolladores necesitan una forma profesional y atractiva de presentar sus proyectos, habilidades y experiencia en un solo lugar.',
@@ -582,7 +582,7 @@ export const projects: Project[] = [
     '/proyectos/atmosfera/responsive.png'
   ],
   color: 'orange',
-  github: 'https://github.com/ezequieldevsc/Weather-app',
+  github: 'https://github.com/Ezequie1Sc/Weather-app',
   demoUrl: 'https://weather-app-theta-one-68.vercel.app/',
   problem: 'Necesidad de consultar el clima actual de cualquier ciudad del mundo de forma rapida y visualmente clara, sin distracciones publicitarias ni interfaces sobrecargadas.',
   solution: 'Aplicacion web con arquitectura modular que integra Open-Meteo (datos meteorologicos) y Nominatim (geocodificacion), mostrando informacion climatica completa con un diseno editorial minimalista y tipografia cuidada.',
@@ -615,7 +615,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/js-lab/1.png', '/proyectos/js-lab/2.png', '/proyectos/js-lab/3.png', '/proyectos/js-lab/4.png'],
     color: 'purple',
-    github: 'https://github.com/ezequieldevsc/Ejercicios-de-Javascript',
+    github: 'https://github.com/Ezequie1Sc/Ejercicios-de-Javascript',
     demoUrl: 'https://ejercicios-de-javascript.vercel.app/',
     problem: 'Estudiantes carecían de herramienta práctica para aprender JavaScript.',
     solution: 'Laboratorio digital con ejercicios progresivos y ejecución en tiempo real.',
@@ -642,7 +642,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/portafolio/1.png', '/proyectos/portafolio/2.png', '/proyectos/portafolio/3.png'],
     color: 'green',
-    github: 'https://github.com/ezequieldevsc/Portafolio',
+    github: 'https://github.com/Ezequie1Sc/Portafolio',
     demoUrl: 'https://portafolio-phi-six-35.vercel.app/',
     problem: 'Desarrolladores necesitan destacar profesionalmente con un portafolio moderno.',
     solution: 'Portafolio con arquitectura limpia y animaciones suaves.',
@@ -670,7 +670,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/backend/sigelServer.png', '/proyectos/backend/sigel4.png', '/proyectos/backend/sigel3.png', '/proyectos/backend/sigel5.png', '/proyectos/backend/ss.png'],
     color: 'blue',
-    github: 'https://github.com/ezequieldevsc/SIGEL/tree/main/Backend/server',
+    github: 'https://github.com/Ezequie1Sc/SIGEL/tree/main/Backend/server',
     problem: 'Sistema académico necesitaba backend robusto para múltiples usuarios concurrentes.',
     solution: 'API RESTful con autenticación JWT y arquitectura modular escalable.',
     howItWorks: [
@@ -695,7 +695,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/backend/inverServer.png', '/proyectos/backend/inver1.png'],
     color: 'green',
-    github: 'https://github.com/ezequieldevsc/ServerInvernadero',
+    github: 'https://github.com/Ezequie1Sc/ServerInvernadero',
     problem: 'Sistemas IoT necesitaban backend confiable para procesar datos en tiempo real.',
     solution: 'API especializada en IoT con procesamiento de sensores y lógica de decisión.',
     howItWorks: [
@@ -720,7 +720,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/backend/baServer.png', '/proyectos/backend/ba01.png', '/proyectos/backend/ba0.png', '/proyectos/backend/ba4.png', '/proyectos/backend/ba3.png', '/proyectos/backend/ba2.png', '/proyectos/backend/ba1.png'],
     color: 'purple',
-    github: 'https://github.com/ezequieldevsc/BarberServer',
+    github: 'https://github.com/Ezequie1Sc/BarberServer',
     problem: 'Negocios necesitaban sistema confiable que evitara dobles reservas.',
     solution: 'API robusta con validación de disponibilidad y control de concurrencia.',
     howItWorks: [
@@ -747,7 +747,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/dekstop/barber/ba0.jpg', '/proyectos/dekstop/barber/ba1.png', '/proyectos/dekstop/barber/ba2.png', '/proyectos/dekstop/barber/ba3.png', '/proyectos/dekstop/barber/ba4.png', '/proyectos/dekstop/barber/ba5.png', '/proyectos/dekstop/barber/b6Admin.png'],
     color: 'orange',
-    github: 'https://github.com/ezequieldevsc/Barberia',
+    github: 'https://github.com/Ezequie1Sc/Barberia',
     problem: 'Barberías manejaban operaciones en papel con pérdida de información.',
     solution: 'Sistema completo que centraliza citas, clientes, inventario y ventas.',
     howItWorks: [
@@ -772,7 +772,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/dekstop/escuela/es1.png', '/proyectos/dekstop/escuela/es2.png', '/proyectos/dekstop/escuela/es3.png', '/proyectos/dekstop/escuela/es4.png', '/proyectos/dekstop/escuela/es5.png', '/proyectos/dekstop/escuela/es6.png', '/proyectos/dekstop/escuela/es7.png', '/proyectos/dekstop/escuela/es8.png', '/proyectos/dekstop/escuela/es9.png', '/proyectos/dekstop/escuela/es10.png'],
     color: 'purple',
-    github: 'https://github.com/ezequieldevsc/ControlEscolar',
+    github: 'https://github.com/Ezequie1Sc/ControlEscolar',
     problem: 'Instituciones carecían de sistema integrado para gestión administrativa.',
     solution: 'Sistema desktop con módulos de inventario, facturación y reportes.',
     howItWorks: [
@@ -797,7 +797,7 @@ export const projects: Project[] = [
     ],
     images: ['/proyectos/dekstop/inventario/logiin.png', '/proyectos/dekstop/inventario/welcome.png', '/proyectos/dekstop/inventario/d2.png', '/proyectos/dekstop/inventario/d3.png', '/proyectos/dekstop/inventario/prove.png', '/proyectos/dekstop/inventario/d1.png', '/proyectos/dekstop/inventario/producto.png', '/proyectos/dekstop/inventario/ventas.png', '/proyectos/dekstop/inventario/admin.png', '/proyectos/dekstop/inventario/admin1.png'],
     color: 'green',
-    github: 'https://github.com/ezequieldevsc/Inventario',
+    github: 'https://github.com/Ezequie1Sc/Inventario',
     problem: 'PYMEs sufrían descontrol de inventario con métodos manuales.',
     solution: 'Sistema profesional con control preciso y alertas automáticas.',
     howItWorks: [
