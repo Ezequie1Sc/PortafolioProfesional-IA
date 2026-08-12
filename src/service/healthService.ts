@@ -6,11 +6,11 @@ export const wakeUpServer = async (): Promise<boolean> => {
       timeout: 70000,
     });
 
-    console.log("🔥 Backend listo");
+    console.log(" Backend listo 🔥");
 
     return true;
   } catch (error) {
-    console.warn("⏳ El backend todavía está despertando...");
+    console.warn(" El backend todavía está despertando...⏳");
 
     return false;
   }
