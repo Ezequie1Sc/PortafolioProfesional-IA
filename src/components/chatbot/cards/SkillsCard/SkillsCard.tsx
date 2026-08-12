@@ -1,4 +1,4 @@
-import "./SkillsCard.css";
+import "./SkillsCardd.css";
 
 import { useEffect, useState } from "react";
 
