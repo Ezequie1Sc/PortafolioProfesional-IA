@@ -208,6 +208,7 @@
    ======================================== */
 .skills-column {
   min-width: 0;
+  width: 100%;
 }
 
 .skills-grid {
@@ -215,6 +216,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
   width: 100%;
+  min-width: 0;
 }
 
 /* ===== SKILL CARD ===== */
@@ -222,6 +224,8 @@
   perspective: 1500px;
   height: 380px;
   cursor: pointer;
+  width: 100%;
+  min-width: 0;
 }
 
 .skill-card-inner {
@@ -417,7 +421,7 @@
   }
   
   .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 1rem;
     width: 100%;
   }
@@ -493,7 +497,7 @@
   }
   
   .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 1rem;
     width: 100%;
   }
@@ -573,10 +577,11 @@
   }
 }
 
+/* ===== RESPONSIVE MÓVIL PEQUEÑO ===== */
 @media (max-width: 480px) {
   .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Mantener 2 columnas */
+    gap: 0.8rem;
   }
   
   .skill-card-wrapper {
@@ -642,6 +647,28 @@
   }
 }
 
+/* ===== PANTALLAS MUY PEQUEÑAS ===== */
+@media (max-width: 360px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important; /* 1 columna en pantallas muy pequeñas */
+    gap: 0.8rem;
+  }
+  
+  .skill-card-wrapper {
+    height: 300px;
+  }
+  
+  .skill-icon-circle {
+    width: 45px;
+    height: 45px;
+    padding: 7px;
+  }
+  
+  .skill-icon-name {
+    font-size: 0.6rem;
+  }
+}
+
 /* ===== OPTIMIZACIONES DE RENDIMIENTO ===== */
 .skills-section,
 .skills-column,
@@ -698,10 +725,10 @@
     transition: none !important;
   }
 }
+
 /* =====================================================
    FIX DEFINITIVO - SKILLS GRID
    ===================================================== */
-
 .skills-section .skills-column {
   width: 100%;
   min-width: 0;
@@ -719,4 +746,17 @@
 .skills-section .skills-grid > div {
   width: 100%;
   min-width: 0;
+}
+
+/* ===== CORRECCIÓN FINAL PARA RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .skills-section .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .skills-section .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
