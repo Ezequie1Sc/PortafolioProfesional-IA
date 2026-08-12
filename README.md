@@ -125,7 +125,7 @@ El portafolio permitió:
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/ezequieldevsc/Portafolio
+git clone https://github.com/Ezequie1Sc/Portafolio
 cd Portafolio
 
 # Instalar dependencias
