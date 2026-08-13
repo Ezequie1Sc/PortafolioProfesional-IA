@@ -1,6 +1,7 @@
 /* ========================================
 HEADER - BASE
 ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
 
 .header {
   position: fixed;
@@ -141,8 +142,8 @@ BOTÓN CERRAR
   background: #3b82f6;
   color: #ffffff;
 
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.78rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 1px;
 
@@ -180,14 +181,15 @@ ENLACES DEL MENÚ (ESTILO PERSIANA/POR LETRA)
   padding: 0.35rem 0;
   margin-left: 0;
 
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  /* FUENTE DEL DISEÑO */
+  font-family: 'Rajdhani', sans-serif;
   color: #ffffff;
   text-decoration: none;
 
-  font-size: clamp(1.55rem, 3vw, 1.95rem);
-  font-weight: 800;
+  font-size: clamp(1.75rem, 3vw, 2.05rem);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 
   perspective: 900px;
@@ -272,9 +274,10 @@ RESPONSIVE (MÓVIL)
   }
 
   .mobile-nav-link {
-    font-size: 1.45rem;
+    font-size: 1.65rem;
   }
 }
+
 /* ========================================
 CORTINA DE TRANSICIÓN PREMIUM
 ======================================== */
