@@ -341,14 +341,55 @@
     gap: 0.75rem;
   }
 
+  .footer-bottom {
+    margin-top: 0.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-legal-link,
+  .footer-copyright {
+    position: relative;
+    z-index: 5;
+  }
+
   .footer::before {
     height: 150px;
     background-size: auto 150px;
     background-position: center bottom;
   }
+
+  .footer::after {
+    height: 150px;
+
+    background:
+      radial-gradient(
+        ellipse at 30% 100%,
+        rgba(59, 130, 246, 0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse at 70% 100%,
+        rgba(168, 85, 247, 0.14),
+        transparent 60%
+      );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    z-index: 0;
+  }
 }
 
+/* ============================================================
+   MOBILE PEQUEÑO
+   ============================================================ */
+
 @media (max-width: 480px) {
+  .footer-container {
+    padding: 2.5rem 1.25rem 1.25rem;
+  }
+
   .footer-logo-img {
     height: 34px;
   }
@@ -359,6 +400,7 @@
 
   .footer-description {
     font-size: 0.85rem;
+    line-height: 1.65;
   }
 
   .footer-social-btn {
@@ -367,12 +409,27 @@
   }
 
   .footer-email-link {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
   }
 
+  /* ========================================================
+     SILUETA MÁS GRANDE EN TELÉFONO
+     ======================================================== */
+
   .footer::before {
-    height: 120px;
-    background-size: auto 120px;
+    height: 260px;
+
+    opacity: 0.5;
+
+    /*
+      Movemos ligeramente la imagen para que
+      la parte interesante del skyline quede visible.
+    */
+    background-position: center bottom;
+  }
+
+  .footer::after {
+    height: 130px;
   }
 }
 
