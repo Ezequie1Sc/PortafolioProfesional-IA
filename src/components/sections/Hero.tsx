@@ -156,20 +156,23 @@ const Hero: React.FC = () => {
         onMouseEnter={() => setChatbotOpen(true)}
         onMouseLeave={() => setChatbotOpen(false)}
       >
-        {/* BURBUJA */}
+        {/* BURBUJA RETRO */}
         <div className="chatbot-tooltip">
-          <div className="chatbot-tooltip-content">
-            <span className="chatbot-tooltip-title">
-              ¡Hola! 👋
-            </span>
+          <div className="chatbot-tooltip-inner">
 
-            <span className="chatbot-tooltip-text">
+            <div className="chatbot-message-line message-line-1">
+              <span className="message-cursor">›</span>
+              <span>¡Hola! 👋</span>
+            </div>
+
+            <div className="chatbot-message-line message-line-2">
               Puedes hablar conmigo
-            </span>
+            </div>
 
-            <span className="chatbot-tooltip-hint">
+            <div className="chatbot-message-line message-line-3">
               Pregúntame lo que sea ✨
-            </span>
+            </div>
+
           </div>
         </div>
 
@@ -187,6 +190,7 @@ const Hero: React.FC = () => {
           }}
         >
           <div className="chatbot-robot">
+
             <div className="robot-antenna">
               <span></span>
             </div>
@@ -205,6 +209,7 @@ const Hero: React.FC = () => {
             <div className="robot-body">
               <span className="robot-light"></span>
             </div>
+
           </div>
         </button>
       </div>
