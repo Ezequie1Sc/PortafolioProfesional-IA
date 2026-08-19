@@ -416,3 +416,426 @@ body {
   .tech-logo-item { width: 28px; height: 28px; }
   .tech-logo-img { height: 20px; width: 20px; }
 }
+/* ========================================
+   ROBOT CHATBOT
+   ======================================== */
+
+.hero-chatbot {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 5rem);
+  bottom: 5.5rem;
+
+  display: flex;
+  align-items: flex-end;
+  gap: 0.9rem;
+
+  text-decoration: none;
+  z-index: 15;
+
+  animation: chatbotEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.3s ease;
+}
+
+.hero-chatbot:hover {
+  transform: translateY(-6px);
+}
+
+
+/* ===============================
+   MENSAJE DEL ROBOT
+   =============================== */
+
+.chatbot-message {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 190px;
+  padding: 0.85rem 1rem;
+
+  color: #f8fafc;
+  background: rgba(30, 41, 59, 0.92);
+
+  border: 1px solid rgba(96, 165, 250, 0.35);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(59, 130, 246, 0.08);
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+.chatbot-message::after {
+  content: "";
+
+  position: absolute;
+
+  right: -8px;
+  bottom: 18px;
+
+  width: 14px;
+  height: 14px;
+
+  background: rgba(30, 41, 59, 0.92);
+
+  border-top: 1px solid rgba(96, 165, 250, 0.35);
+  border-right: 1px solid rgba(96, 165, 250, 0.35);
+
+  transform: rotate(45deg);
+}
+
+.hero-chatbot:hover .chatbot-message {
+  border-color: #60a5fa;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+.chatbot-message-small {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-bottom: 0.15rem;
+}
+
+.chatbot-message strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.chatbot-message-link {
+  margin-top: 0.35rem;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  color: #60a5fa;
+
+  transition: transform 0.3s ease;
+}
+
+.hero-chatbot:hover .chatbot-message-link {
+  transform: translateX(4px);
+}
+
+
+/* ===============================
+   ROBOT
+   =============================== */
+
+.chatbot-robot {
+  position: relative;
+
+  width: 70px;
+  height: 86px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  filter: drop-shadow(0 10px 18px rgba(59, 130, 246, 0.25));
+
+  animation: robotFloat 3.5s ease-in-out infinite;
+}
+
+
+/* ANTENA */
+
+.robot-antenna {
+  position: relative;
+
+  width: 4px;
+  height: 12px;
+
+  background: #60a5fa;
+
+  margin-bottom: -1px;
+}
+
+.robot-antenna span {
+  position: absolute;
+
+  top: -7px;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.12),
+    0 0 12px rgba(96, 165, 250, 0.8);
+
+  transform: translateX(-50%);
+
+  animation: antennaPulse 2s ease-in-out infinite;
+}
+
+
+/* CABEZA */
+
+.robot-head {
+  position: relative;
+
+  width: 70px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #1e293b;
+
+  border: 2px solid #60a5fa;
+
+  border-radius: 18px 18px 14px 14px;
+
+  box-shadow:
+    inset 0 0 18px rgba(59, 130, 246, 0.1),
+    0 0 18px rgba(59, 130, 246, 0.2);
+}
+
+
+/* CARA */
+
+.robot-face {
+  width: 48px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  background: #0f172a;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+
+/* OJOS */
+
+.robot-eye {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #60a5fa;
+
+  box-shadow:
+    0 0 8px #60a5fa,
+    0 0 16px rgba(59, 130, 246, 0.7);
+
+  animation: robotBlink 4s infinite;
+}
+
+
+/* OREJAS */
+
+.robot-ear {
+  position: absolute;
+
+  width: 7px;
+  height: 20px;
+
+  background: #334155;
+
+  border: 1px solid #60a5fa;
+
+  top: 13px;
+}
+
+.robot-ear-left {
+  left: -8px;
+  border-radius: 5px 0 0 5px;
+}
+
+.robot-ear-right {
+  right: -8px;
+  border-radius: 0 5px 5px 0;
+}
+
+
+/* CUERPO */
+
+.robot-body {
+  position: relative;
+
+  width: 42px;
+  height: 24px;
+
+  margin-top: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #1e293b;
+
+  border: 2px solid #60a5fa;
+
+  border-radius: 7px 7px 12px 12px;
+
+  border-top: none;
+}
+
+.robot-light {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #3b82f6;
+
+  box-shadow: 0 0 10px #60a5fa;
+
+  animation: antennaPulse 1.5s ease-in-out infinite;
+}
+
+
+/* ===============================
+   ANIMACIONES
+   =============================== */
+
+@keyframes chatbotEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+
+@keyframes robotFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+
+@keyframes antennaPulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.25);
+    opacity: 0.7;
+  }
+}
+
+
+@keyframes robotBlink {
+  0%,
+  45%,
+  48%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  46%,
+  47% {
+    transform: scaleY(0.15);
+  }
+}
+
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 1024px) {
+  .hero-chatbot {
+    right: 1.5rem;
+    bottom: 5.5rem;
+  }
+
+  .chatbot-message {
+    min-width: 170px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-chatbot {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    justify-content: flex-end;
+
+    margin: 0.2rem 0 1rem;
+
+    padding-right: 0.5rem;
+
+    order: 3;
+  }
+
+  .chatbot-message {
+    min-width: 155px;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .chatbot-message-small {
+    font-size: 0.65rem;
+  }
+
+  .chatbot-message strong {
+    font-size: 0.82rem;
+  }
+
+  .chatbot-message-link {
+    font-size: 0.7rem;
+  }
+
+  .chatbot-robot {
+    width: 58px;
+    height: 72px;
+    transform: scale(0.9);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero-chatbot {
+    justify-content: center;
+
+    gap: 0.6rem;
+
+    padding: 0;
+
+    margin-top: 0.5rem;
+  }
+
+  .chatbot-message {
+    min-width: 145px;
+  }
+
+  .chatbot-robot {
+    transform: scale(0.82);
+    transform-origin: bottom center;
+  }
+}
