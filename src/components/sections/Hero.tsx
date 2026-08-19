@@ -20,7 +20,6 @@ const Hero: React.FC = () => {
   const [chatbotOpen, setChatbotOpen] = useState(false);
 
   // Array de tecnologías (TRIPLICADO para efecto infinito perfecto)
-  // Agregados: React, Angular, Tailwind
   const baseTechLogos: TechLogo[] = [
     { name: 'Flutter', icon: '/icons/flutter.svg' },
     { name: 'Dart', icon: '/icons/dart.svg' },
@@ -159,17 +158,19 @@ const Hero: React.FC = () => {
       >
         {/* BURBUJA */}
         <div className="chatbot-tooltip">
-          <span className="chatbot-tooltip-title">
-            ¡Hola! 👋
-          </span>
+          <div className="chatbot-tooltip-content">
+            <span className="chatbot-tooltip-title">
+              ¡Hola! 👋
+            </span>
 
-          <span className="chatbot-tooltip-text">
-            Puedes hablar conmigo
-          </span>
+            <span className="chatbot-tooltip-text">
+              Puedes hablar conmigo
+            </span>
 
-          <span className="chatbot-tooltip-hint">
-            Pregúntame lo que sea ✨
-          </span>
+            <span className="chatbot-tooltip-hint">
+              Pregúntame lo que sea ✨
+            </span>
+          </div>
         </div>
 
         {/* BOTÓN DEL ROBOT */}
