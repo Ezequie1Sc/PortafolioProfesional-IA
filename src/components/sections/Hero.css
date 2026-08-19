@@ -371,7 +371,7 @@ body {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ========================================
-   ROBOT CHATBOT - CON VIDA
+   ROBOT CHATBOT
    ======================================== */
 
 .hero-chatbot {
@@ -391,9 +391,9 @@ body {
   transform: translateY(-4px);
 }
 
-/* ========================================
-   BURBUJA TOOLTIP MEJORADA
-   ======================================== */
+/* =========================================
+   BURBUJA RETRO ESTILO TERMINAL
+   ========================================= */
 
 .chatbot-tooltip {
   position: absolute;
@@ -404,26 +404,24 @@ body {
   align-items: center;
   justify-content: center;
 
-  width: 210px;
-  min-height: 82px;
-  padding: 0.85rem 1rem;
+  min-width: 220px;
+  min-height: 85px;
+  padding: 0.7rem;
 
-  background: #1e293b;
-
-  border: 2px solid #3b82f6;
-  border-radius: 16px 16px 16px 4px;
+  background: #3b82f6;
 
   clip-path: polygon(
     0% 0%,
-    92% 0%,
-    100% 12%,
+    95% 0%,
+    100% 10%,
     100% 100%,
-    0% 100%
+    10% 100%,
+    0% 90%
   );
 
   box-shadow:
     0 12px 35px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(59, 130, 246, 0.15);
+    0 0 25px rgba(59, 130, 246, 0.3);
 
   opacity: 0;
   visibility: hidden;
@@ -433,61 +431,27 @@ body {
   pointer-events: none;
 }
 
-.chatbot-tooltip::before {
-  content: "";
-  position: absolute;
-  right: -2px;
-  bottom: 20px;
-  width: 14px;
-  height: 14px;
-  background: #1e293b;
-  border-top: 2px solid #3b82f6;
-  border-right: 2px solid #3b82f6;
-  transform: rotate(45deg);
-  z-index: 1;
-}
-
-.chatbot-tooltip-content {
-  position: relative;
+.chatbot-tooltip-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
+
   width: 100%;
   height: 100%;
-  z-index: 2;
-}
 
-/* ========================================
-   TEXTOS
-   ======================================== */
+  padding: 0.6rem 0.8rem;
 
-.chatbot-tooltip-title {
-  position: relative;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #ffffff;
-  z-index: 2;
-}
+  background: #0f172a;
 
-.chatbot-tooltip-text {
-  position: relative;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: #cbd5e1;
-  z-index: 2;
-}
-
-.chatbot-tooltip-hint {
-  position: relative;
-  margin-top: 0.15rem;
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #60a5fa;
-  z-index: 2;
+  clip-path: polygon(
+    0% 0%,
+    95% 0%,
+    100% 10%,
+    100% 100%,
+    10% 100%,
+    0% 90%
+  );
 }
 
 /* Mostrar burbuja */
@@ -515,8 +479,172 @@ body {
   border-radius: 20px;
 }
 
+/* =========================================
+   MENSAJES ESTILO TERMINAL
+   ========================================= */
+
+.chatbot-message-line {
+  position: relative;
+
+  font-family:
+    "Courier New",
+    "Lucida Console",
+    monospace;
+
+  letter-spacing: -0.3px;
+
+  white-space: nowrap;
+}
+
+/* Primera línea */
+.message-line-1 {
+  display: flex;
+  align-items: center;
+
+  gap: 0.25rem;
+
+  font-size: 0.9rem;
+  font-weight: 900;
+
+  color: #f1f5f9;
+}
+
+/* Segunda línea */
+.message-line-2 {
+  padding-left: 0.15rem;
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  color: #cbd5e1;
+}
+
+/* Tercera línea */
+.message-line-3 {
+  padding-left: 0.15rem;
+
+  font-size: 0.67rem;
+  font-weight: 700;
+
+  color: #72b7ff;
+}
+
+/* Cursor tipo terminal */
+.message-cursor {
+  color: #60a5fa;
+
+  font-size: 1.2rem;
+
+  animation: cursorBlink 1s steps(2) infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.15;
+  }
+}
+
+/* =========================================
+   ANIMACIÓN DE TEXTO APARECIENDO
+   ========================================= */
+
+.hero-chatbot:hover .chatbot-message-line,
+.hero-chatbot.chatbot-open .chatbot-message-line {
+  animation: messageReveal 0.35s ease both;
+}
+
+.hero-chatbot:hover .message-line-1,
+.hero-chatbot.chatbot-open .message-line-1 {
+  animation-delay: 0.1s;
+}
+
+.hero-chatbot:hover .message-line-2,
+.hero-chatbot.chatbot-open .message-line-2 {
+  animation-delay: 0.35s;
+}
+
+.hero-chatbot:hover .message-line-3,
+.hero-chatbot.chatbot-open .message-line-3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes messageReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================================
+   ROBOT REACCIONA AL HABLAR
+   ========================================= */
+
+.hero-chatbot:hover .chatbot-robot,
+.hero-chatbot.chatbot-open .chatbot-robot {
+  animation: robotTalking 0.8s ease-in-out infinite;
+}
+
+@keyframes robotTalking {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(-1deg);
+  }
+}
+
+/* Los ojos reaccionan */
+.hero-chatbot:hover .robot-eye,
+.hero-chatbot.chatbot-open .robot-eye {
+  animation: robotEyesTalking 0.6s ease-in-out infinite alternate;
+  box-shadow:
+    0 0 8px #60a5fa,
+    0 0 18px rgba(96, 165, 250, 0.8);
+}
+
+@keyframes robotEyesTalking {
+  from {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Antena activa */
+.hero-chatbot:hover .robot-antenna span,
+.hero-chatbot.chatbot-open .robot-antenna span {
+  animation: antennaTalking 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes antennaTalking {
+  from {
+    box-shadow: 0 0 5px #60a5fa;
+  }
+  to {
+    box-shadow:
+      0 0 10px #60a5fa,
+      0 0 25px #3b82f6;
+  }
+}
+
 /* ===============================
-   ROBOT CON VIDA - ESTADO IDLE
+   ROBOT - ESTRUCTURA
    =============================== */
 
 .chatbot-robot {
@@ -591,7 +719,7 @@ body {
   border: 1px solid rgba(96, 165, 250, 0.3);
 }
 
-/* OJOS CON MIRADA CURIOSA */
+/* OJOS */
 .robot-eye {
   width: 8px;
   height: 8px;
@@ -669,107 +797,6 @@ body {
 }
 
 /* ===============================
-   REACCIÓN AL HOVER
-   =============================== */
-
-.hero-chatbot:hover .chatbot-robot,
-.hero-chatbot.chatbot-open .chatbot-robot {
-  animation: robotGreeting 0.6s ease forwards;
-}
-
-@keyframes robotGreeting {
-  0% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  40% {
-    transform: translateY(-8px) rotate(-6deg) scale(1.08);
-  }
-  70% {
-    transform: translateY(-4px) rotate(4deg) scale(1.04);
-  }
-  100% {
-    transform: translateY(-5px) rotate(0deg) scale(1.03);
-  }
-}
-
-/* Antena reacciona */
-.hero-chatbot:hover .robot-antenna,
-.hero-chatbot.chatbot-open .robot-antenna {
-  animation: antennaWave 0.7s ease-in-out infinite;
-}
-
-@keyframes antennaWave {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(-8deg);
-  }
-  75% {
-    transform: rotate(8deg);
-  }
-}
-
-/* Luz de la antena pulsa más fuerte */
-.hero-chatbot:hover .robot-antenna span,
-.hero-chatbot.chatbot-open .robot-antenna span {
-  animation: antennaGlow 0.8s ease-in-out infinite alternate;
-}
-
-@keyframes antennaGlow {
-  from {
-    box-shadow: 0 0 6px #60a5fa;
-  }
-  to {
-    box-shadow:
-      0 0 10px #60a5fa,
-      0 0 22px rgba(96, 165, 250, 0.8);
-  }
-}
-
-/* Luz del cuerpo también reacciona */
-.hero-chatbot:hover .robot-light,
-.hero-chatbot.chatbot-open .robot-light {
-  animation: chatbotRobotLight 0.8s ease-in-out infinite;
-}
-
-@keyframes chatbotRobotLight {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-}
-
-/* Ojos brillan al hover */
-.hero-chatbot:hover .robot-eye,
-.hero-chatbot.chatbot-open .robot-eye {
-  animation:
-    robotLookAround 5s ease-in-out infinite,
-    robotEyesGlow 1s ease-in-out infinite;
-  box-shadow:
-    0 0 12px #60a5fa,
-    0 0 25px rgba(59, 130, 246, 0.7);
-}
-
-@keyframes robotEyesGlow {
-  0%, 100% {
-    box-shadow:
-      0 0 12px #60a5fa,
-      0 0 25px rgba(59, 130, 246, 0.7);
-  }
-  50% {
-    box-shadow:
-      0 0 16px #ffffff,
-      0 0 32px #60a5fa,
-      0 0 50px rgba(59, 130, 246, 0.9);
-  }
-}
-
-/* ===============================
    ANIMACIONES BASE
    =============================== */
 
@@ -781,15 +808,6 @@ body {
   50% {
     transform: translateX(-50%) scale(1.25);
     opacity: 0.7;
-  }
-}
-
-@keyframes robotBlink {
-  0%, 45%, 48%, 100% {
-    transform: scaleY(1);
-  }
-  46%, 47% {
-    transform: scaleY(0.15);
   }
 }
 
@@ -842,21 +860,21 @@ body {
   .chatbot-tooltip {
     right: 62px;
     bottom: 12px;
-    width: 190px;
+    min-width: 200px;
     min-height: 78px;
-    padding: 0.8rem 1rem;
+    padding: 0.6rem;
   }
 
-  .chatbot-tooltip-title {
+  .message-line-1 {
     font-size: 0.82rem;
   }
 
-  .chatbot-tooltip-text {
-    font-size: 0.7rem;
+  .message-line-2 {
+    font-size: 0.68rem;
   }
 
-  .chatbot-tooltip-hint {
-    font-size: 0.64rem;
+  .message-line-3 {
+    font-size: 0.62rem;
   }
 
   .chatbot-robot {
@@ -893,9 +911,9 @@ body {
   .chatbot-tooltip {
     right: 55px;
     bottom: 10px;
-    width: 170px;
+    min-width: 180px;
     min-height: 70px;
-    padding: 0.6rem 0.75rem;
+    padding: 0.5rem;
   }
 
   .chatbot-robot {
