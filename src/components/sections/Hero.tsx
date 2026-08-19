@@ -16,6 +16,45 @@ const Hero: React.FC = () => {
   const [greetingIndex, setGreetingIndex] = useState<number>(0);
   const [fadeGreeting, setFadeGreeting] = useState<boolean>(true);
 
+  // Mensajes animados del chatbot
+  const chatbotMessages = [
+    '¡Hola! 👋',
+    'Puedes hablar conmigo',
+    'Pregúntame lo que sea',
+    'Estoy aquí para ayudarte ✨',
+  ];
+
+  const [chatMessageIndex, setChatMessageIndex] = useState(0);
+  const [chatMessageVisible, setChatMessageVisible] = useState(true);
+  const [chatReady, setChatReady] = useState(false);
+
+  useEffect(() => {
+    if (chatReady) return;
+
+    const interval = setInterval(() => {
+      setChatMessageVisible(false);
+
+      setTimeout(() => {
+        setChatMessageIndex((prev) => {
+          const next = prev + 1;
+
+          // Cuando termina el último mensaje, dejamos listo el botón
+          if (next >= chatbotMessages.length) {
+            clearInterval(interval);
+            setChatReady(true);
+            return prev;
+          }
+
+          return next;
+        });
+
+        setChatMessageVisible(true);
+      }, 350);
+    }, 2600);
+
+    return () => clearInterval(interval);
+  }, [chatReady]);
+
   // Array de tecnologías (TRIPLICADO para efecto infinito perfecto)
   // Agregados: React, Angular, Tailwind
   const baseTechLogos: TechLogo[] = [
@@ -151,17 +190,43 @@ const Hero: React.FC = () => {
       {/* ROBOT - ACCESO AL CHATBOT */}
       <a
         href="/chat"
-        className="hero-chatbot"
+        className={`hero-chatbot ${chatReady ? 'chat-ready' : ''}`}
         aria-label="Abrir chatbot de inteligencia artificial"
       >
         <div className="chatbot-message">
-          <span className="chatbot-message-small">
-            ¿Tienes alguna pregunta?
-          </span>
-          <strong>¡Puedo ayudarte! 🤖</strong>
-          <span className="chatbot-message-link">
-            Habla conmigo →
-          </span>
+          
+          {!chatReady ? (
+            <>
+              <span
+                className={`chatbot-message-text ${
+                  chatMessageVisible ? 'message-visible' : 'message-hidden'
+                }`}
+              >
+                {chatbotMessages[chatMessageIndex]}
+              </span>
+
+              <div className="chatbot-typing">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </>
+          ) : (
+            <div className="chatbot-ready-content">
+              <span className="chatbot-ready-title">
+                ¡Hablemos! 💬
+              </span>
+
+              <span className="chatbot-ready-text">
+                Toca aquí para comenzar
+              </span>
+
+              <span className="chatbot-ready-button">
+                Abrir chat →
+              </span>
+            </div>
+          )}
+
         </div>
 
         <div className="chatbot-robot">
