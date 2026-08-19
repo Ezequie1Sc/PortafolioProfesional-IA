@@ -170,7 +170,7 @@ const Hero: React.FC = () => {
             </div>
 
             <div className="chatbot-message-line message-line-3">
-              Pregúntame lo que sea ✨
+              Toca para hablar → 
             </div>
 
           </div>
