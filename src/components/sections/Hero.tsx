@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
     '¡Hola! 👋',
     'Puedes hablar conmigo',
     'Pregúntame lo que sea',
-    'Estoy aquí para ayudarte ✨',
+    '¿Tienes alguna duda?',
   ];
 
   const [chatMessageIndex, setChatMessageIndex] = useState(0);
@@ -214,15 +214,11 @@ const Hero: React.FC = () => {
           ) : (
             <div className="chatbot-ready-content">
               <span className="chatbot-ready-title">
-                ¡Hablemos! 💬
+                ¡Hablemos! 👋
               </span>
 
               <span className="chatbot-ready-text">
-                Toca aquí para comenzar
-              </span>
-
-              <span className="chatbot-ready-button">
-                Abrir chat →
+                Toca para abrir el chat
               </span>
             </div>
           )}
