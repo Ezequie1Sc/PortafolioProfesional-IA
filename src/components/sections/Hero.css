@@ -371,19 +371,16 @@ body {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ========================================
-   ROBOT CHATBOT
+   ROBOT CHATBOT (DISEÑO PIXELADO 8-BIT)
    ======================================== */
 
 .hero-chatbot {
   position: absolute;
   right: clamp(1.5rem, 4vw, 4rem);
   bottom: 4.8rem;
-
   display: flex;
   align-items: center;
-
   z-index: 15;
-
   transition: transform 0.3s ease;
 }
 
@@ -392,42 +389,34 @@ body {
 }
 
 /* =========================================
-   BURBUJA RETRO ESTILO TERMINAL
+   BURBUJA RETRO ESTILO 8-BIT (Pixel Art)
    ========================================= */
 
 .chatbot-tooltip {
   position: absolute;
-  right: 62px;
+  right: 62px; /* Espacio para el robot */
   bottom: 16px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-width: 220px;
   min-height: 85px;
-  padding: 0.7rem;
-
-  background: #3b82f6;
-
+  padding: 1px; /* Grosor del borde */
+  background: #60a5fa; /* Borde azul neón */
+  
+  /* Polígono escalonado para efecto pixelado */
   clip-path: polygon(
-    0% 0%,
-    95% 0%,
-    100% 10%,
-    100% 100%,
-    10% 100%,
-    0% 90%
+    0% 6px, 6px 6px, 6px 0%, 
+    calc(100% - 6px) 0%, calc(100% - 6px) 6px, 100% 6px, 
+    100% calc(100% - 6px), calc(100% - 6px) calc(100% - 6px), calc(100% - 6px) 100%, 
+    6px 100%, 6px calc(100% - 6px), 0% calc(100% - 6px)
   );
-
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.4),
-    0 0 25px rgba(59, 130, 246, 0.3);
-
+  
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 15px rgba(96, 165, 250, 0.3);
   opacity: 0;
   visibility: hidden;
-  transform: translateX(12px) translateY(6px);
+  transform: translateX(12px) translateY(6px) scale(0.95);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-
   pointer-events: none;
 }
 
@@ -436,21 +425,17 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
-
   width: 100%;
   height: 100%;
-
   padding: 0.6rem 0.8rem;
-
   background: #0f172a;
-
+  
+  /* Escalonado interno idéntico pero más pequeño */
   clip-path: polygon(
-    0% 0%,
-    95% 0%,
-    100% 10%,
-    100% 100%,
-    10% 100%,
-    0% 90%
+    0% 4px, 4px 4px, 4px 0%, 
+    calc(100% - 4px) 0%, calc(100% - 4px) 4px, 100% 4px, 
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%, 
+    4px 100%, 4px calc(100% - 4px), 0% calc(100% - 4px)
   );
 }
 
@@ -459,7 +444,7 @@ body {
 .hero-chatbot.chatbot-open .chatbot-tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0) translateY(0);
+  transform: translateX(0) translateY(0) scale(1);
 }
 
 /* Botón trigger */
@@ -480,19 +465,13 @@ body {
 }
 
 /* =========================================
-   MENSAJES ESTILO TERMINAL
+   MENSAJES ESTILO PIXEL / MONOESPACIADO
    ========================================= */
 
 .chatbot-message-line {
   position: relative;
-
-  font-family:
-    "Courier New",
-    "Lucida Console",
-    monospace;
-
-  letter-spacing: -0.3px;
-
+  font-family: "Courier New", "Lucida Console", monospace;
+  letter-spacing: -0.5px;
   white-space: nowrap;
 }
 
@@ -500,51 +479,38 @@ body {
 .message-line-1 {
   display: flex;
   align-items: center;
-
   gap: 0.25rem;
-
   font-size: 0.9rem;
   font-weight: 900;
-
   color: #f1f5f9;
 }
 
 /* Segunda línea */
 .message-line-2 {
   padding-left: 0.15rem;
-
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 700;
-
   color: #cbd5e1;
 }
 
 /* Tercera línea */
 .message-line-3 {
   padding-left: 0.15rem;
-
-  font-size: 0.67rem;
+  font-size: 0.7rem;
   font-weight: 700;
-
   color: #72b7ff;
 }
 
 /* Cursor tipo terminal */
 .message-cursor {
   color: #60a5fa;
-
   font-size: 1.2rem;
-
   animation: cursorBlink 1s steps(2) infinite;
 }
 
 @keyframes cursorBlink {
-  0%, 45% {
-    opacity: 1;
-  }
-  50%, 100% {
-    opacity: 0.15;
-  }
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0.15; }
 }
 
 /* =========================================
@@ -572,14 +538,8 @@ body {
 }
 
 @keyframes messageReveal {
-  from {
-    opacity: 0;
-    transform: translateX(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* =========================================
@@ -592,38 +552,22 @@ body {
 }
 
 @keyframes robotTalking {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-4px) rotate(-2deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(1.5deg);
-  }
-  75% {
-    transform: translateY(-3px) rotate(-1deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-4px) rotate(-2deg); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+  75% { transform: translateY(-3px) rotate(-1deg); }
 }
 
 /* Los ojos reaccionan */
 .hero-chatbot:hover .robot-eye,
 .hero-chatbot.chatbot-open .robot-eye {
   animation: robotEyesTalking 0.6s ease-in-out infinite alternate;
-  box-shadow:
-    0 0 8px #60a5fa,
-    0 0 18px rgba(96, 165, 250, 0.8);
+  box-shadow: 0 0 8px #60a5fa, 0 0 18px rgba(96, 165, 250, 0.8);
 }
 
 @keyframes robotEyesTalking {
-  from {
-    transform: scale(1);
-    opacity: 0.65;
-  }
-  to {
-    transform: scale(1.2);
-    opacity: 1;
-  }
+  from { transform: scale(1); opacity: 0.65; }
+  to { transform: scale(1.2); opacity: 1; }
 }
 
 /* Antena activa */
@@ -633,14 +577,8 @@ body {
 }
 
 @keyframes antennaTalking {
-  from {
-    box-shadow: 0 0 5px #60a5fa;
-  }
-  to {
-    box-shadow:
-      0 0 10px #60a5fa,
-      0 0 25px #3b82f6;
-  }
+  from { box-shadow: 0 0 5px #60a5fa; }
+  to { box-shadow: 0 0 10px #60a5fa, 0 0 25px #3b82f6; }
 }
 
 /* ===============================
@@ -659,12 +597,8 @@ body {
 }
 
 @keyframes robotFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(-1deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-1deg); }
 }
 
 /* ANTENA */
@@ -684,9 +618,7 @@ body {
   height: 10px;
   border-radius: 50%;
   background: #3b82f6;
-  box-shadow:
-    0 0 0 3px rgba(59, 130, 246, 0.12),
-    0 0 12px rgba(96, 165, 250, 0.8);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12), 0 0 12px rgba(96, 165, 250, 0.8);
   transform: translateX(-50%);
   animation: antennaPulse 2s ease-in-out infinite;
 }
@@ -702,9 +634,7 @@ body {
   background: #1e293b;
   border: 2px solid #60a5fa;
   border-radius: 18px 18px 14px 14px;
-  box-shadow:
-    inset 0 0 18px rgba(59, 130, 246, 0.1),
-    0 0 18px rgba(59, 130, 246, 0.2);
+  box-shadow: inset 0 0 18px rgba(59, 130, 246, 0.1), 0 0 18px rgba(59, 130, 246, 0.2);
 }
 
 /* CARA */
@@ -725,31 +655,17 @@ body {
   height: 8px;
   border-radius: 50%;
   background: #60a5fa;
-  box-shadow:
-    0 0 8px #60a5fa,
-    0 0 16px rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 8px #60a5fa, 0 0 16px rgba(59, 130, 246, 0.7);
   animation: robotLookAround 5s ease-in-out infinite;
 }
 
 @keyframes robotLookAround {
-  0%, 15%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(2px);
-  }
-  40% {
-    transform: translateX(2px);
-  }
-  50% {
-    transform: translateX(-2px);
-  }
-  65% {
-    transform: translateX(-2px);
-  }
-  75% {
-    transform: translateX(0);
-  }
+  0%, 15%, 100% { transform: translateX(0); }
+  25% { transform: translateX(2px); }
+  40% { transform: translateX(2px); }
+  50% { transform: translateX(-2px); }
+  65% { transform: translateX(-2px); }
+  75% { transform: translateX(0); }
 }
 
 /* OREJAS */
@@ -801,27 +717,17 @@ body {
    =============================== */
 
 @keyframes antennaPulse {
-  0%, 100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: translateX(-50%) scale(1.25);
-    opacity: 0.7;
-  }
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50% { transform: translateX(-50%) scale(1.25); opacity: 0.7; }
 }
 
 /* ===============================
-   RESPONSIVE
+   RESPONSIVE (Manteniendo el estilo 8-Bit)
    =============================== */
 
 @media (max-width: 1024px) {
   .profile-polygon-wrapper { width: 320px; height: 390px; }
-  
-  .hero-chatbot {
-    right: 1.5rem;
-    bottom: 5rem;
-  }
+  .hero-chatbot { right: 1.5rem; bottom: 5rem; }
 }
 
 @media (max-width: 768px) {
@@ -858,66 +764,41 @@ body {
   }
 
   .chatbot-tooltip {
-    right: 62px;
-    bottom: 12px;
+    right: 58px;
+    bottom: 14px;
     min-width: 200px;
     min-height: 78px;
-    padding: 0.6rem;
+    padding: 1px; /* Grosor del borde (mantener el efecto pixel) */
   }
 
-  .message-line-1 {
-    font-size: 0.82rem;
-  }
+  .message-line-1 { font-size: 0.82rem; }
+  .message-line-2 { font-size: 0.68rem; }
+  .message-line-3 { font-size: 0.62rem; }
 
-  .message-line-2 {
-    font-size: 0.68rem;
-  }
-
-  .message-line-3 {
-    font-size: 0.62rem;
-  }
-
-  .chatbot-robot {
-    width: 58px;
-    height: 72px;
-    transform: scale(0.9);
-  }
+  .chatbot-robot { width: 58px; height: 72px; transform: scale(0.9); }
 }
 
 @media (max-width: 480px) {
   .profile-polygon-wrapper { width: min(285px, 78vw); height: 285px; }
   .hero { padding-top: 1.2rem; }
   
-  .hero-title {
-    font-size: clamp(1.8rem, 7.8vw, 2.25rem);
-  }
-  .verified-badge {
-    width: 28px;
-    height: 28px;
-  }
+  .hero-title { font-size: clamp(1.8rem, 7.8vw, 2.25rem); }
+  .verified-badge { width: 28px; height: 28px; }
   
   .hero-tech-footer { padding: 0.4rem 0; }
   .tech-scroll-track { gap: 1.2rem; }
   .tech-logo-item { width: 28px; height: 28px; }
   .tech-logo-img { height: 20px; width: 20px; }
 
-  .hero-chatbot {
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0;
-    margin-top: 0.7rem;
-  }
-
+  .hero-chatbot { justify-content: center; gap: 0.4rem; padding: 0; margin-top: 0.7rem; }
+  
   .chatbot-tooltip {
     right: 55px;
-    bottom: 10px;
+    bottom: 12px;
     min-width: 180px;
     min-height: 70px;
-    padding: 0.5rem;
+    padding: 1px;
   }
-
-  .chatbot-robot {
-    transform: scale(0.8);
-    transform-origin: bottom center;
-  }
+  
+  .chatbot-robot { transform: scale(0.8); transform-origin: bottom center; }
 }
