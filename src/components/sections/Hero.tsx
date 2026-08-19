@@ -47,7 +47,6 @@ const Hero: React.FC = () => {
         setGreetingIndex((prev) => (prev + 1) % greetings.length);
         setFadeGreeting(true);
       }, 550);
-      return () => clearInterval(interval);
     }, 3500);
     return () => clearInterval(interval);
   }, [greetings.length]);
@@ -148,6 +147,44 @@ const Hero: React.FC = () => {
 
         </div>
       </div>
+
+      {/* ROBOT - ACCESO AL CHATBOT */}
+      <a
+        href="/chat"
+        className="hero-chatbot"
+        aria-label="Abrir chatbot de inteligencia artificial"
+      >
+        <div className="chatbot-message">
+          <span className="chatbot-message-small">
+            ¿Tienes alguna pregunta?
+          </span>
+          <strong>¡Puedo ayudarte! 🤖</strong>
+          <span className="chatbot-message-link">
+            Habla conmigo →
+          </span>
+        </div>
+
+        <div className="chatbot-robot">
+          <div className="robot-antenna">
+            <span></span>
+          </div>
+
+          <div className="robot-head">
+            <div className="robot-ear robot-ear-left"></div>
+
+            <div className="robot-face">
+              <span className="robot-eye"></span>
+              <span className="robot-eye"></span>
+            </div>
+
+            <div className="robot-ear robot-ear-right"></div>
+          </div>
+
+          <div className="robot-body">
+            <span className="robot-light"></span>
+          </div>
+        </div>
+      </a>
 
       {/* Carrusel de Logos / Tecnologías */}
       <div className="hero-tech-footer">
