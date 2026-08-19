@@ -138,13 +138,13 @@ body {
   100% { opacity: 0; filter: blur(12px); transform: translate3d(0, -28px, 0) rotate(12deg) scale(0.55); }
 }
 
-/* --- TÍTULO Y BADGE (CORREGIDO EL DESBORDAMIENTO) --- */
+/* --- TÍTULO Y BADGE --- */
 .hero-title-name-wrap {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   max-width: 100%;
-  flex-wrap: wrap; /* ✅ Permite que el badge baje a la siguiente línea si es necesario */
+  flex-wrap: wrap;
 }
 
 .hero-title-name {
@@ -155,7 +155,7 @@ body {
   letter-spacing: -1px;
   text-shadow: 0 0 24px rgba(59, 130, 246, 0.28);
   max-width: 100%;
-  overflow-wrap: anywhere; /* ✅ Corta la palabra si es demasiado larga */
+  overflow-wrap: anywhere;
 }
 
 .verified-badge {
@@ -371,63 +371,17 @@ body {
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ========================================
-   RESPONSIVE MOBILE
-   ======================================== */
-@media (max-width: 1024px) { .profile-polygon-wrapper { width: 320px; height: 390px; } }
-
-@media (max-width: 768px) {
-  .hero { min-height: 100vh; justify-content: flex-start; padding: 1.6rem 1.1rem 1rem; }
-  .hero-main-container { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 1.7rem; padding-bottom: 0.5rem; }
-  .hero-visual { width: 100%; display: flex; justify-content: center; order: 1; margin-top: 0.4rem; }
-  .profile-polygon-wrapper { width: min(300px, 76vw); height: 300px; margin: 0 auto; }
-  .hero-shape-background, .hero-shape-background::after, .hero-photo-reveal { clip-path: polygon(18% 0, 100% 0, 100% 80%, 82% 100%, 0 100%, 0 18%); }
-  .hero-content { width: 100%; text-align: left; padding: 0; order: 2; }
-  .hero-greeting { justify-content: flex-start; font-size: clamp(2.1rem, 9vw, 2.8rem); height: auto; line-height: 1; margin: 0 0 0.25rem; gap: 0.45rem; }
-  .hero-title { font-size: clamp(2rem, 8.5vw, 2.7rem); line-height: 1; margin-bottom: 1.6rem; }
-  .hero-title-name { font-style: italic; }
-  .hero-description { max-width: 100%; margin: 0 0 2rem; font-size: 0.95rem; line-height: 1.55; }
-  .hero-buttons { justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.9rem; }
-  .btn-primary, .btn-secondary { min-width: 126px; padding: 0.8rem 1rem; font-size: 0.85rem; }
-  .hero-socials { justify-content: flex-start; gap: 0.45rem; }
-  .social-btn { width: 36px; height: 36px; }
-  .social-btn svg { width: 18px; height: 18px; }
-
-  .hero-tech-footer { display: flex; padding: 0.6rem 0; margin-top: 0.5rem; border-top: 1px solid rgba(148, 163, 184, 0.08); }
-  .tech-scroll-track { gap: 1.5rem; }
-  .tech-logo-item { width: 32px; height: 32px; opacity: 0.6; }
-  .tech-logo-img { height: 24px; width: 24px; }
-}
-
-@media (max-width: 480px) {
-  .profile-polygon-wrapper { width: min(285px, 78vw); height: 285px; }
-  .hero { padding-top: 1.2rem; }
-  
-  /* ✅ TAMAÑO DEL TÍTULO Y BADGE CORREGIDO PARA MÓVIL */
-  .hero-title {
-    font-size: clamp(1.8rem, 7.8vw, 2.25rem);
-  }
-  .verified-badge {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .hero-tech-footer { padding: 0.4rem 0; }
-  .tech-scroll-track { gap: 1.2rem; }
-  .tech-logo-item { width: 28px; height: 28px; }
-  .tech-logo-img { height: 20px; width: 20px; }
-}
-/* ========================================
    ROBOT CHATBOT
    ======================================== */
 
 .hero-chatbot {
   position: absolute;
-  right: clamp(1.5rem, 5vw, 5rem);
-  bottom: 5.5rem;
+  right: clamp(1.5rem, 4vw, 4rem);
+  bottom: 4.8rem;
 
   display: flex;
-  align-items: flex-end;
-  gap: 0.9rem;
+  align-items: center;
+  gap: 0.35rem;
 
   text-decoration: none;
   z-index: 15;
@@ -437,31 +391,33 @@ body {
 }
 
 .hero-chatbot:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
 }
 
-
-/* ===============================
+/* ========================================
    MENSAJE DEL ROBOT
-   =============================== */
+   ======================================== */
 
 .chatbot-message {
   position: relative;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  min-width: 190px;
-  padding: 0.85rem 1rem;
+  min-width: 170px;
+  min-height: 72px;
+  padding: 0.75rem 1rem;
 
-  color: #f8fafc;
-  background: rgba(30, 41, 59, 0.92);
+  background: rgba(255, 255, 255, 0.96);
 
-  border: 1px solid rgba(96, 165, 250, 0.35);
+  border: 2px solid #60a5fa;
+  border-radius: 20px 20px 20px 4px;
 
   box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.25),
-    0 0 25px rgba(59, 130, 246, 0.08);
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(59, 130, 246, 0.15);
 
   backdrop-filter: blur(10px);
 
@@ -474,54 +430,133 @@ body {
   position: absolute;
 
   right: -8px;
-  bottom: 18px;
+  bottom: 16px;
 
   width: 14px;
   height: 14px;
 
-  background: rgba(30, 41, 59, 0.92);
+  background: rgba(255, 255, 255, 0.96);
 
-  border-top: 1px solid rgba(96, 165, 250, 0.35);
-  border-right: 1px solid rgba(96, 165, 250, 0.35);
+  border-top: 2px solid #60a5fa;
+  border-right: 2px solid #60a5fa;
 
   transform: rotate(45deg);
 }
 
-.hero-chatbot:hover .chatbot-message {
-  border-color: #60a5fa;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.3),
-    0 0 30px rgba(59, 130, 246, 0.2);
-}
-
-.chatbot-message-small {
-  font-size: 0.72rem;
-  color: #94a3b8;
-  margin-bottom: 0.15rem;
-}
-
-.chatbot-message strong {
-  font-size: 0.95rem;
+.chatbot-message-text {
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: #1e293b;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.chatbot-message-link {
-  margin-top: 0.35rem;
+.message-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  font-size: 0.78rem;
+.message-hidden {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.chatbot-typing {
+  display: flex;
+  gap: 4px;
+  margin-top: 7px;
+}
+
+.chatbot-typing span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3b82f6;
+  animation: typingDots 1.2s infinite ease-in-out;
+}
+
+.chatbot-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.chatbot-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typingDots {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   ESTADO FINAL
+   ======================================== */
+
+.chatbot-ready-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.chatbot-ready-title {
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.chatbot-ready-text {
+  font-size: 0.72rem;
+  color: #64748b;
   font-weight: 600;
-
-  color: #60a5fa;
-
-  transition: transform 0.3s ease;
 }
 
-.hero-chatbot:hover .chatbot-message-link {
+.chatbot-ready-button {
+  display: none;
+}
+
+/* ========================================
+   HOVER
+   ======================================== */
+
+.hero-chatbot:hover .chatbot-message {
+  transform: rotate(1deg) translateY(-3px);
+  border-color: #3b82f6;
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(59, 130, 246, 0.25);
+}
+
+.hero-chatbot:hover .chatbot-ready-button {
   transform: translateX(4px);
+  background: #2563eb;
 }
 
+/* Cuando ya está listo, la burbuja llama más la atención */
+.hero-chatbot.chat-ready .chatbot-message {
+  animation: readyBubble 2.4s ease-in-out infinite;
+}
+
+@keyframes readyBubble {
+  0%,
+  100% {
+    transform: rotate(-1deg) scale(1);
+  }
+  50% {
+    transform: rotate(1deg) scale(1.035);
+  }
+}
 
 /* ===============================
    ROBOT
@@ -541,7 +576,6 @@ body {
 
   animation: robotFloat 3.5s ease-in-out infinite;
 }
-
 
 /* ANTENA */
 
@@ -578,7 +612,6 @@ body {
   animation: antennaPulse 2s ease-in-out infinite;
 }
 
-
 /* CABEZA */
 
 .robot-head {
@@ -602,7 +635,6 @@ body {
     0 0 18px rgba(59, 130, 246, 0.2);
 }
 
-
 /* CARA */
 
 .robot-face {
@@ -620,7 +652,6 @@ body {
   border: 1px solid rgba(96, 165, 250, 0.3);
 }
 
-
 /* OJOS */
 
 .robot-eye {
@@ -637,7 +668,6 @@ body {
 
   animation: robotBlink 4s infinite;
 }
-
 
 /* OREJAS */
 
@@ -663,7 +693,6 @@ body {
   right: -8px;
   border-radius: 0 5px 5px 0;
 }
-
 
 /* CUERPO */
 
@@ -701,7 +730,6 @@ body {
   animation: antennaPulse 1.5s ease-in-out infinite;
 }
 
-
 /* ===============================
    ANIMACIONES
    =============================== */
@@ -718,7 +746,6 @@ body {
   }
 }
 
-
 @keyframes robotFloat {
   0%,
   100% {
@@ -729,7 +756,6 @@ body {
     transform: translateY(-8px) rotate(2deg);
   }
 }
-
 
 @keyframes antennaPulse {
   0%,
@@ -743,7 +769,6 @@ body {
     opacity: 0.7;
   }
 }
-
 
 @keyframes robotBlink {
   0%,
@@ -759,55 +784,101 @@ body {
   }
 }
 
+/* ===============================
+   ANIMACIONES CUANDO EL CHAT ESTÁ LISTO
+   =============================== */
+
+.hero-chatbot.chat-ready .robot-eye {
+  animation:
+    robotBlink 4s infinite,
+    robotReadyEyes 1.8s ease-in-out infinite;
+}
+
+.hero-chatbot.chat-ready .robot-light {
+  animation: antennaPulse 0.9s ease-in-out infinite;
+}
+
+@keyframes robotReadyEyes {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px #60a5fa,
+      0 0 16px rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow:
+      0 0 12px #ffffff,
+      0 0 28px #60a5fa,
+      0 0 45px rgba(59, 130, 246, 0.9);
+  }
+}
 
 /* ===============================
    RESPONSIVE
    =============================== */
 
 @media (max-width: 1024px) {
+  .profile-polygon-wrapper { width: 320px; height: 390px; }
+  
   .hero-chatbot {
     right: 1.5rem;
-    bottom: 5.5rem;
+    bottom: 5rem;
   }
 
   .chatbot-message {
-    min-width: 170px;
+    min-width: 160px;
   }
 }
 
-
 @media (max-width: 768px) {
+  .hero { min-height: 100vh; justify-content: flex-start; padding: 1.6rem 1.1rem 1rem; }
+  .hero-main-container { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 1.7rem; padding-bottom: 0.5rem; }
+  .hero-visual { width: 100%; display: flex; justify-content: center; order: 1; margin-top: 0.4rem; }
+  .profile-polygon-wrapper { width: min(300px, 76vw); height: 300px; margin: 0 auto; }
+  .hero-shape-background, .hero-shape-background::after, .hero-photo-reveal { clip-path: polygon(18% 0, 100% 0, 100% 80%, 82% 100%, 0 100%, 0 18%); }
+  .hero-content { width: 100%; text-align: left; padding: 0; order: 2; }
+  .hero-greeting { justify-content: flex-start; font-size: clamp(2.1rem, 9vw, 2.8rem); height: auto; line-height: 1; margin: 0 0 0.25rem; gap: 0.45rem; }
+  .hero-title { font-size: clamp(2rem, 8.5vw, 2.7rem); line-height: 1; margin-bottom: 1.6rem; }
+  .hero-title-name { font-style: italic; }
+  .hero-description { max-width: 100%; margin: 0 0 2rem; font-size: 0.95rem; line-height: 1.55; }
+  .hero-buttons { justify-content: flex-start; gap: 0.8rem; margin-bottom: 0.9rem; }
+  .btn-primary, .btn-secondary { min-width: 126px; padding: 0.8rem 1rem; font-size: 0.85rem; }
+  .hero-socials { justify-content: flex-start; gap: 0.45rem; }
+  .social-btn { width: 36px; height: 36px; }
+  .social-btn svg { width: 18px; height: 18px; }
+
+  .hero-tech-footer { display: flex; padding: 0.6rem 0; margin-top: 0.5rem; border-top: 1px solid rgba(148, 163, 184, 0.08); }
+  .tech-scroll-track { gap: 1.5rem; }
+  .tech-logo-item { width: 32px; height: 32px; opacity: 0.6; }
+  .tech-logo-img { height: 24px; width: 24px; }
+
   .hero-chatbot {
     position: relative;
-
     right: auto;
     bottom: auto;
-
     width: 100%;
-
     justify-content: flex-end;
-
-    margin: 0.2rem 0 1rem;
-
+    margin: 0.5rem 0 1rem;
     padding-right: 0.5rem;
-
     order: 3;
   }
 
   .chatbot-message {
-    min-width: 155px;
-    padding: 0.7rem 0.8rem;
+    min-width: 190px;
+    min-height: 82px;
+    padding: 0.8rem 1rem;
+    border-width: 2px;
   }
 
-  .chatbot-message-small {
-    font-size: 0.65rem;
+  .chatbot-message-text {
+    font-size: 0.9rem;
   }
 
-  .chatbot-message strong {
-    font-size: 0.82rem;
+  .chatbot-ready-title {
+    font-size: 1rem;
   }
 
-  .chatbot-message-link {
+  .chatbot-ready-text {
     font-size: 0.7rem;
   }
 
@@ -818,24 +889,42 @@ body {
   }
 }
 
-
 @media (max-width: 480px) {
+  .profile-polygon-wrapper { width: min(285px, 78vw); height: 285px; }
+  .hero { padding-top: 1.2rem; }
+  
+  .hero-title {
+    font-size: clamp(1.8rem, 7.8vw, 2.25rem);
+  }
+  .verified-badge {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .hero-tech-footer { padding: 0.4rem 0; }
+  .tech-scroll-track { gap: 1.2rem; }
+  .tech-logo-item { width: 28px; height: 28px; }
+  .tech-logo-img { height: 20px; width: 20px; }
+
   .hero-chatbot {
     justify-content: center;
-
-    gap: 0.6rem;
-
+    gap: 0.45rem;
     padding: 0;
-
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
   }
 
   .chatbot-message {
-    min-width: 145px;
+    min-width: 175px;
+    min-height: 76px;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .chatbot-message-text {
+    font-size: 0.82rem;
   }
 
   .chatbot-robot {
-    transform: scale(0.82);
+    transform: scale(0.8);
     transform-origin: bottom center;
   }
 }
