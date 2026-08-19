@@ -18,10 +18,10 @@ const Hero: React.FC = () => {
 
   // Mensajes animados del chatbot
   const chatbotMessages = [
-    '¡Hola! 👋',
+    '👋 ¡Hola!',
     'Puedes hablar conmigo',
     'Pregúntame lo que sea',
-    '¿Tienes alguna duda?',
+    'Estoy listo para ayudarte ✨',
   ];
 
   const [chatMessageIndex, setChatMessageIndex] = useState(0);
@@ -193,33 +193,38 @@ const Hero: React.FC = () => {
         className={`hero-chatbot ${chatReady ? 'chat-ready' : ''}`}
         aria-label="Abrir chatbot de inteligencia artificial"
       >
-        <div className="chatbot-message">
-          
+        <div className="chatbot-panel">
+
+          <div className="chatbot-panel-top">
+            <span className="chatbot-status"></span>
+            <span className="chatbot-label">
+              Asistente IA
+            </span>
+          </div>
+
           {!chatReady ? (
-            <>
-              <span
-                className={`chatbot-message-text ${
-                  chatMessageVisible ? 'message-visible' : 'message-hidden'
-                }`}
-              >
-                {chatbotMessages[chatMessageIndex]}
-              </span>
-
-              <div className="chatbot-typing">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </>
+            <div
+              className={`chatbot-message-text ${
+                chatMessageVisible ? 'message-visible' : 'message-hidden'
+              }`}
+            >
+              {chatbotMessages[chatMessageIndex]}
+            </div>
           ) : (
-            <div className="chatbot-ready-content">
-              <span className="chatbot-ready-title">
-                ¡Hablemos! 👋
+            <div className="chatbot-ready">
+              <span className="chatbot-ready-main">
+                🤖 Hablar con mi asistente
               </span>
 
-              <span className="chatbot-ready-text">
-                Toca para abrir el chat
+              <span className="chatbot-ready-arrow">
+                →
               </span>
+            </div>
+          )}
+
+          {!chatReady && (
+            <div className="chatbot-progress">
+              <span></span>
             </div>
           )}
 
