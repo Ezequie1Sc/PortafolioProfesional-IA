@@ -16,44 +16,8 @@ const Hero: React.FC = () => {
   const [greetingIndex, setGreetingIndex] = useState<number>(0);
   const [fadeGreeting, setFadeGreeting] = useState<boolean>(true);
 
-  // Mensajes animados del chatbot
-  const chatbotMessages = [
-    '👋 ¡Hola!',
-    'Puedes hablar conmigo',
-    'Pregúntame lo que sea',
-    'Estoy listo para ayudarte ✨',
-  ];
-
-  const [chatMessageIndex, setChatMessageIndex] = useState(0);
-  const [chatMessageVisible, setChatMessageVisible] = useState(true);
-  const [chatReady, setChatReady] = useState(false);
-
-  useEffect(() => {
-    if (chatReady) return;
-
-    const interval = setInterval(() => {
-      setChatMessageVisible(false);
-
-      setTimeout(() => {
-        setChatMessageIndex((prev) => {
-          const next = prev + 1;
-
-          // Cuando termina el último mensaje, dejamos listo el botón
-          if (next >= chatbotMessages.length) {
-            clearInterval(interval);
-            setChatReady(true);
-            return prev;
-          }
-
-          return next;
-        });
-
-        setChatMessageVisible(true);
-      }, 350);
-    }, 2600);
-
-    return () => clearInterval(interval);
-  }, [chatReady]);
+  // Estado del chatbot
+  const [chatbotOpen, setChatbotOpen] = useState(false);
 
   // Array de tecnologías (TRIPLICADO para efecto infinito perfecto)
   // Agregados: React, Angular, Tailwind
@@ -188,69 +152,61 @@ const Hero: React.FC = () => {
       </div>
 
       {/* ROBOT - ACCESO AL CHATBOT */}
-      <a
-        href="/chat"
-        className={`hero-chatbot ${chatReady ? 'chat-ready' : ''}`}
-        aria-label="Abrir chatbot de inteligencia artificial"
+      <div
+        className={`hero-chatbot ${chatbotOpen ? 'chatbot-open' : ''}`}
+        onMouseEnter={() => setChatbotOpen(true)}
+        onMouseLeave={() => setChatbotOpen(false)}
       >
-        <div className="chatbot-panel">
+        {/* BURBUJA */}
+        <div className="chatbot-tooltip">
+          <span className="chatbot-tooltip-title">
+            ¡Hola! 👋
+          </span>
 
-          <div className="chatbot-panel-top">
-            <span className="chatbot-status"></span>
-            <span className="chatbot-label">
-              Asistente IA
-            </span>
-          </div>
+          <span className="chatbot-tooltip-text">
+            Puedes hablar conmigo
+          </span>
 
-          {!chatReady ? (
-            <div
-              className={`chatbot-message-text ${
-                chatMessageVisible ? 'message-visible' : 'message-hidden'
-              }`}
-            >
-              {chatbotMessages[chatMessageIndex]}
-            </div>
-          ) : (
-            <div className="chatbot-ready">
-              <span className="chatbot-ready-main">
-                🤖 Hablar con mi asistente
-              </span>
+          <span className="chatbot-tooltip-hint">
+            Pregúntame lo que sea ✨
+          </span>
+        </div>
 
-              <span className="chatbot-ready-arrow">
-                →
-              </span>
-            </div>
-          )}
-
-          {!chatReady && (
-            <div className="chatbot-progress">
+        {/* BOTÓN DEL ROBOT */}
+        <button
+          type="button"
+          className="chatbot-trigger"
+          aria-label="Abrir asistente de inteligencia artificial"
+          onClick={() => {
+            if (chatbotOpen) {
+              window.location.href = '/chat';
+            } else {
+              setChatbotOpen(true);
+            }
+          }}
+        >
+          <div className="chatbot-robot">
+            <div className="robot-antenna">
               <span></span>
             </div>
-          )}
 
-        </div>
+            <div className="robot-head">
+              <div className="robot-ear robot-ear-left"></div>
 
-        <div className="chatbot-robot">
-          <div className="robot-antenna">
-            <span></span>
-          </div>
+              <div className="robot-face">
+                <span className="robot-eye"></span>
+                <span className="robot-eye"></span>
+              </div>
 
-          <div className="robot-head">
-            <div className="robot-ear robot-ear-left"></div>
-
-            <div className="robot-face">
-              <span className="robot-eye"></span>
-              <span className="robot-eye"></span>
+              <div className="robot-ear robot-ear-right"></div>
             </div>
 
-            <div className="robot-ear robot-ear-right"></div>
+            <div className="robot-body">
+              <span className="robot-light"></span>
+            </div>
           </div>
-
-          <div className="robot-body">
-            <span className="robot-light"></span>
-          </div>
-        </div>
-      </a>
+        </button>
+      </div>
 
       {/* Carrusel de Logos / Tecnologías */}
       <div className="hero-tech-footer">
