@@ -19,31 +19,53 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // 🟡 false = backend despertando
-  // 🟢 true = backend listo
+  // false = backend despertando
+  // true = backend listo
   const [serverReady, setServerReady] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
+    let isMounted = true;
 
-    if (savedTheme === "dark") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
+    const initializeApp = async () => {
+      // Recuperar tema guardado
+      const savedTheme = localStorage.getItem("theme");
 
-    // 🔥 Despierta el backend de Render en segundo plano
-    wakeUpServer().then((isReady) => {
-      setServerReady(isReady);
-    });
+      if (savedTheme === "dark") {
+        setDarkMode(true);
+        document.documentElement.classList.add("dark");
+      }
 
-    // El portafolio sigue cargando sin esperar al backend
+      // ❤️ Despertar el backend inmediatamente.
+      // Esto ocurre en segundo plano mientras el usuario
+      // ve el Splash y navega por el portafolio.
+      try {
+        const isReady = await wakeUpServer();
+
+        if (isMounted && isReady) {
+          console.log("🟢 Backend confirmado como listo");
+          setServerReady(true);
+        }
+      } catch (error) {
+        console.error("🔴 Error al despertar el backend:", error);
+      }
+    };
+
+    initializeApp();
+
+    // El Splash es independiente del backend.
+    // No esperamos a Render para mostrar el portafolio.
     const timer = setTimeout(() => {
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     }, 2800);
 
-    return () => clearTimeout(timer);
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
@@ -64,14 +86,18 @@ function App() {
   }, [location]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((previousMode) => {
+      const newMode = !previousMode;
 
-    document.documentElement.classList.toggle("dark");
+      document.documentElement.classList.toggle("dark", newMode);
 
-    localStorage.setItem(
-      "theme",
-      !darkMode ? "dark" : "light"
-    );
+      localStorage.setItem(
+        "theme",
+        newMode ? "dark" : "light"
+      );
+
+      return newMode;
+    });
   };
 
   const isChatPage = location.pathname === "/chat";
@@ -84,7 +110,6 @@ function App() {
 
       {!loading && (
         <div className="app min-h-screen flex flex-col bg-[#0f172a] text-white font-['Poppins'] overflow-x-hidden">
-
           {!isChatPage && (
             <Header
               darkMode={darkMode}
@@ -96,7 +121,6 @@ function App() {
 
           <main className={`${isChatPage ? "" : "pt-24"} flex-grow`}>
             <Routes>
-
               <Route
                 path="/"
                 element={
@@ -112,14 +136,14 @@ function App() {
 
               <Route
                 path="/chat"
-                element={<Chat serverReady={serverReady} />}
+                element={
+                  <Chat serverReady={serverReady} />
+                }
               />
-
             </Routes>
           </main>
 
           {!isChatPage && <Footer />}
-
         </div>
       )}
     </>
