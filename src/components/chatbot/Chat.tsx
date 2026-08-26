@@ -4,12 +4,14 @@ import ChatHeader from "./ChatHeader";
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 
-interface ChatProps {
-  serverReady: boolean;
-}
-
-const Chat = ({ serverReady }: ChatProps) => {
-  const { messages, loading, error, sendMessage, clearChat } = useChat();
+const Chat = () => {
+  const {
+    messages,
+    loading,
+    error,
+    sendMessage,
+    clearChat,
+  } = useChat();
 
   return (
     <>
@@ -21,22 +23,20 @@ const Chat = ({ serverReady }: ChatProps) => {
         <div className="chat-container">
           <ChatHeader clearChat={clearChat} />
 
-          {!serverReady && (
-            <div className="server-status">
-              ⚡ Preparando Ezequiel IA...
-            </div>
-          )}
-
           <ChatBody
             messages={messages}
             loading={loading}
             onSuggestionClick={sendMessage}
           />
 
-          {error && <div className="chat-error">{error}</div>}
+          {error && (
+            <div className="chat-error">
+              {error}
+            </div>
+          )}
 
           <ChatInput
-            loading={loading || !serverReady}
+            loading={loading}
             onSend={sendMessage}
           />
         </div>
