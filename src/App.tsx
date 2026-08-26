@@ -19,10 +19,6 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // false = backend despertando
-  // true = backend listo
-  const [serverReady, setServerReady] = useState(false);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -37,25 +33,23 @@ function App() {
         document.documentElement.classList.add("dark");
       }
 
-      // ❤️ Despertar el backend inmediatamente.
-      // Esto ocurre en segundo plano mientras el usuario
-      // ve el Splash y navega por el portafolio.
+      // ❤️ Despertar backend y preparar Gemini en segundo plano.
+      // No bloquea el Splash ni la navegación del portafolio.
       try {
-        const isReady = await wakeUpServer();
+        await wakeUpServer();
 
-        if (isMounted && isReady) {
-          console.log("🟢 Backend confirmado como listo");
-          setServerReady(true);
-        }
+        console.log("🟢 Backend e IA preparados");
       } catch (error) {
-        console.error("🔴 Error al despertar el backend:", error);
+        console.error(
+          "🔴 Error al preparar el backend:",
+          error
+        );
       }
     };
 
     initializeApp();
 
     // El Splash es independiente del backend.
-    // No esperamos a Render para mostrar el portafolio.
     const timer = setTimeout(() => {
       if (isMounted) {
         setLoading(false);
@@ -89,7 +83,10 @@ function App() {
     setDarkMode((previousMode) => {
       const newMode = !previousMode;
 
-      document.documentElement.classList.toggle("dark", newMode);
+      document.documentElement.classList.toggle(
+        "dark",
+        newMode
+      );
 
       localStorage.setItem(
         "theme",
@@ -119,7 +116,11 @@ function App() {
             />
           )}
 
-          <main className={`${isChatPage ? "" : "pt-24"} flex-grow`}>
+          <main
+            className={`${
+              isChatPage ? "" : "pt-24"
+            } flex-grow`}
+          >
             <Routes>
               <Route
                 path="/"
@@ -136,9 +137,7 @@ function App() {
 
               <Route
                 path="/chat"
-                element={
-                  <Chat serverReady={serverReady} />
-                }
+                element={<Chat />}
               />
             </Routes>
           </main>
