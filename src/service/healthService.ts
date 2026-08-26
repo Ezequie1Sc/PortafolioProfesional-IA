@@ -6,8 +6,6 @@ const wait = (ms: number) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
 export const wakeUpServer = (): Promise<boolean> => {
-  // Si el servidor ya se está despertando,
-  // reutilizamos la misma petición.
   if (wakeUpPromise) {
     return wakeUpPromise;
   }
@@ -17,23 +15,25 @@ export const wakeUpServer = (): Promise<boolean> => {
 
     while (true) {
       try {
-        console.log(`❤️ Despertando backend... intento ${attempt}`);
+        console.log(
+          `❤️ Preparando backend e IA... intento ${attempt}`
+        );
 
-        await api.get("/health", {
-          timeout: 30000,
+        await api.get("/warmup", {
+          timeout: 60000,
         });
 
-        console.log("🟢 Backend listo 🔥");
+        console.log("🟢 Backend e IA listos 🔥");
 
         return true;
-      } catch {
+
+      } catch (error) {
         console.warn(
-          `⏳ El backend sigue despertando... intento ${attempt}`
+          `⏳ Backend o IA todavía preparando... intento ${attempt}`
         );
 
         attempt++;
 
-        // Esperamos y volvemos a intentar
         await wait(3000);
       }
     }
