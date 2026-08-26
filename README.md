@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Portafolio Profesional IA
+#  Portafolio Profesional ia
 
 ### Portafolio profesional interactivo construido con React + TypeScript
 
