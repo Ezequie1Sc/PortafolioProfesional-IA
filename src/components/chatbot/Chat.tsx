@@ -4,7 +4,11 @@ import ChatHeader from "./ChatHeader";
 import ChatBody from "./ChatBody";
 import ChatInput from "./ChatInput";
 
-const Chat = () => {
+interface ChatProps {
+  serverReady: boolean;
+}
+
+const Chat = ({ serverReady }: ChatProps) => {
   const { messages, loading, error, sendMessage, clearChat } = useChat();
 
   return (
@@ -17,6 +21,12 @@ const Chat = () => {
         <div className="chat-container">
           <ChatHeader clearChat={clearChat} />
 
+          {!serverReady && (
+            <div className="server-status">
+              ⚡ Preparando Ezequiel IA...
+            </div>
+          )}
+
           <ChatBody
             messages={messages}
             loading={loading}
@@ -26,7 +36,7 @@ const Chat = () => {
           {error && <div className="chat-error">{error}</div>}
 
           <ChatInput
-            loading={loading}
+            loading={loading || !serverReady}
             onSend={sendMessage}
           />
         </div>
