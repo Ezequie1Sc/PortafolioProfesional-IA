@@ -19,6 +19,10 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  // 🟡 false = backend despertando
+  // 🟢 true = backend listo
+  const [serverReady, setServerReady] = useState(false);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -29,10 +33,12 @@ function App() {
       document.documentElement.classList.add("dark");
     }
 
-    // 🔥 Despierta el backend de Render en segundo plano.
-    // No bloqueamos la carga del portfolio.
-    wakeUpServer();
+    // 🔥 Despierta el backend de Render en segundo plano
+    wakeUpServer().then((isReady) => {
+      setServerReady(isReady);
+    });
 
+    // El portafolio sigue cargando sin esperar al backend
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2800);
@@ -106,7 +112,7 @@ function App() {
 
               <Route
                 path="/chat"
-                element={<Chat />}
+                element={<Chat serverReady={serverReady} />}
               />
 
             </Routes>
