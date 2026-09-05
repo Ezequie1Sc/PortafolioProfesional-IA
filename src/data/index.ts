@@ -96,6 +96,31 @@ export const certificates: Certificate[] = [
   ],
   category: 'programacion'
 },
+{
+  id: 16,
+  title: 'CS50x: Introduction to Computer Science',
+  issuer: 'Harvard University',
+  date: '2026',
+  image: '/Certificates/harvard.png',
+  credentialUrl: '/Certificates/CS50xCertificado.pdf',
+  skills: [
+    'C',
+    'Python',
+    'SQL',
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'Algorithms',
+    'Data Structures',
+    'Memory',
+    'Pointers',
+    'Databases',
+    'Web Development',
+    'Computer Science'
+  ],
+  category: 'programacion'
+},
+
 
   {
     id: 1,
