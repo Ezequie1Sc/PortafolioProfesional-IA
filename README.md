@@ -1,6 +1,6 @@
 <div align="center">
 
-#  Portafolio Profesional IA
+# Portafolio Profesional con IA Integrado.
 
 ### Portafolio profesional interactivo construido con React + TypeScript
 
@@ -42,27 +42,7 @@
 # 🖼️ Vista general
 
 ```text
-┌─────────────────────────────────────────────────────────────┐
-│                 PORTAFOLIO PROFESIONAL IA                   │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  👤 Perfil       💻 GitHub       🛠️ Skills                 │
-│                                                             │
-│  🚀 Proyectos    📜 Certificaciones    🎓 Educación         │
-│                                                             │
-│  💼 Experiencia       📞 Contacto                          │
-│                                                             │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │                 🤖 ASISTENTE IA                       │  │
-│  │                                                       │  │
-│  │  "¿Cuáles son mis proyectos?"                        │  │
-│  │                                                       │  │
-│  │  → Respuesta de Gemini                               │  │
-│  │  → Intent: project                                   │  │
-│  │  → ProjectCard                                       │  │
-│  └───────────────────────────────────────────────────────┘  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+
 ```
 
 ---
