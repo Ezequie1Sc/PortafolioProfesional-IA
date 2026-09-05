@@ -101,7 +101,7 @@ export const certificates: Certificate[] = [
   title: 'CS50x: Introduction to Computer Science',
   issuer: 'Harvard University',
   date: '2026',
-  image: '/Certificates/harvard.png',
+  image: '/Certificates/CS50x.png',
   credentialUrl: '/Certificates/CS50xCertificado.pdf',
   skills: [
     'C',
