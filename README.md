@@ -1,6 +1,6 @@
 <div align="center">
 
-# Portafolio Profes
+# Portafolio Profesional IQ
 
 ### Portafolio profesional interactivo construido con React + TypeScript
 
